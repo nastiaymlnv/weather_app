@@ -1,0 +1,57 @@
+.day-forecast-wrapper {
+    padding: 21px 8px 22px 15px;
+    margin-top: 31px;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.day-forecast-title {
+    margin-left: 18px;
+}
+
+.day-forecast-content {
+    margin-top: 24px;
+    display: flex;
+}
+
+.day-forecast-weather {
+
+}
+
+.day-forecast-weather__img {
+    width: 281px;
+    height: 187px; 
+}
+
+.day-forecast-weather__temperature {
+    font-family: Inter;
+    font-size: 70px;
+    font-weight: 400;
+    line-height: normal; 
+    margin-top: 35px;
+    text-align: center;
+}
+
+.forecast-hourly {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 10px;
+}
+
+.forecast-indices-list {
+    margin-right: 19px; 
+}
+
+.forecast-indices-list__item {
+    font-size: 18px; 
+    color: #C0C0C0;
+    margin-top: 13px;
+    margin-bottom: 8px;
+    text-align: right;
+}
+
+.forecast-hourly__wrapper {
+    display: flex;
+}

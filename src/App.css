@@ -1,0 +1,21 @@
+.app-container {
+    padding: 29px 100px 57px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__location-name {
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: 400;
+    line-height: normal; 
+}
+
+.main-container-bg {
+    border-radius: 30px;
+    background: linear-gradient(138deg, rgba(0, 0, 0, 0.03) 0%, rgba(255, 255, 255, 0.09) 99.97%, rgba(255, 255, 255, 0.11) 99.98%, rgba(255, 255, 255, 0.11) 99.99%, rgba(255, 255, 255, 0.15) 100%);
+}
