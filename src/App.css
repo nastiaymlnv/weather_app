@@ -16,6 +16,34 @@
 }
 
 .main-container-bg {
+    background: linear-gradient(138deg, #00000008 0%, #ffffff17 99.97%, #ffffff1c 99.98%, #ffffff1c 99.99%, #ffffff26 100%);
     border-radius: 30px;
-    background: linear-gradient(138deg, rgba(0, 0, 0, 0.03) 0%, rgba(255, 255, 255, 0.09) 99.97%, rgba(255, 255, 255, 0.11) 99.98%, rgba(255, 255, 255, 0.11) 99.99%, rgba(255, 255, 255, 0.15) 100%);
+    /* border: 1px solid transparent;
+    border-image: linear-gradient(90deg, #494949, #FFFFFF00);
+    border-image-slice: 1; */
+    
+    /* position: relative;
+    box-sizing: border-box;
+    background: #fff;
+    background: linear-gradient(138deg, #00000008 0%, #ffffff17 99.97%, #ffffff1c 99.98%, #ffffff1c 99.99%, #ffffff26 100%);
+    background-clip: padding-box;
+    border: 1px solid transparent;
+    border-radius: 1em;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        z-index: -1;
+        margin: -1px;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #494949, #FFFFFF00);
+    } */
+}
+
+.few-days-weather-container {
+    margin-top: 36px;
+    display: flex;
+    gap: 30px;
+    justify-content: center;
 }

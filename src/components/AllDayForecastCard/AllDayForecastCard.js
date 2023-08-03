@@ -15,7 +15,8 @@ const AllDayForecastCard = (props) => {
     const {current, forecast} = props.forecast;
     const allHoursInfoArr = forecast.forecastday[0].hour;
     const today = new Date();
-    const currentDate = `${today.getDate()} ${monthsArray[today.getMonth()]}, ${today.getFullYear()} ${today.getHours()}:${today.getMinutes()}`;
+    const minutesFormat = today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes();
+    const currentDate = `${today.getDate()} ${monthsArray[today.getMonth()]}, ${today.getFullYear()} ${today.getHours()}:${minutesFormat}`;
 
     return (
         <div className='day-forecast-wrapper main-container-bg'>
