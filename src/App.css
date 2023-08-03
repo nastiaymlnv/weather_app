@@ -1,44 +1,12 @@
-.app-container {
-    padding: 29px 100px 57px;
-}
-
 .header-container {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.header__location-name {
-    font-family: 'Open Sans';
-    font-size: 24px;
-    font-weight: 400;
-    line-height: normal; 
-}
-
 .main-container-bg {
     background: linear-gradient(138deg, #00000008 0%, #ffffff17 99.97%, #ffffff1c 99.98%, #ffffff1c 99.99%, #ffffff26 100%);
     border-radius: 30px;
-    /* border: 1px solid transparent;
-    border-image: linear-gradient(90deg, #494949, #FFFFFF00);
-    border-image-slice: 1; */
-    
-    /* position: relative;
-    box-sizing: border-box;
-    background: #fff;
-    background: linear-gradient(138deg, #00000008 0%, #ffffff17 99.97%, #ffffff1c 99.98%, #ffffff1c 99.99%, #ffffff26 100%);
-    background-clip: padding-box;
-    border: 1px solid transparent;
-    border-radius: 1em;
-
-    &:before {
-        content: '';
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        z-index: -1;
-        margin: -1px;
-        border-radius: inherit;
-        background: linear-gradient(90deg, #494949, #FFFFFF00);
-    } */
 }
 
 .few-days-weather-container {

@@ -6,35 +6,13 @@
     }    
 }
 
-.part-day-forecast-card__title {
-    text-align: center;
-}
-
 .part-day-forecast-card__hours {
     display: flex;
     margin-top: 5px;
     gap: 56px;
 }
 
-.part-day-forecast-card__item-wrapper {
-
-}
-
-.part-day-forecast-card__item {
-    font-size: 18px;
-    font-weight: 600;
-
-    &:not(:first-child) {
-        margin-top: 16px;
-    }
-}
-
-.part-day-forecast-card__item_time {
-    font-size: 20px;
-    font-weight: 400;
-}
-
-.part-day-forecast-card__item_img {
+.part-day-forecast-card__item-img-wrapper {
     max-height: 25px;
     max-width: 40px;
 }

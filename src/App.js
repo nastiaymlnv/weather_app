@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
 import SearchField from './components/SearchField/SearchField';
 import AllDayForecastCard from './components/AllDayForecastCard';
 import FutureDayForecastCard from './components/FutureDayForecastCard/FutureDayForecastCard';
@@ -35,15 +39,15 @@ export default class App extends Component {
     const {location, current, forecast} = this.state.weatherInfo;
 
     if (!location) {
-      return <div>Loading...</div>;
+      return <CircularProgress />
     }
 
     return (
-      <div className="app-container">
+      <Box sx={{pt: '29px', px: '100px', pb: '57px'}}>
         <header className='header-container'>
-          <div className='header__location-name'>
+          <Typography variant='h1'>
             {`${location.name}, ${location.country}`}
-          </div>
+          </Typography>
           <SearchField />
         </header>
         <AllDayForecastCard currentDay={current} fewDaysForecast={forecast} />
@@ -60,7 +64,7 @@ export default class App extends Component {
             })
           }
         </section>
-      </div>
+      </Box>
     )
   }
 }

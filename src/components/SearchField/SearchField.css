@@ -9,14 +9,3 @@
     left: 19px;
     top: 15px;
 }
-
-.search-input {
-    width: 360px;
-    padding: 13px 12px;
-    padding-left: 55px;
-    color: rgba(8, 3, 56, 0.699999988079071);
-    font-family: 'Open Sans';
-    font-size: 18px;
-    font-weight: 400;
-    line-height: normal;
-}

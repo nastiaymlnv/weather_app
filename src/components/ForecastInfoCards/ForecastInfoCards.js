@@ -2,9 +2,20 @@ import React from "react";
 import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
-import './ForecastInfoCards.css';
+import { withStyles } from '@mui/styles';
 
-const HourForecast = (hoursInfoArr, data) => {
+import { hoursForecast } from "../../config/dayForecastData";
+
+import './ForecastInfoCards.css';
+import { Typography } from "@mui/material";
+
+const styles = theme => ({
+    partDayForecastTitle: {
+        textAlign: 'center',
+    },
+});
+
+const HourForecast = (hoursInfoArr, data, classes) => {
     const hourForecast = hoursInfoArr[data];
     const {
         time, 
@@ -18,43 +29,47 @@ const HourForecast = (hoursInfoArr, data) => {
 
     return (
         <section className='part-day-forecast-card__item-wrapper'>
-            <div className='part-day-forecast-card__item part-day-forecast-card__item_time'>
+            <Typography sx={{fontSize: '20px'}}>
                 {hour}:00
-            </div>
-            <div className='part-day-forecast-card__item part-day-forecast-card__item_img'>
+            </Typography>
+            <div className='part-day-forecast-card__item-img-wrapper'>
                 <img src={condition.icon} alt={condition.text}/>
             </div>
-            <div className='part-day-forecast-card__item'>
+            <Typography sx={{mt: '16px', fontSize: '18px', fontWeight: 600}}>
                 {temp_c > 0 && `+${Math.floor(temp_c)}`}°
-            </div>
-            <div className='part-day-forecast-card__item'>
+            </Typography>
+            <Typography sx={{mt: '16px', fontSize: '18px', fontWeight: 600}}>
                 {feelslike_c > 0 && `+${Math.floor(feelslike_c)}`}°
-            </div>
-            <div className='part-day-forecast-card__item'>
+            </Typography>
+            <Typography sx={{mt: '16px', fontSize: '18px', fontWeight: 600}}>
                 {pressure_mb}
-            </div>
-            <div className='part-day-forecast-card__item'>
+            </Typography>
+            <Typography sx={{mt: '16px', fontSize: '18px', fontWeight: 600}}>
                 {humidity}
-            </div>
-            <div className='part-day-forecast-card__item'>
+            </Typography>
+            <Typography sx={{mt: '16px', fontSize: '18px', fontWeight: 600}}>
                 {wind_kph}
-            </div>
+            </Typography>
         </section>
     )
 }
 
-const ForecastInfoCards = (hoursInfoArr, hours) => {
+const ForecastInfoCards = ({allHoursInfoArr, classes}) => {
 
-    return hours.map(dayPart => 
+    return hoursForecast.map(dayPart => 
         {
             return (
                 <section key={uuidv4()} className='part-day-forecast-card'>
-                    <h1 className='part-day-forecast-card__title'>
+                    <Typography 
+                        sx={{fontSize: '24px'}} 
+                        className={classes.partDayForecastTitle} 
+                        disableTypography
+                    >
                         {dayPart[0]}
-                    </h1>
+                    </Typography>
                     <div className='part-day-forecast-card__hours'>
-                        {HourForecast(hoursInfoArr, dayPart[1])}
-                        {HourForecast(hoursInfoArr, dayPart[2])}
+                        {HourForecast(allHoursInfoArr, dayPart[1], classes)}
+                        {HourForecast(allHoursInfoArr, dayPart[2], classes)}
                     </div>
                 </section>
             )
@@ -63,8 +78,8 @@ const ForecastInfoCards = (hoursInfoArr, hours) => {
 }
 
 ForecastInfoCards.propTypes = {
-    hoursInfoArr: PropTypes.object.isRequired,
-    hours: PropTypes.object.isRequired,
+    allHoursInfoArr: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
-export default ForecastInfoCards;
+export default withStyles(styles)(ForecastInfoCards);
