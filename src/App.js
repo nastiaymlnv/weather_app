@@ -13,7 +13,6 @@ import AllDayForecastCard from './components/AllDayForecastCard';
 import FutureDayForecastCard from './components/FutureDayForecastCard/FutureDayForecastCard';
 
 import './assets/reset.css';
-import './assets/fonts/fonts.css';
 import './App.css';
 
 const App = () => {

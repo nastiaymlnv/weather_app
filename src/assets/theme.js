@@ -1,7 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 
-import './fonts/fonts.css';
-
 const darkTheme = createTheme({
     palette: {
         background: {
