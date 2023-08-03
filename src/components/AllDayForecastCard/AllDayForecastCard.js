@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
 
 import { withStyles } from '@mui/styles';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import List from '@mui/material/List';
-import ListItemText from '@mui/material/ListItemText';
+import {
+    Box,
+    Typography,
+    List,
+    ListItemText
+} from '@mui/material';
 
 import ForecastInfoCards from "../ForecastInfoCards/ForecastInfoCards";
 

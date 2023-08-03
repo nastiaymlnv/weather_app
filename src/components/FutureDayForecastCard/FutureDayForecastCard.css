@@ -7,37 +7,9 @@
     min-width: 182px;
 }
 
-.future-day-forecast-card__weekday {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 4px;
-}
-
-.future-day-forecast-card__date {
-
-}
-
 .future-day-forecast-card__info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 18px;
-}
-
-.future-day-forecast-card__temperature-wrapper {
-
-}
-
-.future-day-forecast-card__info-item {
-    font-family: Inter;
-    font-size: 24px;
-    font-weight: 500;
-}
-
-.future-day-forecast-card__temperature_max {
-    margin-bottom: 4px;
-}
-
-.future-day-forecast-card__temperature_min {
-    color: #686868;    
 }

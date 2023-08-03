@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
 
-import CircularProgress from '@mui/material/CircularProgress';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { 
+  CircularProgress,
+  Box,
+  Typography
+} from '@mui/material';
 
 import SearchField from './components/SearchField/SearchField';
 import AllDayForecastCard from './components/AllDayForecastCard';

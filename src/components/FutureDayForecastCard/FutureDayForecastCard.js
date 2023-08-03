@@ -1,12 +1,29 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+import { withStyles } from '@mui/styles';
+import { Typography } from "@mui/material";
+
 import { monthsArray } from "../../config/monthsArray";
 import { daysArray } from "../../config/daysArray";
 
 import './FutureDayForecastCard.css';
 
-const FutureDayForecastCard = ({date, dayInfo}) => {
+const styles = theme => ({
+    futureForecastTitle: {
+        fontSize: '20px',
+        fontWeight: 600,
+        marginBottom: '4px'
+    },
+    futureForecastItem: {
+        fontFamily: 'Inter',
+        fontSize: '24px',
+        fontWeight: 500,
+        lineHeight: 'normal'
+    }
+});
+
+const FutureDayForecastCard = ({date, dayInfo, classes}) => {
     const {condition, maxtemp_c, mintemp_c} = dayInfo;
     const newDate = new Date(date);
     const weekday = daysArray[newDate.getDay()];
@@ -15,24 +32,24 @@ const FutureDayForecastCard = ({date, dayInfo}) => {
     return (
         <article className='future-day-forecast-card main-container-bg'>
             <div className='future-day-forecast-card__title'>                
-                <h1 className='future-day-forecast-card__weekday'>
+                <Typography variant='h3' className={classes.futureForecastTitle} disableTypography>
                     {weekday}
-                </h1>
-                <p className='future-day-forecast-card__date'>
+                </Typography>
+                <Typography>
                     {dayDate}
-                </p>
+                </Typography>
             </div>
             <div className='future-day-forecast-card__info'>
                 <div className='future-day-forecast-card__info-item'>
                     <img src={condition.icon} />
                 </div>
                 <span className='future-day-forecast-card__temperature-wrapper'>
-                    <p className='future-day-forecast-card__info-item future-day-forecast-card__temperature_max'>
+                    <Typography className={classes.futureForecastItem} sx={{mb: '4px'}}>
                         {maxtemp_c > 0 && `+${Math.floor(maxtemp_c)}`}°
-                    </p>
-                    <p className='future-day-forecast-card__info-item future-day-forecast-card__temperature_min'>
+                    </Typography>
+                    <Typography className={classes.futureForecastItem} sx={{color: '#686868'}}>
                         {mintemp_c > 0 && `+${Math.floor(mintemp_c)}`}°
-                    </p>
+                    </Typography>
                 </span>                
             </div>            
         </article>
@@ -42,6 +59,7 @@ const FutureDayForecastCard = ({date, dayInfo}) => {
 FutureDayForecastCard.propTypes = {
     date: PropTypes.string.isRequired,
     dayInfo: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
 };
 
-export default FutureDayForecastCard;
+export default withStyles(styles)(FutureDayForecastCard);

@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useTheme } from '@mui/material/styles';
 import { withStyles } from '@mui/styles';
-import TextField from '@mui/material/TextField';
-import InputAdornment from '@mui/material/InputAdornment';
+import { TextField, InputAdornment } from '@mui/material';
 
 import {ReactComponent as LightIcon} from '../../assets/img/magnifier_light-theme.svg';
 import {ReactComponent as DarkIcon} from '../../assets/img/magnifier_dark-theme.svg';
@@ -23,12 +22,11 @@ const styles = theme => ({
     }
 });
 
-export const SearchField = ({classes}) => {
+const SearchField = ({classes}) => {
     const theme = useTheme();
 
     return (
         <div className='search-field-wrapper'>
-            {/* <img className='search-icon' src={icon}  /> */}
             <TextField 
                 sx={{
                     "& .MuiOutlinedInput-root": {
@@ -40,7 +38,9 @@ export const SearchField = ({classes}) => {
                 InputProps={{ style: theme.input,
                     startAdornment: (
                         <InputAdornment position="start" sx={{pr: '5px', mb: '4px'}}>
-                            { theme.palette.background.default === '#FFF' ?
+                            { 
+                                theme.palette.background.default === '#FFF' 
+                                ?
                                 <LightIcon />
                                 :
                                 <DarkIcon />
