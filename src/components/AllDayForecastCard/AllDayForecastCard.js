@@ -7,13 +7,14 @@ import ForecastInfoCards from "../ForecastInfoCards/ForecastInfoCards";
 import { monthsArray } from "../../config/monthsArray";
 import { forecastIndicesList, hoursForecast } from "../../config/dayForecastData";
 
-import PartlyCloudyIcon from '../../assets/img/Partly-cloudy.svg';
+// import PartlyCloudyIcon from '../../assets/img/Partly-cloudy.svg';
 
 import './AllDayForecastCard.css';
 
-const AllDayForecastCard = (props) => {    
-    const {current, forecast} = props.forecast;
-    const allHoursInfoArr = forecast.forecastday[0].hour;
+const AllDayForecastCard = (props) => {   
+    const {currentDay, fewDaysForecast} = props;
+    console.log(currentDay)
+    const allHoursInfoArr = fewDaysForecast.forecastday[0].hour;
     const today = new Date();
     const minutesFormat = today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes();
     const currentDate = `${today.getDate()} ${monthsArray[today.getMonth()]}, ${today.getFullYear()} ${today.getHours()}:${minutesFormat}`;
@@ -25,9 +26,11 @@ const AllDayForecastCard = (props) => {
             </h1>
             <section className='day-forecast-content'>
                 <section className='day-forecast-weather'>
-                    <img className='day-forecast-weather__img' src={PartlyCloudyIcon} alt='partly cloudy' />
+                    <div className='day-forecast-weather__img-wrapper'>
+                        <img className='day-forecast-weather__img' src={currentDay.condition.icon} alt='partly cloudy' />
+                    </div>
                     <p className='day-forecast-weather__temperature'>
-                        {current.temp_c > 0 && `+${Math.floor(current.temp_c)}`}°C
+                        {currentDay.temp_c > 0 && `+${Math.floor(currentDay.temp_c)}`}°C
                     </p>
                 </section>
                 <section className='forecast-hourly'>
@@ -52,8 +55,8 @@ const AllDayForecastCard = (props) => {
 }
 
 AllDayForecastCard.propTypes = {
-    current: PropTypes.object.isRequired,
-    forecast: PropTypes.object.isRequired,
+    currentDay: PropTypes.object.isRequired,
+    fewDaysForecast: PropTypes.object.isRequired,
 };
 
 export default AllDayForecastCard;

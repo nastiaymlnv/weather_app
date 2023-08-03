@@ -23,9 +23,15 @@
 
 }
 
-.day-forecast-weather__img {
+.day-forecast-weather__img-wrapper {
     width: 281px;
     height: 187px; 
+    text-align: center;
+}
+
+.day-forecast-weather__img {
+    width: auto;
+    height: 100%; 
 }
 
 .day-forecast-weather__temperature {

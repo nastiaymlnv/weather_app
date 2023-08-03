@@ -32,7 +32,7 @@ export default class App extends Component {
   }
 
   render() {
-    const {location, forecast} = this.state.weatherInfo;
+    const {location, current, forecast} = this.state.weatherInfo;
 
     if (!location) {
       return <div>Loading...</div>;
@@ -46,7 +46,7 @@ export default class App extends Component {
           </div>
           <SearchField />
         </header>
-        <AllDayForecastCard forecast={this.state.weatherInfo} />
+        <AllDayForecastCard currentDay={current} fewDaysForecast={forecast} />
         <section className='few-days-weather-container'>
           {
             forecast.forecastday.slice(1).map(({date, day}) => {
