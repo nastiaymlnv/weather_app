@@ -13,6 +13,10 @@
 }
 
 .part-day-forecast-card__item-img-wrapper {
-    max-height: 25px;
-    max-width: 40px;
+    margin-top: 14px;
+    
+    & svg { 
+        max-height: 25px;
+        max-width: 40px;
+    }
 }

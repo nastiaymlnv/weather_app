@@ -15,10 +15,11 @@ const styles = theme => ({
     },
 });
 
-const HourForecast = (hoursInfoArr, data, classes) => {
+const HourForecast = (hoursInfoArr, data, returnIconComponent, classes) => {
     const hourForecast = hoursInfoArr[data];
     const {
         time, 
+        is_day,
         condition,
         temp_c, 
         feelslike_c,
@@ -33,7 +34,7 @@ const HourForecast = (hoursInfoArr, data, classes) => {
                 {hour}:00
             </Typography>
             <div className='part-day-forecast-card__item-img-wrapper'>
-                <img src={condition.icon} alt={condition.text}/>
+                {returnIconComponent(is_day, condition.text)}
             </div>
             <Typography sx={{mt: '16px', fontSize: '18px', fontWeight: 600}}>
                 {temp_c > 0 && `+${Math.floor(temp_c)}`}°
@@ -54,7 +55,7 @@ const HourForecast = (hoursInfoArr, data, classes) => {
     )
 }
 
-const ForecastInfoCards = ({allHoursInfoArr, classes}) => {
+const ForecastInfoCards = ({allHoursInfoArr, returnIconComponent, classes}) => {
 
     return hoursForecast.map(dayPart => 
         {
@@ -67,8 +68,8 @@ const ForecastInfoCards = ({allHoursInfoArr, classes}) => {
                         {dayPart[0]}
                     </Typography>
                     <div className='part-day-forecast-card__hours'>
-                        {HourForecast(allHoursInfoArr, dayPart[1], classes)}
-                        {HourForecast(allHoursInfoArr, dayPart[2], classes)}
+                        {HourForecast(allHoursInfoArr, dayPart[1], returnIconComponent, classes)}
+                        {HourForecast(allHoursInfoArr, dayPart[2], returnIconComponent, classes)}
                     </div>
                 </section>
             )
@@ -78,6 +79,7 @@ const ForecastInfoCards = ({allHoursInfoArr, classes}) => {
 
 ForecastInfoCards.propTypes = {
     allHoursInfoArr: PropTypes.array.isRequired,
+    returnIconComponent: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,
 };
 

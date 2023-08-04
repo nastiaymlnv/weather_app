@@ -12,6 +12,8 @@ import SearchField from './components/SearchField/SearchField';
 import AllDayForecastCard from './components/AllDayForecastCard';
 import FutureDayForecastCard from './components/FutureDayForecastCard/FutureDayForecastCard';
 
+import weatherConditions from './config/weatherConditions';
+
 import './assets/reset.css';
 import './App.css';
 
@@ -36,18 +38,22 @@ const App = () => {
     try {
       const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${country}&days=${days}&aqi=no&alerts=no`);
       setWeatherInfo(response.data)
+      console.log(response.data)
     } catch (error) {
       console.log(error);
     }
-  }  
+  } 
 
-  const checkLocation = (targetValue) => {
+  const handleLocation = (e) => {
+    const targetValue = e.target.value;
     targetValue.length !== 0 && /^[a-zA-Z]*$/.test(targetValue) && setTargetLocation(targetValue);
   }
 
-  const handleLocation = (e) => {
-    checkLocation(e.target.value);
-  }
+  const returnIconComponent = (isDay, title) => {
+    const isDayBool = !!isDay;
+    // console.log(isDay, title)
+    return isDayBool ? weatherConditions[0].weatherComponents[title] : weatherConditions[1].weatherComponents[title];
+}
 
   if (!location) {
     return (
@@ -71,7 +77,11 @@ const App = () => {
         </Typography>
         <SearchField handleLocation={handleLocation} />
       </header>
-      <AllDayForecastCard currentDay={current} fewDaysForecast={forecast} />
+      <AllDayForecastCard 
+        currentDay={current} 
+        fewDaysForecast={forecast} 
+        returnIconComponent={returnIconComponent} 
+      />
       <section className='few-days-weather-container'>
         {
           forecast.forecastday.slice(1).map(({date, day}) => {
@@ -80,6 +90,7 @@ const App = () => {
                 key={uuidv4()} 
                 date={date} 
                 dayInfo={day} 
+                returnIconComponent={returnIconComponent}
               />                
             )
           })

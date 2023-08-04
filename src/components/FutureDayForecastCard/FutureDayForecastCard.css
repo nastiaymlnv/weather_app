@@ -13,3 +13,10 @@
     align-items: center;
     margin-top: 18px;
 }
+
+.future-day-forecast-card__info-img-wrapper {
+    & svg {
+        max-width: 56px;
+        max-height: 56px;
+    }
+}

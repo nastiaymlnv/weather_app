@@ -24,7 +24,6 @@ const styles = theme => ({
 
 const SearchField = ({handleLocation, classes}) => {
     const theme = useTheme();
-    // console.log(handleLocation)
 
     return (
         <div className='search-field-wrapper'>

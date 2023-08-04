@@ -15,8 +15,6 @@ import ForecastInfoCards from "../ForecastInfoCards/ForecastInfoCards";
 import { monthsArray } from "../../config/monthsArray";
 import { forecastIndicesList } from "../../config/dayForecastData";
 
-// import PartlyCloudyIcon from '../../assets/img/Partly-cloudy.svg';
-
 import './AllDayForecastCard.css';
 
 const styles = theme => ({
@@ -37,7 +35,7 @@ const styles = theme => ({
 });
 
 const AllDayForecastCard = (props) => {   
-    const {currentDay, fewDaysForecast, classes} = props;
+    const {currentDay, fewDaysForecast, returnIconComponent, classes} = props;
     const allHoursInfoArr = fewDaysForecast.forecastday[0].hour;
     const today = new Date();
     const minutesFormat = today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes();
@@ -54,7 +52,7 @@ const AllDayForecastCard = (props) => {
             <section className='day-forecast-content'>
                 <section className='day-forecast-weather'>
                     <div className='day-forecast-weather__img-wrapper'>
-                        <img className='day-forecast-weather__img' src={currentDay.condition.icon} alt='partly cloudy' />
+                        { returnIconComponent(currentDay.is_day, currentDay.condition.text) }
                     </div>
                     <Typography variant="h2" sx={{mt: '35px', textAlign: 'center'}}>
                         {currentDay.temp_c > 0 && `+${Math.floor(currentDay.temp_c)}`}°C
@@ -78,7 +76,10 @@ const AllDayForecastCard = (props) => {
                         )}
                     </List>
                     <section className='forecast-hourly__wrapper'>
-                        <ForecastInfoCards allHoursInfoArr={allHoursInfoArr} />
+                        <ForecastInfoCards 
+                            allHoursInfoArr={allHoursInfoArr} 
+                            returnIconComponent={returnIconComponent} 
+                        />
                     </section>
                 </section>
             </section>
@@ -90,6 +91,7 @@ const AllDayForecastCard = (props) => {
 AllDayForecastCard.propTypes = {
     currentDay: PropTypes.object.isRequired,
     fewDaysForecast: PropTypes.object.isRequired,
+    returnIconComponent: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,
 };
 

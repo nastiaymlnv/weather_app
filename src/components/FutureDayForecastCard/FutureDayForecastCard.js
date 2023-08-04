@@ -23,8 +23,9 @@ const styles = theme => ({
     }
 });
 
-const FutureDayForecastCard = ({date, dayInfo, classes}) => {
+const FutureDayForecastCard = ({date, dayInfo, returnIconComponent, classes}) => {
     const {condition, maxtemp_c, mintemp_c} = dayInfo;
+    let {is_day} = dayInfo;
     const newDate = new Date(date);
     const weekday = daysArray[newDate.getDay()];
     const dayDate = `${newDate.getDate()} ${monthsArray[newDate.getMonth()]}`;
@@ -40,8 +41,8 @@ const FutureDayForecastCard = ({date, dayInfo, classes}) => {
                 </Typography>
             </div>
             <div className='future-day-forecast-card__info'>
-                <div className='future-day-forecast-card__info-item'>
-                    <img src={condition.icon} />
+                <div className='future-day-forecast-card__info-img-wrapper'>
+                    { returnIconComponent(is_day=true, condition.text) }
                 </div>
                 <span className='future-day-forecast-card__temperature-wrapper'>
                     <Typography className={classes.futureForecastItem} sx={{mb: '4px'}}>
@@ -59,6 +60,7 @@ const FutureDayForecastCard = ({date, dayInfo, classes}) => {
 FutureDayForecastCard.propTypes = {
     date: PropTypes.string.isRequired,
     dayInfo: PropTypes.object.isRequired,
+    returnIconComponent: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,
 };
 
