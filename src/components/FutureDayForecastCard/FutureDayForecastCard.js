@@ -32,7 +32,7 @@ const FutureDayForecastCard = ({date, dayInfo, classes}) => {
     return (
         <article className='future-day-forecast-card main-container-bg'>
             <div className='future-day-forecast-card__title'>                
-                <Typography variant='h3' className={classes.futureForecastTitle} disableTypography>
+                <Typography variant='h3' className={classes.futureForecastTitle}>
                     {weekday}
                 </Typography>
                 <Typography>

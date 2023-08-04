@@ -62,8 +62,7 @@ const ForecastInfoCards = ({allHoursInfoArr, classes}) => {
                 <section key={uuidv4()} className='part-day-forecast-card'>
                     <Typography 
                         sx={{fontSize: '24px'}} 
-                        className={classes.partDayForecastTitle} 
-                        disableTypography
+                        className={classes.partDayForecastTitle}
                     >
                         {dayPart[0]}
                     </Typography>
@@ -78,7 +77,7 @@ const ForecastInfoCards = ({allHoursInfoArr, classes}) => {
 }
 
 ForecastInfoCards.propTypes = {
-    allHoursInfoArr: PropTypes.object.isRequired,
+    allHoursInfoArr: PropTypes.array.isRequired,
     classes: PropTypes.object.isRequired,
 };
 

@@ -22,12 +22,16 @@ const styles = theme => ({
     }
 });
 
-const SearchField = ({classes}) => {
+const SearchField = ({handleLocation, classes}) => {
     const theme = useTheme();
+    // console.log(handleLocation)
 
     return (
         <div className='search-field-wrapper'>
             <TextField 
+                className={classes.searchInput} 
+                placeholder='Search the city' 
+                onChange={handleLocation}
                 sx={{
                     "& .MuiOutlinedInput-root": {
                         "& > fieldset": {
@@ -47,15 +51,14 @@ const SearchField = ({classes}) => {
                             }
                         </InputAdornment>
                     ),
-                }}
-                className={classes.searchInput} 
-                type='text' placeholder='Search the city' 
+                }}                
             />
         </div>
     )
 }
 
 SearchField.propTypes = {
+    handleLocation: PropTypes.func.isRequired,
     classes: PropTypes.object.isRequired,
 };
 

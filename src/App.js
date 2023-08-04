@@ -17,17 +17,22 @@ import './App.css';
 
 const App = () => {
   const [weatherInfo, setWeatherInfo] = useState([]);
+  const [targetLocation, setTargetLocation] = useState('Vinnitsa');
+
   const {location, current, forecast} = weatherInfo;
 
   const apiKey = '81949147633542bcaba75017230108';
-  const country = 'Vinnitsa';
   const days = 7;
 
   useEffect(() => {
-    fetchData();
-  })
+    const timer = setTimeout(() => {
+      fetchData(targetLocation);
+    }, 500)
 
-  const fetchData = async () => {
+    return () => clearTimeout(timer)
+  }, [targetLocation])
+
+  const fetchData = async (country) => {
     try {
       const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${country}&days=${days}&aqi=no&alerts=no`);
       setWeatherInfo(response.data)
@@ -36,8 +41,26 @@ const App = () => {
     }
   }  
 
+  const checkLocation = (targetValue) => {
+    targetValue.length !== 0 && /^[a-zA-Z]*$/.test(targetValue) && setTargetLocation(targetValue);
+  }
+
+  const handleLocation = (e) => {
+    checkLocation(e.target.value);
+  }
+
   if (!location) {
-    return <CircularProgress />
+    return (
+      <Box sx={{
+        width: '100dvw', 
+        height: '100dvh', 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center'}}
+      >
+        <CircularProgress />
+      </Box>
+      )
   }
 
   return (
@@ -46,7 +69,7 @@ const App = () => {
         <Typography variant='h1'>
           {`${location.name}, ${location.country}`}
         </Typography>
-        <SearchField />
+        <SearchField handleLocation={handleLocation} />
       </header>
       <AllDayForecastCard currentDay={current} fewDaysForecast={forecast} />
       <section className='few-days-weather-container'>
