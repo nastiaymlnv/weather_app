@@ -4,43 +4,51 @@
     width: fit-content;
 }
 
-.sunMove-trajectory {
+.sunMove-trajectory-container {    
+    position: relative;
     width: 324px;
     height: 162px;
     border: 2px dashed #000;
     border-bottom: none;
     border-radius: 12em 12em 0 0;
     overflow: hidden;
-
-    &::after{
-        content: '';
-        display: block;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(207deg, rgba(246, 222, 1, 0.16) 0%, rgba(246, 222, 1, 0.00) 100%);
-        animation: fill 3s linear;
-    }
 }
 
-@keyframes fill {
-    from { width: 0; }
-    to { width: 100%; } 
+.fill-bg {
+    --currSunBeamPosition: var(--currSunBeamPosition);
+    width: 324px;
+    height: 162px;
+    background: linear-gradient(207deg, rgba(246, 222, 1, 0.16) 0%, rgba(246, 222, 1, 0.00) 100%);
+    animation: fillDay 2.5s both linear;
+    position:absolute;
+    bottom: 0;
+}
+
+@keyframes fillDay {
+    0% { width: 0; }
+    100% { width: var(--currSunBeamPosition); } 
 }
 
 .sun-container {
+    --currPosition: var(--currSunPosition);
+    animation: moveSun 3s both ease-out;
     position: absolute;
-    width: 324px;
-    height: 324px;
-    animation: sun 3s linear both;
-    transform: translate(150px, -315px);
+    bottom: 0;
+    left: 15px;
+    transform-origin: 100% 0%;
+    width: 162px;
+    height: 1px;
+    background: transparent;
+}
+
+@keyframes moveSun {
+    0%   {transform: rotate(0deg);}
+    100% {transform: rotate(var(--currSunPosition));}
 }
 
 .sun {
     position: absolute;
-    bottom: 0;
-}
-
-@keyframes sun {
-    from { transform:rotate(-180deg) translate(315px, -142px); }
-    to { transform:rotate(0deg) translate(313px, -162px); }
+    bottom: -10px;
+    left: -5%;
+    z-index: 5
 }
