@@ -14,6 +14,13 @@ import styles from "./styles";
 
 const UVIndexWidget = ({uv, classes}) => {
 
+    const generateAngleForCssAnimation = (uvLevel) => {
+        const percent = uvLevel * 100 / 12;
+        const angle = percent * 180 / 100;
+
+        return `${angle}deg`;
+    }
+
     return (
         <article className='UV-container main-container-bg'>
             <Box sx={{display: 'flex', justifyContent: 'space-between', px: '20px', mb: '23px'}}>
@@ -25,29 +32,31 @@ const UVIndexWidget = ({uv, classes}) => {
                 </Typography>
             </Box>
             <div className='trajectory-container'>
-                <div className="trajectory-zonecircle"></div>
-                <div className="trajectory-bg-1"></div>
+                <div className="trajectory-zonecircle" style={{'--uv': generateAngleForCssAnimation(uv)}}>
+                </div>
+                <div className="trajectory-bg-1">
+                </div>
                 <div className="trajectory-bg-2">
                     <List className={classes.UVLevelsPanel}>
-                        <ListItemText className={classes.UVLevel} sx={{left: '5px', bottom: '-5px'}}> 
+                        <ListItemText className={classes.UVLevel} sx={{left: '5px', bottom: '-5px'}} disableTypography> 
                             0 
                         </ListItemText>
-                        <ListItemText className={classes.UVLevel} sx={{left: '30px', bottom: '55px'}}> 
+                        <ListItemText className={classes.UVLevel} sx={{left: '20px', bottom: '45px'}} disableTypography> 
                             2 
                         </ListItemText>
-                        <ListItemText className={classes.UVLevel} sx={{left: '80px', bottom: '95px'}}> 
+                        <ListItemText className={classes.UVLevel} sx={{left: '70px', bottom: '95px'}} disableTypography> 
                             4 
                         </ListItemText>
-                        <ListItemText className={classes.UVLevel} sx={{left: '50%', top: '-5px'}}> 
+                        <ListItemText className={classes.UVLevel} sx={{left: '50%', top: '-5px'}} disableTypography> 
                             6 
                         </ListItemText>
-                        <ListItemText className={classes.UVLevel} sx={{right: '80px', bottom: '95px'}}> 
+                        <ListItemText className={classes.UVLevel} sx={{right: '70px', bottom: '95px'}} disableTypography> 
                             8 
                         </ListItemText>
-                        <ListItemText className={classes.UVLevel} sx={{right: '30px', bottom: '55px'}}> 
+                        <ListItemText className={classes.UVLevel} sx={{right: '20px', bottom: '45px'}} disableTypography> 
                             10 
                         </ListItemText>
-                        <ListItemText className={classes.UVLevel} sx={{right: '5px', bottom: '-5px'}}> 
+                        <ListItemText className={classes.UVLevel} sx={{right: '5px', bottom: '-5px'}} disableTypography> 
                             12 
                         </ListItemText>
                     </List>
