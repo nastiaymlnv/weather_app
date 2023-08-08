@@ -10,6 +10,8 @@ import {
 
 import SearchField from './components/SearchField/SearchField';
 import AllDayForecastCard from './components/AllDayForecastCard';
+import UVIndexWidget from './components/UVIndexWidget';
+import SunriseAndSunsetWidget from './components/SunriseAndSunsetWidget';
 import FutureDayForecastCard from './components/FutureDayForecastCard/FutureDayForecastCard';
 
 import weatherConditions from './config/weatherConditions';
@@ -50,8 +52,7 @@ const App = () => {
   }
 
   const returnIconComponent = (isDay, title) => {
-    const isDayBool = !!isDay;
-    // console.log(isDay, title)
+    const isDayBool = !!isDay; 
     return isDayBool ? weatherConditions[0].weatherComponents[title] : weatherConditions[1].weatherComponents[title];
 }
 
@@ -82,6 +83,11 @@ const App = () => {
         fewDaysForecast={forecast} 
         returnIconComponent={returnIconComponent} 
       />
+      <Box sx={{display: 'flex', gap: '30px', justifyContent: 'center'}}>
+        <UVIndexWidget uv={current.uv} />
+        <SunriseAndSunsetWidget sunMove={forecast.forecastday[0].astro} />
+
+      </Box>
       <section className='few-days-weather-container'>
         {
           forecast.forecastday.slice(1).map(({date, day}) => {

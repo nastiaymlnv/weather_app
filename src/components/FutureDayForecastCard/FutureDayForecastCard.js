@@ -8,20 +8,7 @@ import { monthsArray } from "../../config/monthsArray";
 import { daysArray } from "../../config/daysArray";
 
 import './FutureDayForecastCard.css';
-
-const styles = theme => ({
-    futureForecastTitle: {
-        fontSize: '20px',
-        fontWeight: 600,
-        marginBottom: '4px'
-    },
-    futureForecastItem: {
-        fontFamily: 'Inter',
-        fontSize: '24px',
-        fontWeight: 500,
-        lineHeight: 'normal'
-    }
-});
+import styles from "./styles";
 
 const FutureDayForecastCard = ({date, dayInfo, returnIconComponent, classes}) => {
     const {condition, maxtemp_c, mintemp_c} = dayInfo;

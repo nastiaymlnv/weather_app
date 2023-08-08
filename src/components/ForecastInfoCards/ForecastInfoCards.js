@@ -8,12 +8,7 @@ import { Typography } from "@mui/material";
 import { hoursForecast } from "../../config/dayForecastData";
 
 import './ForecastInfoCards.css';
-
-const styles = theme => ({
-    partDayForecastTitle: {
-        textAlign: 'center',
-    },
-});
+import styles from "./styles";
 
 const HourForecast = (hoursInfoArr, data, returnIconComponent, classes) => {
     const hourForecast = hoursInfoArr[data];

@@ -16,23 +16,7 @@ import { monthsArray } from "../../config/monthsArray";
 import { forecastIndicesList } from "../../config/dayForecastData";
 
 import './AllDayForecastCard.css';
-
-const styles = theme => ({
-    dayForecastWrapper: {
-        fontFamily: 'Open Sans',
-        fontSize: '24px',
-        lineHeight: 'normal',
-        width: 'fit-content',  
-        borderRadius: '30px',
-        background: 'linear-gradient(138deg, #00000008 0%, #ffffff17 99.97%, #ffffff1c 99.98%, #ffffff1c 99.99%, #ffffff26 100%)',
-    },
-    listItemText:{
-        fontSize: '18px',
-        lineHeight: 'normal',
-        color: '#C0C0C0',
-        textAlign: 'right',
-    },
-});
+import styles from "./styles";
 
 const AllDayForecastCard = (props) => {   
     const {currentDay, fewDaysForecast, returnIconComponent, classes} = props;
