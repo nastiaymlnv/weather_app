@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+import { useTheme } from '@mui/material/styles';
 import { withStyles } from '@mui/styles';
 import { 
     Box, 
@@ -13,6 +14,7 @@ import "./UVIndexWidget.css";
 import styles from "./styles";
 
 const UVIndexWidget = ({uv, classes}) => {
+    const theme = useTheme();
 
     const generateAngleForCssAnimation = (uvLevel) => {
         const percent = uvLevel * 100 / 12;
@@ -24,7 +26,7 @@ const UVIndexWidget = ({uv, classes}) => {
     return (
         <article className='UV-container main-container-bg'>
             <Box sx={{display: 'flex', justifyContent: 'space-between', px: '20px', mb: '23px'}}>
-                <Typography variant='h3' className={classes.UVTitle} sx={{}}>
+                <Typography variant='h3' className={classes.UVTitle}>
                     UV Index
                 </Typography>
                 <Typography variant='h3' className={classes.UVTitle}>
@@ -36,9 +38,12 @@ const UVIndexWidget = ({uv, classes}) => {
                 </div>
                 <div className="trajectory-bg-1">
                 </div>
-                <div className="trajectory-bg-2">
+                <div 
+                    className="trajectory-bg-2" 
+                    style={{'--bg': theme.palette.background.default === '#FFF'? '#fff' : 'rgba(8, 3, 56, 0.7)'}}
+                >
                     <List className={classes.UVLevelsPanel}>
-                        <ListItemText className={classes.UVLevel} sx={{left: '5px', bottom: '-5px'}} disableTypography> 
+                        <ListItemText className={classes.UVLevel} sx={{left: '5px', bottom: '-2px'}} disableTypography> 
                             0 
                         </ListItemText>
                         <ListItemText className={classes.UVLevel} sx={{left: '20px', bottom: '45px'}} disableTypography> 
@@ -56,7 +61,7 @@ const UVIndexWidget = ({uv, classes}) => {
                         <ListItemText className={classes.UVLevel} sx={{right: '20px', bottom: '45px'}} disableTypography> 
                             10 
                         </ListItemText>
-                        <ListItemText className={classes.UVLevel} sx={{right: '5px', bottom: '-5px'}} disableTypography> 
+                        <ListItemText className={classes.UVLevel} sx={{right: '5px', bottom: '-2px'}} disableTypography> 
                             12 
                         </ListItemText>
                     </List>

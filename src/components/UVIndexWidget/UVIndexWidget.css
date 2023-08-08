@@ -46,7 +46,7 @@
     width: 297px;
     height: 131px;
     overflow: hidden;
-    background: #fff;
+    background: var(--bg);
     background-position: -120px 0px;
 }
 
