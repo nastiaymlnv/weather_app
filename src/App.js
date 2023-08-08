@@ -12,6 +12,8 @@ import SearchField from './components/SearchField/SearchField';
 import AllDayForecastCard from './components/AllDayForecastCard';
 import UVIndexWidget from './components/UVIndexWidget';
 import SunriseAndSunsetWidget from './components/SunriseAndSunsetWidget';
+import HumidityWidget from './components/HumidityWidget/HumidityWidget';
+import Widget from './components/Widget/Widget';
 import FutureDayForecastCard from './components/FutureDayForecastCard/FutureDayForecastCard';
 
 import weatherConditions from './config/weatherConditions';
@@ -78,16 +80,28 @@ const App = () => {
         </Typography>
         <SearchField handleLocation={handleLocation} />
       </header>
+      
       <AllDayForecastCard 
         currentDay={current} 
         fewDaysForecast={forecast} 
         returnIconComponent={returnIconComponent} 
       />
-      <Box sx={{display: 'flex', gap: '30px', justifyContent: 'center'}}>
-        <UVIndexWidget uv={current.uv} />
-        <SunriseAndSunsetWidget sunMove={forecast.forecastday[0].astro} />
 
-      </Box>
+      <Box sx={{display: 'flex', gap: '30px', justifyContent: 'center'}}>
+        <Widget 
+          title='UV Index' 
+          titleVal={`${current.uv} UV`}
+          component={<UVIndexWidget uv={current.uv} />} />
+        <Widget 
+          title='Sunrise and Sunset' 
+          titleVal={null}
+          component={<SunriseAndSunsetWidget sunMove={forecast.forecastday[0].astro} />} />
+        <Widget 
+          title='Humidity' 
+          titleVal={`${current.humidity}%`}
+          component={<HumidityWidget humidity={current.humidity} />} />
+      </Box>   
+      
       <section className='few-days-weather-container'>
         {
           forecast.forecastday.slice(1).map(({date, day}) => {

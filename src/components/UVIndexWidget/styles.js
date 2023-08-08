@@ -1,9 +1,4 @@
 const styles = theme => ({
-    UVTitle: {
-        fontSize: '20px',
-        lineHeight: 'normal'
-    },
-
     UVLevel: {
         position: 'absolute',
         fontFamily: 'Inter',

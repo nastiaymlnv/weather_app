@@ -37,10 +37,7 @@ const SunriseAndSunsetWidget = ({sunMove, classes}) => {
     }
 
     return (
-        <article className='sunMove-container main-container-bg'>
-            <Typography variant='h3' className={classes.sunMoveTitle} sx={{pl: '9px', mb: '23px'}}>
-                Sunrise and Sunset
-            </Typography>
+        <>            
             <Box className={classes.SunMoveAnimationContainer} sx={{px: '15px'}}>
                 <div className='sunMove-trajectory-container' >
                     <div 
@@ -79,7 +76,7 @@ const SunriseAndSunsetWidget = ({sunMove, classes}) => {
                     </Typography>
                 </Box>
             </Box>
-        </article>
+        </>
     )
 }
 
