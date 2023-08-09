@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
+import { useTheme } from '@mui/material/styles';
 import { withStyles } from '@mui/styles';
 import { Box, Typography } from "@mui/material";
 
@@ -11,6 +12,8 @@ import styles from "./styles";
 
 const SunriseAndSunsetWidget = ({sunMove, classes}) => {
     const {sunrise, sunset} = sunMove;
+    const theme = useTheme();
+    const color = theme.palette.background.default === '#FFF'? '#080338' : '#fff';
 
     const getTwentyFourHourTime = timeString => { 
         var date = new Date("01/01/1970 " + timeString); 
@@ -38,8 +41,8 @@ const SunriseAndSunsetWidget = ({sunMove, classes}) => {
 
     return (
         <>            
-            <Box className={classes.SunMoveAnimationContainer} sx={{px: '15px'}}>
-                <div className='sunMove-trajectory-container' >
+            <Box className={classes.SunMoveAnimationContainer} sx={{px: '15px', borderBottom: `1px solid ${color}`}}>
+                <div className='sunMove-trajectory-container' style={{'--color': color}}>
                     <div 
                         className="fill-bg"
                         style={{'--currSunBeamPosition': generatePercentForCssSunMove(sunriseTimestamp, sunsetTimestamp, currentTimestamp)}}

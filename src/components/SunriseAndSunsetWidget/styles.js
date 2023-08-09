@@ -1,7 +1,6 @@
 const styles = theme => ({
     SunMoveAnimationContainer: {
-        position: 'relative',
-        borderBottom: '1px solid #000',        
+        position: 'relative'    
     },
     Titles: {
         color: '#FFE55F'

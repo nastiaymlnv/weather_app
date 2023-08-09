@@ -24,7 +24,7 @@ const Widget = ({component, title, titleVal, classes}) => {
 }
 
 Widget.propTypes = {
-    component: PropTypes.component,
+    component: PropTypes.element,
     title: PropTypes.string,
     titleVal: PropTypes.string,
     classes: PropTypes.object.isRequired,

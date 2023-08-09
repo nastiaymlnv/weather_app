@@ -6,8 +6,7 @@ const styles = theme => ({
     humidityLegend: {
         display: 'flex',
         justifyContent: 'space-between'
-    },
- 
+    }, 
 });
 
 export default styles;

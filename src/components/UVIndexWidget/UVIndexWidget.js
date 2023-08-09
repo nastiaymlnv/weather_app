@@ -13,6 +13,7 @@ import styles from "./styles";
 
 const UVIndexWidget = ({uv, classes}) => {
     const theme = useTheme();
+    const color = theme.palette.background.default === '#FFF'? '#080338' : '#fff';
 
     const generateAngleForCssAnimation = (uvLevel) => {
         const percent = uvLevel * 100 / 12;
@@ -22,10 +23,10 @@ const UVIndexWidget = ({uv, classes}) => {
     }
 
     return (
-        <div className='trajectory-container'>
+        <div className='trajectory-container' style={{'--color': color}}>
             <div className="trajectory-zonecircle" style={{'--uv': generateAngleForCssAnimation(uv)}}>
             </div>
-            <div className="trajectory-bg-1">
+            <div className="trajectory-bg-1" style={{'--color': color}}>
             </div>
             <div 
                 className="trajectory-bg-2" 
