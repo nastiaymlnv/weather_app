@@ -15,7 +15,7 @@ import FutureDayForecastCard from "./components/FutureDayForecastCard";
 import weatherConditions from "./weatherConditions";
 
 import "./assets/reset.css";
-import "./App.css";
+import css from "./App.module.css";
 
 const App = () => {
   const [weatherInfo, setWeatherInfo] = useState([]);
@@ -77,7 +77,7 @@ const App = () => {
 
   return (
     <Box sx={{ pt: "29px", px: "100px", pb: "57px" }}>
-      <header className="header-container">
+      <header className={css.headerContainer}>
         <Typography variant="h1">
           {`${location.name}, ${location.country}`}
         </Typography>
@@ -110,7 +110,7 @@ const App = () => {
         />
       </Box>
 
-      <section className="few-days-weather-container">
+      <section className={css.fewDaysWeatherContainer}>
         {forecast.forecastday.slice(1).map(({ date, day }) => {
           return (
             <FutureDayForecastCard

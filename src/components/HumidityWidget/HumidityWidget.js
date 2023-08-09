@@ -6,12 +6,12 @@ import { withStyles } from "@mui/styles";
 import { List, ListItemText } from "@mui/material";
 
 import styles from "./styles.js";
-import "./HumidityWidget.css";
+import css from "./HumidityWidget.module.css";
 
 const drawAnimation = (stopPosition, color) => {
   return (
     <svg
-      className="curve"
+      className={css.curve}
       width="351"
       height="142"
       viewBox="0 0 351 142"
@@ -54,8 +54,8 @@ const HumidityWidget = ({ humidity, classes }) => {
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
 
   return (
-    <div className="humidity-wrapper">
-      <div className="humidity-chart" style={{ "--color": color }}>
+    <div className={css.humidityWrapper}>
+      <div className={css.humidityChart} style={{ "--color": color }}>
         {drawAnimation(humidity / 100, color)}
       </div>
       <List
@@ -90,7 +90,7 @@ const HumidityWidget = ({ humidity, classes }) => {
         >
           75
         </ListItemText>
-        <span className="max-humidity">100</span>
+        <span className={css.maxHumidity}>100</span>
       </List>
     </div>
   );

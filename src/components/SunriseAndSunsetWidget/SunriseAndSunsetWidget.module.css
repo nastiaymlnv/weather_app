@@ -1,4 +1,4 @@
-.sunMove-trajectory-container {
+.sunMoveTrajectoryContainer {
   position: relative;
   width: 324px;
   height: 162px;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.fill-bg {
+.fillBg {
   --currSunBeamPosition: var(--currSunBeamPosition);
   width: 324px;
   height: 162px;
@@ -31,7 +31,7 @@
   }
 }
 
-.sun-container {
+.sunContainer {
   --currPosition: var(--currSunPosition);
   animation: moveSun 3s both ease-out;
   position: absolute;

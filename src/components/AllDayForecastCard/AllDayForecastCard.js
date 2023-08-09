@@ -10,7 +10,7 @@ import ForecastInfoCards from "../ForecastInfoCards/ForecastInfoCards";
 import { monthsArray } from "../../config/monthsArray";
 import forecastIndicesList from "./forecastIndicesList";
 
-import "./AllDayForecastCard.css";
+import css from "./AllDayForecastCard.module.css";
 import styles from "./styles";
 
 const AllDayForecastCard = (props) => {
@@ -40,9 +40,9 @@ const AllDayForecastCard = (props) => {
         <Typography variant="h1" sx={{ ml: "18px" }}>
           {currentDate}
         </Typography>
-        <section className="day-forecast-content">
-          <section className="day-forecast-weather">
-            <div className="day-forecast-weather__img-wrapper">
+        <section className={css.dayForecastContent}>
+          <section>
+            <div className={css.dayForecastWeatherImgWrapper}>
               {returnIconComponent(
                 currentDay.is_day,
                 currentDay.condition.text,
@@ -52,8 +52,8 @@ const AllDayForecastCard = (props) => {
               {currentDay.temp_c > 0 && `+${Math.floor(currentDay.temp_c)}`}°C
             </Typography>
           </section>
-          <section className="forecast-hourly">
-            <List className="forecast-indices-list" sx={{ mr: "19px" }}>
+          <section className={css.forecastHourly}>
+            <List sx={{ mr: "19px" }}>
               {forecastIndicesList.map((forecastItem) => {
                 return (
                   <ListItemText
@@ -67,7 +67,7 @@ const AllDayForecastCard = (props) => {
                 );
               })}
             </List>
-            <section className="forecast-hourly__wrapper">
+            <section className={css.forecastHourlyWrapper}>
               <ForecastInfoCards
                 allHoursInfoArr={allHoursInfoArr}
                 returnIconComponent={returnIconComponent}

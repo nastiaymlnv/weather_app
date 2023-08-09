@@ -5,7 +5,7 @@ import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { List, ListItemText } from "@mui/material";
 
-import "./UVIndexWidget.css";
+import css from "./UVIndexWidget.module.css";
 import styles from "./styles";
 
 const UVIndexWidget = ({ uv, classes }) => {
@@ -21,14 +21,14 @@ const UVIndexWidget = ({ uv, classes }) => {
   };
 
   return (
-    <div className="trajectory-container" style={{ "--color": color }}>
+    <div className={css.trajectoryContainer} style={{ "--color": color }}>
       <div
-        className="trajectory-zonecircle"
+        className={css.trajectoryZonecircle}
         style={{ "--uv": generateAngleForCssAnimation(uv) }}
       ></div>
-      <div className="trajectory-bg-1" style={{ "--color": color }}></div>
+      <div className={css.trajectoryBg1} style={{ "--color": color }}></div>
       <div
-        className="trajectory-bg-2"
+        className={css.trajectoryBg2}
         style={{
           "--bg":
             theme.palette.background.default === "#FFF"

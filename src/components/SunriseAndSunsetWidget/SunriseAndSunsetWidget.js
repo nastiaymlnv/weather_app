@@ -7,7 +7,7 @@ import { Box, Typography } from "@mui/material";
 
 import Sun from "../../assets/icons/SunMove-icon.png";
 
-import "./SunriseAndSunsetWidget.css";
+import css from "./SunriseAndSunsetWidget.module.css";
 import styles from "./styles";
 
 const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
@@ -52,11 +52,11 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
         sx={{ px: "15px", borderBottom: `1px solid ${color}` }}
       >
         <div
-          className="sunMove-trajectory-container"
+          className={css.sunMoveTrajectoryContainer}
           style={{ "--color": color }}
         >
           <div
-            className="fill-bg"
+            className={css.fillBg}
             style={{
               "--currSunBeamPosition": generatePercentForCssSunMove(
                 sunriseTimestamp,
@@ -68,7 +68,7 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
         </div>
         <span>
           <span
-            className="sun-container"
+            className={css.sunContainer}
             style={{
               "--currSunPosition": generateAngleForCssSunMove(
                 sunsetTimestamp,
@@ -76,7 +76,7 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
               ),
             }}
           >
-            <img src={Sun} alt="Sun" className="sun" />
+            <img src={Sun} alt="Sun" className={css.sun} />
           </span>
         </span>
       </Box>

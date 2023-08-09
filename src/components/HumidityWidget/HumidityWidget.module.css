@@ -1,7 +1,7 @@
-.humidity-wrapper {
+.humidityWrapper {
   margin-top: 45px;
 }
-.humidity-chart {
+.humidityChart {
   border-bottom: 1px solid var(--color);
   width: 373px;
   position: relative;
@@ -13,7 +13,7 @@
   margin-bottom: -8px;
 }
 
-.max-humidity {
+.maxHumidity {
   font-size: 12px;
   margin-top: 4px;
 }

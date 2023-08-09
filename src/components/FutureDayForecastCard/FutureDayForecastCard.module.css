@@ -1,4 +1,4 @@
-.future-day-forecast-card {
+.futureDayForecastCard {
   padding: 12px 16px 24px;
   font-family: "Open Sans";
   font-size: 16px;
@@ -7,14 +7,14 @@
   min-width: 182px;
 }
 
-.future-day-forecast-card__info {
+.futureDayForecastCardInfo {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 18px;
 }
 
-.future-day-forecast-card__info-img-wrapper {
+.futureDayForecastCardInfoImgWrapper {
   & svg {
     max-width: 56px;
     max-height: 56px;

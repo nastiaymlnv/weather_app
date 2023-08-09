@@ -4,12 +4,13 @@ import PropTypes from "prop-types";
 import { withStyles } from "@mui/styles";
 import { Box, Typography } from "@mui/material";
 
-import "./Widget.css";
+import mainCSS from "../../App.module.css";
+import css from "./Widget.module.css";
 import styles from "./styles";
 
 const Widget = ({ component, title, titleVal, classes }) => {
   return (
-    <article className="container main-container-bg">
+    <article className={`${css.container} ${mainCSS.mainContainerBg}`}>
       <Box
         sx={{
           display: "flex",

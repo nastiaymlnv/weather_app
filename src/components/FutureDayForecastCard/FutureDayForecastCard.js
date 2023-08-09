@@ -7,7 +7,8 @@ import { Typography } from "@mui/material";
 import { monthsArray } from "../../config/monthsArray";
 import { daysArray } from "./daysArray";
 
-import "./FutureDayForecastCard.css";
+import mainCSS from "../../App.module.css";
+import css from "./FutureDayForecastCard.module.css";
 import styles from "./styles";
 
 const FutureDayForecastCard = ({
@@ -24,18 +25,20 @@ const FutureDayForecastCard = ({
   const dayDate = `${newDate.getDate()} ${monthsArray[newDate.getMonth()]}`;
 
   return (
-    <article className="future-day-forecast-card main-container-bg">
-      <div className="future-day-forecast-card__title">
+    <article
+      className={`${css.futureDayForecastCard} ${mainCSS.mainContainerBg}`}
+    >
+      <div>
         <Typography variant="h3" className={classes.futureForecastTitle}>
           {weekday}
         </Typography>
         <Typography>{dayDate}</Typography>
       </div>
-      <div className="future-day-forecast-card__info">
-        <div className="future-day-forecast-card__info-img-wrapper">
+      <div className={css.futureDayForecastCardInfo}>
+        <div className={css.futureDayForecastCardInfoImgWrapper}>
           {returnIconComponent(isDay, condition.text)}
         </div>
-        <span className="future-day-forecast-card__temperature-wrapper">
+        <span>
           <Typography className={classes.futureForecastItem} sx={{ mb: "4px" }}>
             {maxtemp_c > 0 && `+${Math.floor(maxtemp_c)}`}°
           </Typography>

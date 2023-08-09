@@ -3,19 +3,18 @@ import PropTypes from "prop-types";
 
 import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
-import { TextField, InputAdornment } from "@mui/material";
+import { Box, TextField, InputAdornment } from "@mui/material";
 
 import { ReactComponent as LightIcon } from "../../assets/icons/magnifier_light-theme.svg";
 import { ReactComponent as DarkIcon } from "../../assets/icons/magnifier_dark-theme.svg";
 
-import "./SearchField.css";
 import styles from "./styles";
 
 const SearchField = ({ handleLocation, classes }) => {
   const theme = useTheme();
 
   return (
-    <div className="search-field-wrapper">
+    <Box sx={{ position: "relative" }}>
       <TextField
         className={classes.searchInput}
         placeholder="Search the city"
@@ -40,7 +39,7 @@ const SearchField = ({ handleLocation, classes }) => {
           ),
         }}
       />
-    </div>
+    </Box>
   );
 };
 

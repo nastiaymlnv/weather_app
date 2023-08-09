@@ -7,7 +7,7 @@ import { Typography } from "@mui/material";
 
 import hoursForecast from "./hoursForecast";
 
-import "./ForecastInfoCards.css";
+import css from "./ForecastInfoCards.module.css";
 import styles from "./styles";
 
 const HourForecast = (hoursInfoArr, data, returnIconComponent) => {
@@ -25,9 +25,9 @@ const HourForecast = (hoursInfoArr, data, returnIconComponent) => {
   const hour = new Date(time).getHours();
 
   return (
-    <section className="part-day-forecast-card__item-wrapper">
+    <section>
       <Typography sx={{ fontSize: "20px" }}>{hour}:00</Typography>
-      <div className="part-day-forecast-card__item-img-wrapper">
+      <div className={css.partDayForecastCardItemImgWrapper}>
         {returnIconComponent(is_day, condition.text)}
       </div>
       <Typography sx={{ mt: "16px", fontSize: "18px", fontWeight: 600 }}>
@@ -56,14 +56,14 @@ const ForecastInfoCards = ({
 }) => {
   return hoursForecast.map((dayPart) => {
     return (
-      <section key={uuidv4()} className="part-day-forecast-card">
+      <section key={uuidv4()} className={css.partDayForecastCard}>
         <Typography
           sx={{ fontSize: "24px" }}
           className={classes.partDayForecastTitle}
         >
           {dayPart[0]}
         </Typography>
-        <div className="part-day-forecast-card__hours">
+        <div className={css.partDayForecastCardHours}>
           {HourForecast(
             allHoursInfoArr,
             dayPart[1],
