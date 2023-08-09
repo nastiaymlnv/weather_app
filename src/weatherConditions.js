@@ -1,25 +1,25 @@
 import React from "react";
 
-import {ReactComponent as ClearIcon} from './assets/weather-icons/Clear.svg';
-import {ReactComponent as ClearWindIcon} from './assets/weather-icons/Clear-wind.svg';
-import {ReactComponent as CloudIcon} from './assets/weather-icons/Cloud.svg';
-import {ReactComponent as CloudNightIcon} from './assets/weather-icons/Cloud-night.svg';
-import {ReactComponent as CloudRainbowIcon} from './assets/weather-icons/Cloud-rainbow.svg';
-import {ReactComponent as LightningIcon} from './assets/weather-icons/Lightning.svg';
-import {ReactComponent as PartlyCloudyIcon} from './assets/weather-icons/Partly-cloudy.svg';
-import {ReactComponent as RainIcon} from './assets/weather-icons/Rain.svg';
-import {ReactComponent as RainThunderIcon} from './assets/weather-icons/Rain-thunder.svg';
-import {ReactComponent as RainWindIcon} from './assets/weather-icons/Rain-wind.svg';
-import {ReactComponent as RainyIcon} from './assets/weather-icons/Rainy.svg';
-import {ReactComponent as SnowIcon} from './assets/weather-icons/Snow.svg';
-import {ReactComponent as SnowHeavyIcon} from './assets/weather-icons/Snow-heavy.svg';
-import {ReactComponent as SnowLightIcon} from './assets/weather-icons/Snow-light.svg';
-import {ReactComponent as SunIcon} from './assets/weather-icons/Sun.svg';
-import {ReactComponent as SunRainIcon} from './assets/weather-icons/Sun-rain.svg';
-import {ReactComponent as SunWindIcon} from './assets/weather-icons/Sun-wind.svg';
-import {ReactComponent as ThunderIcon} from './assets/weather-icons/Thunder.svg';
-import {ReactComponent as TyphonIcon} from './assets/weather-icons/Typhoon.svg';
-import {ReactComponent as WindIcon} from './assets/weather-icons/Wind.svg';
+import {ReactComponent as ClearIcon} from './assets/icons/Clear.svg';
+import {ReactComponent as ClearWindIcon} from './assets/icons/Clear-wind.svg';
+import {ReactComponent as CloudIcon} from './assets/icons/Cloud.svg';
+import {ReactComponent as CloudNightIcon} from './assets/icons/Cloud-night.svg';
+import {ReactComponent as CloudRainbowIcon} from './assets/icons/Cloud-rainbow.svg';
+import {ReactComponent as LightningIcon} from './assets/icons/Lightning.svg';
+import {ReactComponent as PartlyCloudyIcon} from './assets/icons/Partly-cloudy.svg';
+import {ReactComponent as RainIcon} from './assets/icons/Rain.svg';
+import {ReactComponent as RainThunderIcon} from './assets/icons/Rain-thunder.svg';
+import {ReactComponent as RainWindIcon} from './assets/icons/Rain-wind.svg';
+import {ReactComponent as RainyIcon} from './assets/icons/Rainy.svg';
+import {ReactComponent as SnowIcon} from './assets/icons/Snow.svg';
+import {ReactComponent as SnowHeavyIcon} from './assets/icons/Snow-heavy.svg';
+import {ReactComponent as SnowLightIcon} from './assets/icons/Snow-light.svg';
+import {ReactComponent as SunIcon} from './assets/icons/Sun.svg';
+import {ReactComponent as SunRainIcon} from './assets/icons/Sun-rain.svg';
+import {ReactComponent as SunWindIcon} from './assets/icons/Sun-wind.svg';
+import {ReactComponent as ThunderIcon} from './assets/icons/Thunder.svg';
+import {ReactComponent as TyphonIcon} from './assets/icons/Typhoon.svg';
+import {ReactComponent as WindIcon} from './assets/icons/Wind.svg';
 
 const weatherConditions = [
     {
