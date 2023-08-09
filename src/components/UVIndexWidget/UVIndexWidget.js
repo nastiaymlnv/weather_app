@@ -3,10 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useTheme } from '@mui/material/styles';
 import { withStyles } from '@mui/styles';
-import { 
-    List,
-    ListItemText 
-} from "@mui/material";
+import { List, ListItemText } from "@mui/material";
 
 import "./UVIndexWidget.css";
 import styles from "./styles";

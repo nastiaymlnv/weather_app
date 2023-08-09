@@ -10,7 +10,7 @@ import { hoursForecast } from "../../config/dayForecastData";
 import './ForecastInfoCards.css';
 import styles from "./styles";
 
-const HourForecast = (hoursInfoArr, data, returnIconComponent, classes) => {
+const HourForecast = (hoursInfoArr, data, returnIconComponent) => {
     const hourForecast = hoursInfoArr[data];
     const {
         time, 

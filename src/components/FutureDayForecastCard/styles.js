@@ -1,4 +1,4 @@
-const styles = theme => ({
+const styles = () => ({
     futureForecastTitle: {
         fontSize: '20px',
         fontWeight: 600,

@@ -29,7 +29,7 @@ const FutureDayForecastCard = ({date, dayInfo, returnIconComponent, classes}) =>
             </div>
             <div className='future-day-forecast-card__info'>
                 <div className='future-day-forecast-card__info-img-wrapper'>
-                    { returnIconComponent(is_day=true, condition.text) }
+                    { returnIconComponent(is_day, condition.text) }
                 </div>
                 <span className='future-day-forecast-card__temperature-wrapper'>
                     <Typography className={classes.futureForecastItem} sx={{mb: '4px'}}>

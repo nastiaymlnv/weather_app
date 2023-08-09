@@ -1,4 +1,4 @@
-const styles = theme => ({
+const styles = () => ({
     title: {
         fontSize: '20px',
         lineHeight: 'normal'

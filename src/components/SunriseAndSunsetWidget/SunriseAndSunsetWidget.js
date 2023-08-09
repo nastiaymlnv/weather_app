@@ -27,7 +27,7 @@ const SunriseAndSunsetWidget = ({sunMove, classes}) => {
     const sunsetTimestamp = new Date(`01/01/1970 ${getTwentyFourHourTime(sunset)}`).getTime();
     const currentTimestamp = new Date(`01/01/1970 ${currentDate}`).getTime();
 
-    const generateAngleForCssSunMove = (sunriseTime, sunsetTime, currTime) => {
+    const generateAngleForCssSunMove = (sunsetTime, currTime) => {
         const percent = currTime * 100 / sunsetTime;
         const angle = percent * 180 / 100;
 
@@ -52,7 +52,7 @@ const SunriseAndSunsetWidget = ({sunMove, classes}) => {
                 <span>
                     <span 
                         className='sun-container' 
-                        style={{'--currSunPosition': generateAngleForCssSunMove(sunriseTimestamp, sunsetTimestamp, currentTimestamp)}}
+                        style={{'--currSunPosition': generateAngleForCssSunMove(sunsetTimestamp, currentTimestamp)}}
                     >
                         <img src={Sun} alt='Sun' className='sun' />
                     </span>

@@ -1,4 +1,4 @@
-const styles = theme => ({
+const styles = () => ({
     dayForecastWrapper: {
         fontFamily: 'Open Sans',
         fontSize: '24px',

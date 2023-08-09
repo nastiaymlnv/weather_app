@@ -1,4 +1,4 @@
-const styles = theme => ({
+const styles = () => ({
     searchInput: {
         width: '360px',        
         fontFamily: 'Open Sans',
