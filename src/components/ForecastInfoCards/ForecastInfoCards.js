@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { withStyles } from '@mui/styles';
 import { Typography } from "@mui/material";
 
-import { hoursForecast } from "../../config/dayForecastData";
+import hoursForecast from "./hoursForecast";
 
 import './ForecastInfoCards.css';
 import styles from "./styles";

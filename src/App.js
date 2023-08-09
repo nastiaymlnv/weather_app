@@ -8,15 +8,15 @@ import {
   Typography
 } from '@mui/material';
 
-import SearchField from './components/SearchField/SearchField';
+import SearchField from './components/SearchField';
 import AllDayForecastCard from './components/AllDayForecastCard';
 import UVIndexWidget from './components/UVIndexWidget';
 import SunriseAndSunsetWidget from './components/SunriseAndSunsetWidget';
-import HumidityWidget from './components/HumidityWidget/HumidityWidget';
-import Widget from './components/Widget/Widget';
-import FutureDayForecastCard from './components/FutureDayForecastCard/FutureDayForecastCard';
+import HumidityWidget from './components/HumidityWidget';
+import Widget from './components/Widget';
+import FutureDayForecastCard from './components/FutureDayForecastCard';
 
-import weatherConditions from './config/weatherConditions';
+import weatherConditions from './weatherConditions';
 
 import './assets/reset.css';
 import './App.css';

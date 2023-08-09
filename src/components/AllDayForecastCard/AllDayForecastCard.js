@@ -13,7 +13,7 @@ import {
 import ForecastInfoCards from "../ForecastInfoCards/ForecastInfoCards";
 
 import { monthsArray } from "../../config/monthsArray";
-import { forecastIndicesList } from "../../config/dayForecastData";
+import forecastIndicesList from "./forecastIndicesList";
 
 import './AllDayForecastCard.css';
 import styles from "./styles";

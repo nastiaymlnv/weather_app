@@ -5,14 +5,15 @@ import { withStyles } from '@mui/styles';
 import { Typography } from "@mui/material";
 
 import { monthsArray } from "../../config/monthsArray";
-import { daysArray } from "../../config/daysArray";
+import { daysArray } from "./daysArray";
 
 import './FutureDayForecastCard.css';
 import styles from "./styles";
 
 const FutureDayForecastCard = ({date, dayInfo, returnIconComponent, classes}) => {
-    const {condition, maxtemp_c, mintemp_c} = dayInfo;
-    let {is_day} = dayInfo;
+    const {condition, maxtemp_c, mintemp_c, is_day} = dayInfo;
+    const defineIsDay = !!is_day;
+    const isDay = defineIsDay ? false : true;
     const newDate = new Date(date);
     const weekday = daysArray[newDate.getDay()];
     const dayDate = `${newDate.getDate()} ${monthsArray[newDate.getMonth()]}`;
@@ -29,7 +30,7 @@ const FutureDayForecastCard = ({date, dayInfo, returnIconComponent, classes}) =>
             </div>
             <div className='future-day-forecast-card__info'>
                 <div className='future-day-forecast-card__info-img-wrapper'>
-                    { returnIconComponent(is_day, condition.text) }
+                    { returnIconComponent(isDay, condition.text) }
                 </div>
                 <span className='future-day-forecast-card__temperature-wrapper'>
                     <Typography className={classes.futureForecastItem} sx={{mb: '4px'}}>
