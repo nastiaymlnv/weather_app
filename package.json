@@ -1,7 +1,14 @@
 {
   "name": "weather_app",
   "version": "0.1.0",
-  "private": true,
+  "description": "The React Weather app",
+  "main": "index.js",
+  "author": "Anastasiia Yemelianova <nastia.yemelianova@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nastiaymlnv/weather_app"
+  },
+  "private": false,
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
@@ -36,6 +43,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "engines": {
+    "npm": "~9.8.0",
+    "node": "~20.5.0"
   },
   "devDependencies": {
     "eslint": "^8.46.0",
