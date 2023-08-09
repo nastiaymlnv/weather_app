@@ -41,8 +41,7 @@ const App = () => {
   const fetchData = async (country) => {
     try {
       const response = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${country}&days=${days}&aqi=no&alerts=no`);
-      setWeatherInfo(response.data)
-      console.log(response.data)
+      setWeatherInfo(response.data);
     } catch (error) {
       console.log(error);
     }

@@ -5,7 +5,7 @@ import { useTheme } from '@mui/material/styles';
 import { withStyles } from '@mui/styles';
 import { Box, Typography } from "@mui/material";
 
-import Sun from '../../assets/img/SunMove-icon.png';
+import Sun from '../../assets/icons/SunMove-icon.png';
 
 import './SunriseAndSunsetWidget.css';
 import styles from "./styles";

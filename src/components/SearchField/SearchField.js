@@ -5,8 +5,8 @@ import { useTheme } from '@mui/material/styles';
 import { withStyles } from '@mui/styles';
 import { TextField, InputAdornment } from '@mui/material';
 
-import {ReactComponent as LightIcon} from '../../assets/img/magnifier_light-theme.svg';
-import {ReactComponent as DarkIcon} from '../../assets/img/magnifier_dark-theme.svg';
+import {ReactComponent as LightIcon} from '../../assets/icons/magnifier_light-theme.svg';
+import {ReactComponent as DarkIcon} from '../../assets/icons/magnifier_dark-theme.svg';
 
 import './SearchField.css';
 import styles from "./styles";
