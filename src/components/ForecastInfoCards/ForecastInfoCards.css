@@ -1,22 +1,22 @@
 .part-day-forecast-card {
-    padding: 4px 30px;
+  padding: 4px 30px;
 
-    &:not(:last-child) {
-        border-right: 1px solid #AAA;
-    }    
+  &:not(:last-child) {
+    border-right: 1px solid #aaa;
+  }
 }
 
 .part-day-forecast-card__hours {
-    display: flex;
-    margin-top: 5px;
-    gap: 56px;
+  display: flex;
+  margin-top: 5px;
+  gap: 56px;
 }
 
 .part-day-forecast-card__item-img-wrapper {
-    margin-top: 14px;
-    
-    & svg { 
-        max-height: 25px;
-        max-width: 40px;
-    }
+  margin-top: 14px;
+
+  & svg {
+    max-height: 25px;
+    max-width: 40px;
+  }
 }

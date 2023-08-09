@@ -1,22 +1,22 @@
 .future-day-forecast-card {
-    padding: 12px 16px 24px;
-    font-family: 'Open Sans';
-    font-size: 16px;
-    font-weight: 400;
-    line-height: normal; 
-    min-width: 182px;
+  padding: 12px 16px 24px;
+  font-family: "Open Sans";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  min-width: 182px;
 }
 
 .future-day-forecast-card__info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
 }
 
 .future-day-forecast-card__info-img-wrapper {
-    & svg {
-        max-width: 56px;
-        max-height: 56px;
-    }
+  & svg {
+    max-width: 56px;
+    max-height: 56px;
+  }
 }

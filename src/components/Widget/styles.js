@@ -1,12 +1,12 @@
 const styles = () => ({
-    title: {
-        fontSize: '20px',
-        lineHeight: 'normal'
-    },  
-    humidityLegend: {
-        display: 'flex',
-        justifyContent: 'space-between'
-    }, 
+  title: {
+    fontSize: "20px",
+    lineHeight: "normal",
+  },
+  humidityLegend: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
 });
 
 export default styles;

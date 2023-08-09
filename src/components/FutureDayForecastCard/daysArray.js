@@ -1,9 +1,1 @@
-export const daysArray = [
-    'Sun',
-    'Mon',
-    'Tue',
-    'Wed',
-    'Thu',
-    'Fri',
-    'Sat'
-];
+export const daysArray = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];

@@ -1,3 +1,3 @@
-import SunriseAndSunsetWidget from './SunriseAndSunsetWidget.js';
+import SunriseAndSunsetWidget from "./SunriseAndSunsetWidget.js";
 
 export default SunriseAndSunsetWidget;

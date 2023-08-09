@@ -1,48 +1,60 @@
-.sunMove-trajectory-container {    
-    position: relative;
-    width: 324px;
-    height: 162px;
-    border: 2px dashed var(--color);
-    border-bottom: none;
-    border-radius: 12em 12em 0 0;
-    overflow: hidden;
+.sunMove-trajectory-container {
+  position: relative;
+  width: 324px;
+  height: 162px;
+  border: 2px dashed var(--color);
+  border-bottom: none;
+  border-radius: 12em 12em 0 0;
+  overflow: hidden;
 }
 
 .fill-bg {
-    --currSunBeamPosition: var(--currSunBeamPosition);
-    width: 324px;
-    height: 162px;
-    background: linear-gradient(207deg, rgba(246, 222, 1, 0.16) 0%, rgba(246, 222, 1, 0.00) 100%);
-    animation: fillDay 2.5s both linear;
-    position:absolute;
-    bottom: 0;
+  --currSunBeamPosition: var(--currSunBeamPosition);
+  width: 324px;
+  height: 162px;
+  background: linear-gradient(
+    207deg,
+    rgba(246, 222, 1, 0.16) 0%,
+    rgba(246, 222, 1, 0) 100%
+  );
+  animation: fillDay 2.5s both linear;
+  position: absolute;
+  bottom: 0;
 }
 
 @keyframes fillDay {
-    0% { width: 0; }
-    100% { width: var(--currSunBeamPosition); } 
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--currSunBeamPosition);
+  }
 }
 
 .sun-container {
-    --currPosition: var(--currSunPosition);
-    animation: moveSun 3s both ease-out;
-    position: absolute;
-    bottom: 0;
-    left: 15px;
-    transform-origin: 100% 0%;
-    width: 162px;
-    height: 1px;
-    background: transparent;
+  --currPosition: var(--currSunPosition);
+  animation: moveSun 3s both ease-out;
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  transform-origin: 100% 0%;
+  width: 162px;
+  height: 1px;
+  background: transparent;
 }
 
 @keyframes moveSun {
-    0%   {transform: rotate(0deg);}
-    100% {transform: rotate(var(--currSunPosition));}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--currSunPosition));
+  }
 }
 
 .sun {
-    position: absolute;
-    bottom: -10px;
-    left: -5%;
-    z-index: 5
+  position: absolute;
+  bottom: -10px;
+  left: -5%;
+  z-index: 5;
 }

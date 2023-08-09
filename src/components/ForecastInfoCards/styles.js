@@ -1,7 +1,7 @@
 const styles = () => ({
-    partDayForecastTitle: {
-        textAlign: 'center',
-    },
+  partDayForecastTitle: {
+    textAlign: "center",
+  },
 });
 
 export default styles;

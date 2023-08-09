@@ -1,17 +1,24 @@
 .header-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .main-container-bg {
-    background: linear-gradient(138deg, #00000008 0%, #ffffff17 99.97%, #ffffff1c 99.98%, #ffffff1c 99.99%, #ffffff26 100%);
-    border-radius: 30px;
+  background: linear-gradient(
+    138deg,
+    #00000008 0%,
+    #ffffff17 99.97%,
+    #ffffff1c 99.98%,
+    #ffffff1c 99.99%,
+    #ffffff26 100%
+  );
+  border-radius: 30px;
 }
 
 .few-days-weather-container {
-    margin-top: 36px;
-    display: flex;
-    gap: 30px;
-    justify-content: center;
+  margin-top: 36px;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
 }

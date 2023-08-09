@@ -1,27 +1,26 @@
 .day-forecast-content {
-    margin-top: 24px;
-    display: flex;
+  margin-top: 24px;
+  display: flex;
 }
 
 .day-forecast-weather__img-wrapper {
-    
-    & svg {
-        max-width: 281px;
-        max-height: 187px; 
-    }
+  & svg {
+    max-width: 281px;
+    max-height: 187px;
+  }
 }
 
 .day-forecast-weather__img {
-    width: auto;
-    height: 100%; 
+  width: auto;
+  height: 100%;
 }
 
 .forecast-hourly {
-    display: flex;
-    align-items: flex-end;
-    margin-left: 10px;
+  display: flex;
+  align-items: flex-end;
+  margin-left: 10px;
 }
 
 .forecast-hourly__wrapper {
-    display: flex;
+  display: flex;
 }

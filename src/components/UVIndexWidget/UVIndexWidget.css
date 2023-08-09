@@ -1,50 +1,54 @@
-.trajectory-container{
-    position: relative;
-    border-radius: 12em 12em 0 0;
-    width: 361px;
-    height: 163px;
-    overflow: hidden;
-    border-bottom: 1px solid var(--color);
+.trajectory-container {
+  position: relative;
+  border-radius: 12em 12em 0 0;
+  width: 361px;
+  height: 163px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--color);
 }
 
-.trajectory-zonecircle{
-    --uv: var(--uv);
-    animation: uvLevel 1s both ease-out;
-    position: absolute;
-    top: 178px;
-    right: 178px;
-    width: 361px;
-    height: 361px;
-    background: linear-gradient(18deg, #F0AE02 0%, rgba(240, 174, 2, 0.00) 89.51%);
-    transform-origin: 100% 0%;
+.trajectory-zonecircle {
+  --uv: var(--uv);
+  animation: uvLevel 1s both ease-out;
+  position: absolute;
+  top: 178px;
+  right: 178px;
+  width: 361px;
+  height: 361px;
+  background: linear-gradient(18deg, #f0ae02 0%, rgba(240, 174, 2, 0) 89.51%);
+  transform-origin: 100% 0%;
 }
 
-.trajectory-bg-1{
-    position: absolute;
-    left: 16px;
-    bottom: 0px;
-    border-radius: 12em 12em 0 0;
-    width: 329px;
-    height: 147px;
-    background: transparent;
-    background-position: -120px 0px;
-    border: solid 1px var(--color);
-    border-bottom: none;
+.trajectory-bg-1 {
+  position: absolute;
+  left: 16px;
+  bottom: 0px;
+  border-radius: 12em 12em 0 0;
+  width: 329px;
+  height: 147px;
+  background: transparent;
+  background-position: -120px 0px;
+  border: solid 1px var(--color);
+  border-bottom: none;
 }
 
-.trajectory-bg-2{
-    position: absolute;
-    left: 32px;
-    bottom: 0px;
-    border-radius: 12em 12em 0 0;
-    width: 297px;
-    height: 131px;
-    overflow: hidden;
-    background: var(--bg);
-    background-position: -120px 0px;
+.trajectory-bg-2 {
+  position: absolute;
+  left: 32px;
+  bottom: 0px;
+  border-radius: 12em 12em 0 0;
+  width: 297px;
+  height: 131px;
+  overflow: hidden;
+  background: var(--bg);
+  background-position: -120px 0px;
 }
 
 @keyframes uvLevel {
-    0%   {transform: rotate(0deg);}
-    100% {transform: rotate(var(--uv));}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(var(--uv));
+  }
 }
