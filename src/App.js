@@ -18,12 +18,13 @@ import "./assets/reset.css";
 import css from "./App.module.css";
 
 const App = () => {
+  const apiKey = process.env.REACT_APP_API_KEY;
+
   const [weatherInfo, setWeatherInfo] = useState([]);
   const [targetLocation, setTargetLocation] = useState("Vinnitsa");
 
   const { location, current, forecast } = weatherInfo;
 
-  const apiKey = "81949147633542bcaba75017230108";
   const days = 7;
 
   useEffect(() => {
