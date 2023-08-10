@@ -17,14 +17,18 @@ const UVIndexWidget = ({ uv, classes }) => {
     const percent = (uvLevel * 100) / 12;
     const angle = (percent * 180) / 100;
 
-    return `${angle}deg`;
+    return angle;
   };
 
   return (
     <div className={css.trajectoryContainer} style={{ "--color": color }}>
       <div
         className={css.trajectoryZonecircle}
-        style={{ "--uv": generateAngleForCssAnimation(uv) }}
+        style={{ "--uv": `${generateAngleForCssAnimation(uv)}deg` }}
+      ></div>
+      <div
+        className={css.trajectoryZonecircle1}
+        style={{ "--uv": `${generateAngleForCssAnimation(uv) - 90}deg` }}
       ></div>
       <div className={css.trajectoryBg1} style={{ "--color": color }}></div>
       <div
