@@ -2,6 +2,7 @@ import { createTheme } from "@mui/material/styles";
 
 const darkTheme = createTheme({
   palette: {
+    mode: "dark",
     background: {
       default: "#080338",
     },
@@ -36,6 +37,7 @@ const darkTheme = createTheme({
 
 const lightTheme = createTheme({
   palette: {
+    mode: "light",
     background: {
       default: "#FFF",
     },
