@@ -20,36 +20,17 @@ const HumidityWidget = ({ humidity, classes }) => {
       <div className={css.humidityChart} style={{ "--color": color }}>
         {drawSVGAnimationIcon(humidity / 100, color)}
       </div>
-      <List
-        className={classes.humidityLegend}
-        sx={{ display: "flex", justifyContent: "space-between", p: "0" }}
-      >
-        <ListItemText
-          className={classes.humidityLevel}
-          sx={{ fontSize: "12px", ml: "10px" }}
-          disableTypography
-        >
+      <List className={classes.humidityLegend}>
+        <ListItemText className={classes.humidityLegendText} disableTypography>
           0
         </ListItemText>
-        <ListItemText
-          className={classes.humidityLevel}
-          sx={{ fontSize: "12px" }}
-          disableTypography
-        >
+        <ListItemText className={classes.humidityLegendText} disableTypography>
           25
         </ListItemText>
-        <ListItemText
-          className={classes.humidityLevel}
-          sx={{ fontSize: "12px" }}
-          disableTypography
-        >
+        <ListItemText className={classes.humidityLegendText} disableTypography>
           50
         </ListItemText>
-        <ListItemText
-          className={classes.humidityLevel}
-          sx={{ fontSize: "12px" }}
-          disableTypography
-        >
+        <ListItemText className={classes.humidityLegendText} disableTypography>
           75
         </ListItemText>
         <span className={css.maxHumidity}>100</span>

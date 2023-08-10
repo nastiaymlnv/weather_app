@@ -10,7 +10,7 @@ import hoursForecast from "./hoursForecast";
 import css from "./ForecastInfoCards.module.css";
 import styles from "./styles";
 
-const HourForecast = (hoursInfoArr, data, returnIconComponent) => {
+const HourForecast = (hoursInfoArr, data, returnIconComponent, classes) => {
   const hourForecast = hoursInfoArr[data];
   const {
     time,
@@ -30,19 +30,19 @@ const HourForecast = (hoursInfoArr, data, returnIconComponent) => {
       <div className={css.partDayForecastCardItemImgWrapper}>
         {returnIconComponent(is_day, condition.text)}
       </div>
-      <Typography sx={{ mt: "16px", fontSize: "18px", fontWeight: 600 }}>
+      <Typography className={classes.partDayForecastText}>
         {temp_c > 0 && `+${Math.floor(temp_c)}`}°
       </Typography>
-      <Typography sx={{ mt: "16px", fontSize: "18px", fontWeight: 600 }}>
+      <Typography className={classes.partDayForecastText}>
         {feelslike_c > 0 && `+${Math.floor(feelslike_c)}`}°
       </Typography>
-      <Typography sx={{ mt: "16px", fontSize: "18px", fontWeight: 600 }}>
+      <Typography className={classes.partDayForecastText}>
         {pressure_mb}
       </Typography>
-      <Typography sx={{ mt: "16px", fontSize: "18px", fontWeight: 600 }}>
+      <Typography className={classes.partDayForecastText}>
         {humidity}
       </Typography>
-      <Typography sx={{ mt: "16px", fontSize: "18px", fontWeight: 600 }}>
+      <Typography className={classes.partDayForecastText}>
         {wind_kph}
       </Typography>
     </section>

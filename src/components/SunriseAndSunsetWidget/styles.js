@@ -2,11 +2,16 @@ const styles = () => ({
   SunMoveAnimationContainer: {
     position: "relative",
   },
-  Titles: {
+  legend: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+  legendTitles: {
     color: "#FFE55F",
   },
-  Time: {
+  legendTime: {
     textAlign: "center",
+    marginTop: "4px",
   },
 });
 

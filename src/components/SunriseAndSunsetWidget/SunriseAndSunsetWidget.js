@@ -85,21 +85,16 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
           </span>
         </span>
       </Box>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
+      <Box className={classes.legend}>
         <Box>
-          <Typography className={classes.Titles}>Sunrise</Typography>
-          <Typography className={classes.Time} sx={{ mt: "4px" }}>
+          <Typography className={classes.legendTitles}>Sunrise</Typography>
+          <Typography className={classes.legendTime}>
             {getTwentyFourHourTime(sunrise)}
           </Typography>
         </Box>
         <Box>
-          <Typography className={classes.Titles}>Sunset</Typography>
-          <Typography className={classes.Time} sx={{ mt: "4px" }}>
+          <Typography className={classes.legendTitles}>Sunset</Typography>
+          <Typography className={classes.legendTime}>
             {getTwentyFourHourTime(sunset)}
           </Typography>
         </Box>

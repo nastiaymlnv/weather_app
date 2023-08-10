@@ -25,18 +25,7 @@ const AllDayForecastCard = (props) => {
 
   return (
     <>
-      <Box
-        className={classes.dayForecastWrapper}
-        sx={{
-          mt: "31px",
-          ml: "auto",
-          mr: "auto",
-          pt: "21px",
-          pr: "8px",
-          pb: "22px",
-          pl: "15px",
-        }}
-      >
+      <Box className={classes.dayForecastWrapper}>
         <Typography variant="h1" sx={{ ml: "18px" }}>
           {currentDate}
         </Typography>

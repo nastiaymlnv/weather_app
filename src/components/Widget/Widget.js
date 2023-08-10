@@ -11,14 +11,7 @@ import styles from "./styles";
 const Widget = ({ component, title, titleVal, classes }) => {
   return (
     <article className={`${css.container} ${mainCSS.mainContainerBg}`}>
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          px: "20px",
-          mb: "23px",
-        }}
-      >
+      <Box className={classes.titleContainer}>
         <Typography variant="h3" className={classes.title}>
           {title}
         </Typography>
