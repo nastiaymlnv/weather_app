@@ -39,10 +39,15 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
 
     return `${angle}deg`;
   };
-  const generatePercentForCssSunMove = (sunriseTime, sunsetTime, currTime) => {
+
+  const generatePercentForCssSunFilling = (
+    sunriseTime,
+    sunsetTime,
+    currTime,
+  ) => {
     const percent = (currTime * 100) / (sunsetTime - sunriseTime);
 
-    return `${percent - 5}%`;
+    return `${percent - 10}%`;
   };
 
   return (
@@ -58,7 +63,7 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
           <div
             className={css.fillBg}
             style={{
-              "--currSunBeamPosition": generatePercentForCssSunMove(
+              "--currSunBeamPosition": generatePercentForCssSunFilling(
                 sunriseTimestamp,
                 sunsetTimestamp,
                 currentTimestamp,
