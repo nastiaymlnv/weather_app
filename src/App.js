@@ -20,6 +20,8 @@ import weatherConditions from "./weatherConditions";
 import "./assets/reset.css";
 import css from "./App.module.css";
 
+const days = 7;
+
 const App = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
 
@@ -28,8 +30,6 @@ const App = () => {
   const [targetLocation, setTargetLocation] = useState("Vinnitsa");
 
   const { location, current, forecast } = weatherInfo;
-
-  const days = 7;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -57,12 +57,10 @@ const App = () => {
       setTargetLocation(targetValue);
   };
 
-  const returnIconComponent = (isDay, title) => {
-    const isDayBool = !!isDay;
-    return isDayBool
+  const returnIconComponent = (isDay, title) =>
+    isDay
       ? weatherConditions[0].weatherComponents[title]
       : weatherConditions[1].weatherComponents[title];
-  };
 
   if (!location) {
     return (
