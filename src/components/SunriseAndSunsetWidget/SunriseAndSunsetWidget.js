@@ -5,6 +5,9 @@ import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { Box, Typography } from "@mui/material";
 
+import { today, minutesFormat } from "../../helpers/getTodayDate";
+import getTwentyFourHourTime from "../../helpers/getTwentyFourHourTime";
+
 import Sun from "../../assets/icons/SunMove-icon.png";
 
 import css from "./SunriseAndSunsetWidget.module.css";
@@ -16,14 +19,6 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
   const color =
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
 
-  const getTwentyFourHourTime = (timeString) => {
-    var date = new Date("01/01/1970 " + timeString);
-    return date.getHours() + ":" + date.getMinutes();
-  };
-
-  const today = new Date();
-  const minutesFormat =
-    today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
   const currentDate = ` ${today.getHours()}:${minutesFormat}`;
   const sunriseTimestamp = new Date(
     `01/01/1970 ${getTwentyFourHourTime(sunrise)}`,
@@ -37,7 +32,9 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
     const percent = (currTime * 100) / sunsetTime;
     const angle = (percent * 180) / 100;
 
-    return `${angle}deg`;
+    if (currentTimestamp >= sunsetTimestamp) return "180deg";
+    else if (currentTimestamp <= sunriseTimestamp) return "0deg";
+    else return `${angle}deg`;
   };
 
   const generatePercentForCssSunFilling = (
@@ -47,7 +44,9 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
   ) => {
     const percent = (currTime * 100) / (sunsetTime - sunriseTime);
 
-    return `${percent - 10}%`;
+    if (currentTimestamp >= sunsetTimestamp) return "100%";
+    else if (currentTimestamp <= sunriseTimestamp) return "0%";
+    else return `${percent - 10}%`;
   };
 
   return (
@@ -63,16 +62,11 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
           <div
             className={css.fillBg}
             style={{
-              "--currSunBeamPosition":
-                currentTimestamp >= sunsetTimestamp
-                  ? "100%"
-                  : currentTimestamp <= sunriseTimestamp
-                  ? "0%"
-                  : generatePercentForCssSunFilling(
-                      sunriseTimestamp,
-                      sunsetTimestamp,
-                      currentTimestamp,
-                    ),
+              "--currSunBeamPosition": generatePercentForCssSunFilling(
+                sunriseTimestamp,
+                sunsetTimestamp,
+                currentTimestamp,
+              ),
             }}
           ></div>
         </div>
@@ -80,15 +74,10 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
           <span
             className={css.sunContainer}
             style={{
-              "--currSunPosition":
-                currentTimestamp >= sunsetTimestamp
-                  ? "180deg"
-                  : currentTimestamp <= sunriseTimestamp
-                  ? "0deg"
-                  : generateAngleForCssSunMove(
-                      sunsetTimestamp,
-                      currentTimestamp,
-                    ),
+              "--currSunPosition": generateAngleForCssSunMove(
+                sunsetTimestamp,
+                currentTimestamp,
+              ),
             }}
           >
             <img src={Sun} alt="Sun" className={css.sun} />

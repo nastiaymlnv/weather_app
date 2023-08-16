@@ -18,8 +18,7 @@ const FutureDayForecastCard = ({
   classes,
 }) => {
   const { condition, maxtemp_c, mintemp_c, is_day } = dayInfo;
-  const defineIsDay = !!is_day;
-  const isDay = defineIsDay ? false : true;
+  const isDay = is_day ? false : true;
   const newDate = new Date(date);
   const weekday = daysArray[newDate.getDay()];
   const dayDate = `${newDate.getDate()} ${monthsArray[newDate.getMonth()]}`;

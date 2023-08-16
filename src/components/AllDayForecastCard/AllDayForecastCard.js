@@ -10,15 +10,14 @@ import ForecastInfoCards from "../ForecastInfoCards/ForecastInfoCards";
 import { monthsArray } from "../../config/monthsArray";
 import forecastIndicesList from "./forecastIndicesList";
 
+import { today, minutesFormat } from "../../helpers/getTodayDate";
+
 import css from "./AllDayForecastCard.module.css";
 import styles from "./styles";
 
 const AllDayForecastCard = (props) => {
   const { currentDay, fewDaysForecast, returnIconComponent, classes } = props;
   const allHoursInfoArr = fewDaysForecast.forecastday[0].hour;
-  const today = new Date();
-  const minutesFormat =
-    today.getMinutes() < 10 ? "0" + today.getMinutes() : today.getMinutes();
   const currentDate = `${today.getDate()} ${
     monthsArray[today.getMonth()]
   }, ${today.getFullYear()} ${today.getHours()}:${minutesFormat}`;

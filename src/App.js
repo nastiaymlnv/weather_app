@@ -62,6 +62,12 @@ const App = () => {
       ? weatherConditions[0].weatherComponents[title]
       : weatherConditions[1].weatherComponents[title];
 
+  const changeTheme = (theme) => {
+    return theme.palette.mode === "light"
+      ? setTheme(darkTheme)
+      : setTheme(lightTheme);
+  };
+
   if (!location) {
     return (
       <Box
@@ -76,13 +82,7 @@ const App = () => {
         <CircularProgress />
       </Box>
     );
-  }
-
-  const changeTheme = (theme) => {
-    return theme.palette.mode === "light"
-      ? setTheme(darkTheme)
-      : setTheme(lightTheme);
-  };
+  }  
 
   return (
     <ThemeProvider theme={theme}>
