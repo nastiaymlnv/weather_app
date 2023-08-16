@@ -63,11 +63,16 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
           <div
             className={css.fillBg}
             style={{
-              "--currSunBeamPosition": generatePercentForCssSunFilling(
-                sunriseTimestamp,
-                sunsetTimestamp,
-                currentTimestamp,
-              ),
+              "--currSunBeamPosition":
+                currentTimestamp >= sunsetTimestamp
+                  ? "100%"
+                  : currentTimestamp <= sunriseTimestamp
+                  ? "0%"
+                  : generatePercentForCssSunFilling(
+                      sunriseTimestamp,
+                      sunsetTimestamp,
+                      currentTimestamp,
+                    ),
             }}
           ></div>
         </div>
@@ -75,10 +80,15 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
           <span
             className={css.sunContainer}
             style={{
-              "--currSunPosition": generateAngleForCssSunMove(
-                sunsetTimestamp,
-                currentTimestamp,
-              ),
+              "--currSunPosition":
+                currentTimestamp >= sunsetTimestamp
+                  ? "180deg"
+                  : currentTimestamp <= sunriseTimestamp
+                  ? "0deg"
+                  : generateAngleForCssSunMove(
+                      sunsetTimestamp,
+                      currentTimestamp,
+                    ),
             }}
           >
             <img src={Sun} alt="Sun" className={css.sun} />
