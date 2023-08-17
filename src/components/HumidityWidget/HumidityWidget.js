@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { List, ListItemText } from "@mui/material";
+
+import { humidityLevels } from "./humidityLevels.js";
 
 import drawSVGAnimationIcon from "./drawSVGAnimationIcon.js";
 
@@ -21,30 +24,15 @@ const HumidityWidget = ({ humidity, classes }) => {
         {drawSVGAnimationIcon(humidity / 100, color)}
       </div>
       <List className={classes["HumidityWidget-legend"]}>
-        <ListItemText
-          className={classes["HumidityWidget-legend__item"]}
-          disableTypography
-        >
-          0
-        </ListItemText>
-        <ListItemText
-          className={classes["HumidityWidget-legend__item"]}
-          disableTypography
-        >
-          25
-        </ListItemText>
-        <ListItemText
-          className={classes["HumidityWidget-legend__item"]}
-          disableTypography
-        >
-          50
-        </ListItemText>
-        <ListItemText
-          className={classes["HumidityWidget-legend__item"]}
-          disableTypography
-        >
-          75
-        </ListItemText>
+        {humidityLevels.map(level => 
+          <ListItemText
+            key={uuidv4()}
+            className={classes["HumidityWidget-legend__item"]}
+            disableTypography
+          >
+            {level}
+          </ListItemText>
+        )}
         <span className={css["HumidityWidget-legend__item--max"]}>100</span>
       </List>
     </div>

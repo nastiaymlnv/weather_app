@@ -1,9 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { v4 as uuidv4 } from "uuid";
 
 import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { List, ListItemText } from "@mui/material";
+
+import { UVLevels } from "./UVLevels";
 
 import css from "./UVIndexWidget.module.css";
 import styles from "./styles";
@@ -44,55 +47,18 @@ const UVIndexWidget = ({ uv, classes }) => {
         }}
       >
         <List className={classes["UVIndexWidget-levels-list"]}>
-          <ListItemText
-            className={classes["UVIndexWidget-levels-list__item"]}
-            sx={{ left: "5px", bottom: "-2px" }}
-            disableTypography
-          >
-            0
-          </ListItemText>
-          <ListItemText
-            className={classes["UVIndexWidget-levels-list__item"]}
-            sx={{ left: "20px", bottom: "45px" }}
-            disableTypography
-          >
-            2
-          </ListItemText>
-          <ListItemText
-            className={classes["UVIndexWidget-levels-list__item"]}
-            sx={{ left: "70px", bottom: "95px" }}
-            disableTypography
-          >
-            4
-          </ListItemText>
-          <ListItemText
-            className={classes["UVIndexWidget-levels-list__item"]}
-            sx={{ left: "50%", top: "-5px" }}
-            disableTypography
-          >
-            6
-          </ListItemText>
-          <ListItemText
-            className={classes["UVIndexWidget-levels-list__item"]}
-            sx={{ right: "70px", bottom: "95px" }}
-            disableTypography
-          >
-            8
-          </ListItemText>
-          <ListItemText
-            className={classes["UVIndexWidget-levels-list__item"]}
-            sx={{ right: "20px", bottom: "45px" }}
-            disableTypography
-          >
-            10
-          </ListItemText>
-          <ListItemText
-            className={classes["UVIndexWidget-levels-list__item"]}
-            sx={{ right: "5px", bottom: "-2px" }}
-            disableTypography
-          >
-            12
-          </ListItemText>
+          {
+            UVLevels.map(level => 
+              <ListItemText 
+                key={uuidv4()}
+                className={classes["UVIndexWidget-levels-list__item"]}
+                sx={ Object.values(level) }
+                disableTypography
+              >
+                {Object.keys(level)}
+              </ListItemText>
+            )
+          }
         </List>
       </div>
     </div>
