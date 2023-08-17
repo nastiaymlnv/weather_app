@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from "classnames";
 import { v4 as uuidv4 } from "uuid";
 
 import { useTheme } from "@mui/material/styles";
@@ -26,19 +27,19 @@ const UVIndexWidget = ({ uv, classes }) => {
   return (
     <div className={css.UVIndexWidget} style={{ "--color": color }}>
       <div
-        className={css.UVIndexWidget__zonecircle1}
+        className={cn(css.UVIndexWidget__zonecircle, css["UVIndexWidget__zonecircle--upper"])}
         style={{ "--uv": `${generateAngleForCssAnimation(uv)}deg` }}
       ></div>
       <div
-        className={css.UVIndexWidget__zonecircle2}
+        className={cn(css.UVIndexWidget__zonecircle, css["UVIndexWidget__zonecircle--lower"])}
         style={{ "--uv": `${generateAngleForCssAnimation(uv) - 90}deg` }}
       ></div>
       <div
-        className={css.UVIndexWidget__bg1}
+        className={cn(css.UVIndexWidget__bg, css["UVIndexWidget__bg--back"])}
         style={{ "--color": color }}
       ></div>
       <div
-        className={css.UVIndexWidget__bg2}
+        className={cn(css.UVIndexWidget__bg, css["UVIndexWidget__bg--front"])}
         style={{
           "--bg":
             theme.palette.background.default === "#FFF"
