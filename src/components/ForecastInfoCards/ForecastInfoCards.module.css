@@ -11,12 +11,3 @@
   margin-top: 5px;
   gap: 56px;
 }
-
-.HourForecast-image {
-  margin-top: 14px;
-
-  & svg {
-    max-height: 25px;
-    max-width: 40px;
-  }
-}

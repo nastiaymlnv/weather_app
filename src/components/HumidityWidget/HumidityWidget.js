@@ -21,16 +21,28 @@ const HumidityWidget = ({ humidity, classes }) => {
         {drawSVGAnimationIcon(humidity / 100, color)}
       </div>
       <List className={classes["HumidityWidget-legend"]}>
-        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
+        <ListItemText
+          className={classes["HumidityWidget-legend__item"]}
+          disableTypography
+        >
           0
         </ListItemText>
-        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
+        <ListItemText
+          className={classes["HumidityWidget-legend__item"]}
+          disableTypography
+        >
           25
         </ListItemText>
-        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
+        <ListItemText
+          className={classes["HumidityWidget-legend__item"]}
+          disableTypography
+        >
           50
         </ListItemText>
-        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
+        <ListItemText
+          className={classes["HumidityWidget-legend__item"]}
+          disableTypography
+        >
           75
         </ListItemText>
         <span className={css["HumidityWidget-legend__item--max"]}>100</span>

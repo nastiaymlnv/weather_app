@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import cn from 'classnames';
+import cn from "classnames";
 
 import { withStyles } from "@mui/styles";
 import { Box, Typography } from "@mui/material";

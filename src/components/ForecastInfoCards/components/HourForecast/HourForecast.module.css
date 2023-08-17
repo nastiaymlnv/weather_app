@@ -1,0 +1,7 @@
+.HourForecast-image {
+  margin-top: 14px;
+  & svg {
+    max-height: 25px;
+    max-width: 40px;
+  }
+}

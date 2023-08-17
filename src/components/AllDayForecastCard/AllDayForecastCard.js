@@ -30,10 +30,7 @@ const AllDayForecastCard = (props) => {
       <section className={css["AllDayForecastCard-content"]}>
         <section>
           <div className={css["AllDayForecastCard-content__image"]}>
-            {returnIconComponent(
-              currentDay.is_day,
-              currentDay.condition.text,
-            )}
+            {returnIconComponent(currentDay.is_day, currentDay.condition.text)}
           </div>
           <Typography variant="h2" sx={{ mt: "35px", textAlign: "center" }}>
             {currentDay.temp_c > 0 && `+${Math.floor(currentDay.temp_c)}`}°C
@@ -54,7 +51,9 @@ const AllDayForecastCard = (props) => {
               );
             })}
           </List>
-          <section className={css["AllDayForecastCard__hourly-forecast-container"]}>
+          <section
+            className={css["AllDayForecastCard__hourly-forecast-container"]}
+          >
             <ForecastInfoCards
               allHoursInfoArr={allHoursInfoArr}
               returnIconComponent={returnIconComponent}

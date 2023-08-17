@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import cn from 'classnames';
+import cn from "classnames";
 
 import { withStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
@@ -25,11 +25,12 @@ const FutureDayForecastCard = ({
   const dayDate = `${newDate.getDate()} ${monthsArray[newDate.getMonth()]}`;
 
   return (
-    <article
-      className={cn(css["futureDayForecastCard"], mainCSS["box-bg"])}
-    >
+    <article className={cn(css["futureDayForecastCard"], mainCSS["box-bg"])}>
       <div>
-        <Typography variant="h3" className={classes["FutureDayForecastCard-title"]}>
+        <Typography
+          variant="h3"
+          className={classes["FutureDayForecastCard-title"]}
+        >
           {weekday}
         </Typography>
         <Typography>{dayDate}</Typography>
@@ -39,7 +40,10 @@ const FutureDayForecastCard = ({
           {returnIconComponent(isDay, condition.text)}
         </div>
         <span>
-          <Typography className={classes["FutureDayForecastCard-content__data"]} sx={{ mb: "4px" }}>
+          <Typography
+            className={classes["FutureDayForecastCard-content__data"]}
+            sx={{ mb: "4px" }}
+          >
             {maxtemp_c > 0 && `+${Math.floor(maxtemp_c)}`}°
           </Typography>
           <Typography

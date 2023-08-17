@@ -30,7 +30,10 @@ const UVIndexWidget = ({ uv, classes }) => {
         className={css.UVIndexWidget__zonecircle2}
         style={{ "--uv": `${generateAngleForCssAnimation(uv) - 90}deg` }}
       ></div>
-      <div className={css.UVIndexWidget__bg1} style={{ "--color": color }}></div>
+      <div
+        className={css.UVIndexWidget__bg1}
+        style={{ "--color": color }}
+      ></div>
       <div
         className={css.UVIndexWidget__bg2}
         style={{

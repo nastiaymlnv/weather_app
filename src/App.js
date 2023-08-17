@@ -83,7 +83,7 @@ const App = () => {
         <CircularProgress />
       </Box>
     );
-  }  
+  }
 
   return (
     <ThemeProvider theme={theme}>

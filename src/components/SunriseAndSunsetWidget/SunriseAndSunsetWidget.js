@@ -52,7 +52,11 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
   return (
     <>
       <Box
-        sx={{ position: "relative", px: "15px", borderBottom: `1px solid ${color}` }}
+        sx={{
+          position: "relative",
+          px: "15px",
+          borderBottom: `1px solid ${color}`,
+        }}
       >
         <div
           className={css.SunriseAndSunsetWidget__trajectory}
@@ -79,20 +83,36 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
               ),
             }}
           >
-            <img src={Sun} alt="Sun" className={css["SunriseAndSunsetWidget__sun-image"]} />
+            <img
+              src={Sun}
+              alt="Sun"
+              className={css["SunriseAndSunsetWidget__sun-image"]}
+            />
           </span>
         </span>
       </Box>
       <Box className={classes["SunriseAndSunsetWidget-legend"]}>
         <Box>
-          <Typography className={classes["SunriseAndSunsetWidget-legend__title"]}>Sunrise</Typography>
-          <Typography className={classes["SunriseAndSunsetWidget-legend__time"]}>
+          <Typography
+            className={classes["SunriseAndSunsetWidget-legend__title"]}
+          >
+            Sunrise
+          </Typography>
+          <Typography
+            className={classes["SunriseAndSunsetWidget-legend__time"]}
+          >
             {getTwentyFourHourTime(sunrise)}
           </Typography>
         </Box>
         <Box>
-          <Typography className={classes["SunriseAndSunsetWidget-legend__title"]}>Sunset</Typography>
-          <Typography className={classes["SunriseAndSunsetWidget-legend__time"]}>
+          <Typography
+            className={classes["SunriseAndSunsetWidget-legend__title"]}
+          >
+            Sunset
+          </Typography>
+          <Typography
+            className={classes["SunriseAndSunsetWidget-legend__time"]}
+          >
             {getTwentyFourHourTime(sunset)}
           </Typography>
         </Box>
