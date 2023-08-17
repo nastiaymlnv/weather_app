@@ -1,14 +1,10 @@
 const styles = () => ({
-  humidityTitle: {
-    fontSize: "20px",
-    lineHeight: "normal",
-  },
-  humidityLegend: {
+  "HumidityWidget-legend": {
     display: "flex",
     justifyContent: "space-between",
     padding: 0,
   },
-  humidityLegendText: {
+  "HumidityWidget-legend__item": {
     fontSize: "12px",
   },
 });

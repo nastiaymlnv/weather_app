@@ -1,5 +1,5 @@
 const styles = () => ({
-  searchInput: {
+  SearchField__input: {
     width: "360px",
     fontFamily: "Open Sans",
     fontSize: "18px",

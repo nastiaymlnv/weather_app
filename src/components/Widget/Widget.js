@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from 'classnames';
 
 import { withStyles } from "@mui/styles";
 import { Box, Typography } from "@mui/material";
@@ -10,12 +11,12 @@ import styles from "./styles";
 
 const Widget = ({ component, title, titleVal, classes }) => {
   return (
-    <article className={`${css.container} ${mainCSS.mainContainerBg}`}>
-      <Box className={classes.titleContainer}>
-        <Typography variant="h3" className={classes.title}>
+    <article className={cn(css.Widget, mainCSS["box-bg"])}>
+      <Box className={classes["Widget-title"]}>
+        <Typography variant="h3" className={classes["Widget-title__text"]}>
           {title}
         </Typography>
-        <Typography variant="h3" className={classes.title}>
+        <Typography variant="h3" className={classes["Widget-title__text"]}>
           {titleVal}
         </Typography>
       </Box>

@@ -52,15 +52,14 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
   return (
     <>
       <Box
-        className={classes.SunMoveAnimationContainer}
-        sx={{ px: "15px", borderBottom: `1px solid ${color}` }}
+        sx={{ position: "relative", px: "15px", borderBottom: `1px solid ${color}` }}
       >
         <div
-          className={css.sunMoveTrajectoryContainer}
+          className={css.SunriseAndSunsetWidget__trajectory}
           style={{ "--color": color }}
         >
           <div
-            className={css.fillBg}
+            className={css["SunriseAndSunsetWidget__trajectory-bg"]}
             style={{
               "--currSunBeamPosition": generatePercentForCssSunFilling(
                 sunriseTimestamp,
@@ -72,7 +71,7 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
         </div>
         <span>
           <span
-            className={css.sunContainer}
+            className={css.SunriseAndSunsetWidget__sun}
             style={{
               "--currSunPosition": generateAngleForCssSunMove(
                 sunsetTimestamp,
@@ -80,20 +79,20 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
               ),
             }}
           >
-            <img src={Sun} alt="Sun" className={css.sun} />
+            <img src={Sun} alt="Sun" className={css["SunriseAndSunsetWidget__sun-image"]} />
           </span>
         </span>
       </Box>
-      <Box className={classes.legend}>
+      <Box className={classes["SunriseAndSunsetWidget-legend"]}>
         <Box>
-          <Typography className={classes.legendTitles}>Sunrise</Typography>
-          <Typography className={classes.legendTime}>
+          <Typography className={classes["SunriseAndSunsetWidget-legend__title"]}>Sunrise</Typography>
+          <Typography className={classes["SunriseAndSunsetWidget-legend__time"]}>
             {getTwentyFourHourTime(sunrise)}
           </Typography>
         </Box>
         <Box>
-          <Typography className={classes.legendTitles}>Sunset</Typography>
-          <Typography className={classes.legendTime}>
+          <Typography className={classes["SunriseAndSunsetWidget-legend__title"]}>Sunset</Typography>
+          <Typography className={classes["SunriseAndSunsetWidget-legend__time"]}>
             {getTwentyFourHourTime(sunset)}
           </Typography>
         </Box>

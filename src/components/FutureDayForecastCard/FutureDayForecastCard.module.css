@@ -7,14 +7,14 @@
   min-width: 182px;
 }
 
-.futureDayForecastCardInfo {
+.FutureDayForecastCard-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 18px;
 }
 
-.futureDayForecastCardInfoImgWrapper {
+.FutureDayForecastCard-content__image {
   & svg {
     max-width: 56px;
     max-height: 56px;

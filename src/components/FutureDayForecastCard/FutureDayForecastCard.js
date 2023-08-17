@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import cn from 'classnames';
 
 import { withStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
@@ -25,24 +26,24 @@ const FutureDayForecastCard = ({
 
   return (
     <article
-      className={`${css.futureDayForecastCard} ${mainCSS.mainContainerBg}`}
+      className={cn(css["futureDayForecastCard"], mainCSS["box-bg"])}
     >
       <div>
-        <Typography variant="h3" className={classes.futureForecastTitle}>
+        <Typography variant="h3" className={classes["FutureDayForecastCard-title"]}>
           {weekday}
         </Typography>
         <Typography>{dayDate}</Typography>
       </div>
-      <div className={css.futureDayForecastCardInfo}>
-        <div className={css.futureDayForecastCardInfoImgWrapper}>
+      <div className={css["FutureDayForecastCard-content"]}>
+        <div className={css["FutureDayForecastCard-content__image"]}>
           {returnIconComponent(isDay, condition.text)}
         </div>
         <span>
-          <Typography className={classes.futureForecastItem} sx={{ mb: "4px" }}>
+          <Typography className={classes["FutureDayForecastCard-content__data"]} sx={{ mb: "4px" }}>
             {maxtemp_c > 0 && `+${Math.floor(maxtemp_c)}`}°
           </Typography>
           <Typography
-            className={classes.futureForecastItem}
+            className={classes["FutureDayForecastCard-content__data"]}
             sx={{ color: "#686868" }}
           >
             {mintemp_c > 0 && `+${Math.floor(mintemp_c)}`}°

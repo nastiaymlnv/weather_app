@@ -16,7 +16,7 @@ const SearchField = ({ handleLocation, classes }) => {
   return (
     <Box sx={{ position: "relative" }}>
       <TextField
-        className={classes.searchInput}
+        className={classes.SearchField__input}
         placeholder="Search the city"
         onChange={handleLocation}
         sx={{

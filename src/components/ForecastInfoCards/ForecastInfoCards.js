@@ -27,22 +27,22 @@ const HourForecast = (hoursInfoArr, data, returnIconComponent, classes) => {
   return (
     <section>
       <Typography sx={{ fontSize: "20px" }}>{hour}:00</Typography>
-      <div className={css.partDayForecastCardItemImgWrapper}>
+      <div className={css["HourForecast-image"]}>
         {returnIconComponent(is_day, condition.text)}
       </div>
-      <Typography className={classes.partDayForecastText}>
+      <Typography className={classes["HourForecast-data"]}>
         {temp_c > 0 && `+${Math.floor(temp_c)}`}°
       </Typography>
-      <Typography className={classes.partDayForecastText}>
+      <Typography className={classes["HourForecast-data"]}>
         {feelslike_c > 0 && `+${Math.floor(feelslike_c)}`}°
       </Typography>
-      <Typography className={classes.partDayForecastText}>
+      <Typography className={classes["HourForecast-data"]}>
         {pressure_mb}
       </Typography>
-      <Typography className={classes.partDayForecastText}>
+      <Typography className={classes["HourForecast-data"]}>
         {humidity}
       </Typography>
-      <Typography className={classes.partDayForecastText}>
+      <Typography className={classes["HourForecast-data"]}>
         {wind_kph}
       </Typography>
     </section>
@@ -56,14 +56,11 @@ const ForecastInfoCards = ({
 }) => {
   return hoursForecast.map((dayPart) => {
     return (
-      <section key={uuidv4()} className={css.partDayForecastCard}>
-        <Typography
-          sx={{ fontSize: "24px" }}
-          className={classes.partDayForecastTitle}
-        >
+      <section key={uuidv4()} className={css.ForecastInfoCards}>
+        <Typography sx={{ fontSize: "24px", textAlign: "center" }}>
           {dayPart[0]}
         </Typography>
-        <div className={css.partDayForecastCardHours}>
+        <div className={css["ForecastInfoCards-hours"]}>
           {HourForecast(
             allHoursInfoArr,
             dayPart[1],

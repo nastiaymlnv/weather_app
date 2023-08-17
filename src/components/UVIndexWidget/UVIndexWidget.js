@@ -21,18 +21,18 @@ const UVIndexWidget = ({ uv, classes }) => {
   };
 
   return (
-    <div className={css.trajectoryContainer} style={{ "--color": color }}>
+    <div className={css.UVIndexWidget} style={{ "--color": color }}>
       <div
-        className={css.trajectoryZonecircle}
+        className={css.UVIndexWidget__zonecircle1}
         style={{ "--uv": `${generateAngleForCssAnimation(uv)}deg` }}
       ></div>
       <div
-        className={css.trajectoryZonecircle1}
+        className={css.UVIndexWidget__zonecircle2}
         style={{ "--uv": `${generateAngleForCssAnimation(uv) - 90}deg` }}
       ></div>
-      <div className={css.trajectoryBg1} style={{ "--color": color }}></div>
+      <div className={css.UVIndexWidget__bg1} style={{ "--color": color }}></div>
       <div
-        className={css.trajectoryBg2}
+        className={css.UVIndexWidget__bg2}
         style={{
           "--bg":
             theme.palette.background.default === "#FFF"
@@ -40,51 +40,51 @@ const UVIndexWidget = ({ uv, classes }) => {
               : "rgba(8, 3, 56, 0.7)",
         }}
       >
-        <List className={classes.UVLevelsPanel}>
+        <List className={classes["UVIndexWidget-levels-list"]}>
           <ListItemText
-            className={classes.UVLevel}
+            className={classes["UVIndexWidget-levels-list__item"]}
             sx={{ left: "5px", bottom: "-2px" }}
             disableTypography
           >
             0
           </ListItemText>
           <ListItemText
-            className={classes.UVLevel}
+            className={classes["UVIndexWidget-levels-list__item"]}
             sx={{ left: "20px", bottom: "45px" }}
             disableTypography
           >
             2
           </ListItemText>
           <ListItemText
-            className={classes.UVLevel}
+            className={classes["UVIndexWidget-levels-list__item"]}
             sx={{ left: "70px", bottom: "95px" }}
             disableTypography
           >
             4
           </ListItemText>
           <ListItemText
-            className={classes.UVLevel}
+            className={classes["UVIndexWidget-levels-list__item"]}
             sx={{ left: "50%", top: "-5px" }}
             disableTypography
           >
             6
           </ListItemText>
           <ListItemText
-            className={classes.UVLevel}
+            className={classes["UVIndexWidget-levels-list__item"]}
             sx={{ right: "70px", bottom: "95px" }}
             disableTypography
           >
             8
           </ListItemText>
           <ListItemText
-            className={classes.UVLevel}
+            className={classes["UVIndexWidget-levels-list__item"]}
             sx={{ right: "20px", bottom: "45px" }}
             disableTypography
           >
             10
           </ListItemText>
           <ListItemText
-            className={classes.UVLevel}
+            className={classes["UVIndexWidget-levels-list__item"]}
             sx={{ right: "5px", bottom: "-2px" }}
             disableTypography
           >

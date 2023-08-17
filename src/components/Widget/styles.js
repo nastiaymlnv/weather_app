@@ -1,18 +1,14 @@
 const styles = () => ({
-  titleContainer: {
+  "Widget-title": {
     display: "flex",
     justifyContent: "space-between",
     paddingLeft: "20px",
     paddingRight: "20px",
     marginBottom: "23px",
   },
-  title: {
+  "Widget-title__text": {
     fontSize: "20px",
     lineHeight: "normal",
-  },
-  humidityLegend: {
-    display: "flex",
-    justifyContent: "space-between",
   },
 });
 

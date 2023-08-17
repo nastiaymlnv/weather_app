@@ -1,21 +1,21 @@
-.dayForecastContent {
+.AllDayForecastCard-content {
   margin-top: 24px;
   display: flex;
 }
 
-.dayForecastWeatherImgWrapper {
+.AllDayForecastCard-content__image {
   & svg {
     max-width: 281px;
     max-height: 187px;
   }
 }
 
-.forecastHourly {
+.AllDayForecastCard__list-container {
   display: flex;
   align-items: flex-end;
   margin-left: 10px;
 }
 
-.forecastHourlyWrapper {
+.AllDayForecastCard__hourly-forecast-container {
   display: flex;
 }

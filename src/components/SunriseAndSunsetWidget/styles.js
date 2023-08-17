@@ -1,15 +1,12 @@
 const styles = () => ({
-  SunMoveAnimationContainer: {
-    position: "relative",
-  },
-  legend: {
+  "SunriseAndSunsetWidget-legend": {
     display: "flex",
     justifyContent: "space-between",
   },
-  legendTitles: {
+  "SunriseAndSunsetWidget-legend__title": {
     color: "#FFE55F",
   },
-  legendTime: {
+  "SunriseAndSunsetWidget-legend__time": {
     textAlign: "center",
     marginTop: "4px",
   },

@@ -1,4 +1,4 @@
-.trajectoryContainer {
+.UVIndexWidget {
   position: relative;
   border-radius: 12em 12em 0 0;
   width: 361px;
@@ -7,8 +7,8 @@
   border-bottom: 1px solid var(--color);
 }
 
-.trajectoryZonecircle,
-.trajectoryZonecircle1 {
+.UVIndexWidget__zonecircle1,
+.UVIndexWidget__zonecircle2 {
   --uv: var(--uv);
   animation: uvLevel 1s both ease-out;
   position: absolute;
@@ -20,12 +20,12 @@
   transform-origin: 100% 0%;
 }
 
-.trajectoryZonecircle1 {
+.UVIndexWidget__zonecircle1 {
   animation: uvLevel1 1s both ease-out;
   background: linear-gradient(70deg, #f0ae02 0%, rgba(240, 174, 2, 0) 89.51%);
 }
 
-.trajectoryBg1 {
+.UVIndexWidget__bg1 {
   position: absolute;
   left: 16px;
   bottom: 0px;
@@ -38,7 +38,7 @@
   border-bottom: none;
 }
 
-.trajectoryBg2 {
+.UVIndexWidget__bg2 {
   position: absolute;
   left: 32px;
   bottom: 0px;

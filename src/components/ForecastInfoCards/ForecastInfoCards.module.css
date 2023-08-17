@@ -1,4 +1,4 @@
-.partDayForecastCard {
+.ForecastInfoCards {
   padding: 4px 30px;
 
   &:not(:last-child) {
@@ -6,13 +6,13 @@
   }
 }
 
-.partDayForecastCardHours {
+.ForecastInfoCards-hours {
   display: flex;
   margin-top: 5px;
   gap: 56px;
 }
 
-.partDayForecastCardItemImgWrapper {
+.HourForecast-image {
   margin-top: 14px;
 
   & svg {

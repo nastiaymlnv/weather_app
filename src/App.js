@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
+
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
@@ -91,7 +92,7 @@ const App = () => {
         <Button variant="text" onClick={() => changeTheme(theme)}>
           Change theme
         </Button>
-        <header className={css.headerContainer}>
+        <header className={css["App-header"]}>
           <Typography variant="h1">
             {`${location.name}, ${location.country}`}
           </Typography>
@@ -124,7 +125,7 @@ const App = () => {
           />
         </Box>
 
-        <section className={css.fewDaysWeatherContainer}>
+        <section className={css["App__future-forecast-container"]}>
           {forecast.forecastday.slice(1).map(({ date, day }) => {
             return (
               <FutureDayForecastCard

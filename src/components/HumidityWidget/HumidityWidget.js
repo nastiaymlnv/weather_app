@@ -16,24 +16,24 @@ const HumidityWidget = ({ humidity, classes }) => {
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
 
   return (
-    <div className={css.humidityWrapper}>
-      <div className={css.humidityChart} style={{ "--color": color }}>
+    <div className={css["HumidityWidget"]}>
+      <div className={css["HumidityWidget-chart"]} style={{ "--color": color }}>
         {drawSVGAnimationIcon(humidity / 100, color)}
       </div>
-      <List className={classes.humidityLegend}>
-        <ListItemText className={classes.humidityLegendText} disableTypography>
+      <List className={classes["HumidityWidget-legend"]}>
+        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
           0
         </ListItemText>
-        <ListItemText className={classes.humidityLegendText} disableTypography>
+        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
           25
         </ListItemText>
-        <ListItemText className={classes.humidityLegendText} disableTypography>
+        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
           50
         </ListItemText>
-        <ListItemText className={classes.humidityLegendText} disableTypography>
+        <ListItemText className={classes["HumidityWidget-legend__item"]} disableTypography>
           75
         </ListItemText>
-        <span className={css.maxHumidity}>100</span>
+        <span className={css["HumidityWidget-legend__item--max"]}>100</span>
       </List>
     </div>
   );

@@ -1,11 +1,12 @@
 import React from "react";
+import cn from 'classnames';
 
 import css from "./HumidityWidget.module.css";
 
 const drawSVGAnimationIcon = (stopPosition, color) => {
   return (
     <svg
-      className={css.curve}
+      className={cn(css["HumidityWidget-svg"])}
       width="351"
       height="142"
       viewBox="0 0 351 142"

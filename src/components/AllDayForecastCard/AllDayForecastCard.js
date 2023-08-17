@@ -23,48 +23,46 @@ const AllDayForecastCard = (props) => {
   }, ${today.getFullYear()} ${today.getHours()}:${minutesFormat}`;
 
   return (
-    <>
-      <Box className={classes.dayForecastWrapper}>
-        <Typography variant="h1" sx={{ ml: "18px" }}>
-          {currentDate}
-        </Typography>
-        <section className={css.dayForecastContent}>
-          <section>
-            <div className={css.dayForecastWeatherImgWrapper}>
-              {returnIconComponent(
-                currentDay.is_day,
-                currentDay.condition.text,
-              )}
-            </div>
-            <Typography variant="h2" sx={{ mt: "35px", textAlign: "center" }}>
-              {currentDay.temp_c > 0 && `+${Math.floor(currentDay.temp_c)}`}°C
-            </Typography>
-          </section>
-          <section className={css.forecastHourly}>
-            <List sx={{ mr: "19px" }}>
-              {forecastIndicesList.map((forecastItem) => {
-                return (
-                  <ListItemText
-                    key={uuidv4()}
-                    className={classes.listItemText}
-                    sx={{ mt: "13px", mb: "8px" }}
-                    disableTypography
-                  >
-                    {forecastItem}
-                  </ListItemText>
-                );
-              })}
-            </List>
-            <section className={css.forecastHourlyWrapper}>
-              <ForecastInfoCards
-                allHoursInfoArr={allHoursInfoArr}
-                returnIconComponent={returnIconComponent}
-              />
-            </section>
+    <Box className={classes.AllDayForecastCard}>
+      <Typography variant="h1" sx={{ ml: "18px" }}>
+        {currentDate}
+      </Typography>
+      <section className={css["AllDayForecastCard-content"]}>
+        <section>
+          <div className={css["AllDayForecastCard-content__image"]}>
+            {returnIconComponent(
+              currentDay.is_day,
+              currentDay.condition.text,
+            )}
+          </div>
+          <Typography variant="h2" sx={{ mt: "35px", textAlign: "center" }}>
+            {currentDay.temp_c > 0 && `+${Math.floor(currentDay.temp_c)}`}°C
+          </Typography>
+        </section>
+        <section className={css["AllDayForecastCard__list-container"]}>
+          <List sx={{ mr: "19px" }}>
+            {forecastIndicesList.map((forecastItem) => {
+              return (
+                <ListItemText
+                  key={uuidv4()}
+                  className={classes["AllDayForecastCard__list-item"]}
+                  sx={{ mt: "13px", mb: "8px" }}
+                  disableTypography
+                >
+                  {forecastItem}
+                </ListItemText>
+              );
+            })}
+          </List>
+          <section className={css["AllDayForecastCard__hourly-forecast-container"]}>
+            <ForecastInfoCards
+              allHoursInfoArr={allHoursInfoArr}
+              returnIconComponent={returnIconComponent}
+            />
           </section>
         </section>
-      </Box>
-    </>
+      </section>
+    </Box>
   );
 };
 

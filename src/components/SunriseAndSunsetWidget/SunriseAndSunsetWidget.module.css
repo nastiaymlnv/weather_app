@@ -1,4 +1,4 @@
-.sunMoveTrajectoryContainer {
+.SunriseAndSunsetWidget__trajectory {
   position: relative;
   width: 324px;
   height: 162px;
@@ -8,7 +8,7 @@
   overflow: hidden;
 }
 
-.fillBg {
+.SunriseAndSunsetWidget__trajectory-bg {
   --currSunBeamPosition: var(--currSunBeamPosition);
   width: 324px;
   height: 162px;
@@ -31,7 +31,7 @@
   }
 }
 
-.sunContainer {
+.SunriseAndSunsetWidget__sun {
   --currPosition: var(--currSunPosition);
   animation: moveSun 3s both ease-out;
   position: absolute;
@@ -52,7 +52,7 @@
   }
 }
 
-.sun {
+.SunriseAndSunsetWidget__sun-image {
   position: absolute;
   bottom: -10px;
   left: -5%;

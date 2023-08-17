@@ -1,8 +1,5 @@
 const styles = () => ({
-  partDayForecastTitle: {
-    textAlign: "center",
-  },
-  partDayForecastText: {
+  "HourForecast-data": {
     marginTop: "16px",
     fontSize: "18px",
     fontWeight: 600,
