@@ -63,11 +63,8 @@ const App = () => {
       ? weatherConditions[0].weatherComponents[title]
       : weatherConditions[1].weatherComponents[title];
 
-  const changeTheme = (theme) => {
-    return theme.palette.mode === "light"
-      ? setTheme(darkTheme)
-      : setTheme(lightTheme);
-  };
+  const changeTheme = (theme) =>
+    theme.palette.mode === "light" ? setTheme(darkTheme) : setTheme(lightTheme);
 
   if (!location) {
     return (
@@ -126,16 +123,14 @@ const App = () => {
         </Box>
 
         <section className={css["App__future-forecast-container"]}>
-          {forecast.forecastday.slice(1).map(({ date, day }) => {
-            return (
-              <FutureDayForecastCard
-                key={uuidv4()}
-                date={date}
-                dayInfo={day}
-                returnIconComponent={returnIconComponent}
-              />
-            );
-          })}
+          {forecast.forecastday.slice(1).map(({ date, day }) => (
+            <FutureDayForecastCard
+              key={uuidv4()}
+              date={date}
+              dayInfo={day}
+              returnIconComponent={returnIconComponent}
+            />
+          ))}
         </section>
       </Box>
     </ThemeProvider>

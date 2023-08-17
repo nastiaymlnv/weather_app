@@ -5,8 +5,7 @@ import cn from "classnames";
 import { withStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
 
-import { monthsArray } from "../../config/monthsArray";
-import { daysArray } from "./daysArray";
+import getDateNameFromDate from "../../helpers/getDateNameFromDate";
 
 import mainCSS from "../../App.module.css";
 import css from "./FutureDayForecastCard.module.css";
@@ -19,10 +18,8 @@ const FutureDayForecastCard = ({
   classes,
 }) => {
   const { condition, maxtemp_c, mintemp_c, is_day } = dayInfo;
+  const { weekday, dayDate } = getDateNameFromDate(date);
   const isDay = is_day ? false : true;
-  const newDate = new Date(date);
-  const weekday = daysArray[newDate.getDay()];
-  const dayDate = `${newDate.getDate()} ${monthsArray[newDate.getMonth()]}`;
 
   return (
     <article className={cn(css["futureDayForecastCard"], mainCSS["box-bg"])}>

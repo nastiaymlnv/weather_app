@@ -38,18 +38,16 @@ const AllDayForecastCard = (props) => {
         </section>
         <section className={css["AllDayForecastCard__list-container"]}>
           <List sx={{ mr: "19px" }}>
-            {forecastIndicesList.map((forecastItem) => {
-              return (
-                <ListItemText
-                  key={uuidv4()}
-                  className={classes["AllDayForecastCard__list-item"]}
-                  sx={{ mt: "13px", mb: "8px" }}
-                  disableTypography
-                >
-                  {forecastItem}
-                </ListItemText>
-              );
-            })}
+            {forecastIndicesList.map((forecastItem) => (
+              <ListItemText
+                key={uuidv4()}
+                className={classes["AllDayForecastCard__list-item"]}
+                sx={{ mt: "13px", mb: "8px" }}
+                disableTypography
+              >
+                {forecastItem}
+              </ListItemText>
+            ))}
           </List>
           <section
             className={css["AllDayForecastCard__hourly-forecast-container"]}
