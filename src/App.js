@@ -7,20 +7,21 @@ import CssBaseline from "@mui/material/CssBaseline";
 
 import { CircularProgress, Box, Typography, Button } from "@mui/material";
 
-import SearchField from "./components/SearchField";
-import AllDayForecastCard from "./components/AllDayForecastCard";
-import UVIndexWidget from "./components/UVIndexWidget";
-import SunriseAndSunsetWidget from "./components/SunriseAndSunsetWidget";
-import HumidityWidget from "./components/HumidityWidget";
-import Widget from "./components/Widget";
-import FutureDayForecastCard from "./components/FutureDayForecastCard";
+import {
+  AllDayForecastCard,
+  SearchField,
+  FutureDayForecastCard,
+  HumidityWidget,
+  SunriseAndSunsetWidget,
+  UVIndexWidget,
+  Widget,
+} from "./components";
 
 import { darkTheme, lightTheme } from "./assets/theme";
 import weatherConditions from "./weatherConditions";
 
 import "./assets/reset.css";
 import css from "./App.module.css";
-// import styles from "./styles";
 
 const days = 7;
 

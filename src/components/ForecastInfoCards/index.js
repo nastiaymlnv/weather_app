@@ -1,3 +1,3 @@
-import ForecastInfoCards from "./ForecastInfoCards";
+import { ForecastInfoCards } from "./ForecastInfoCards";
 
-export default ForecastInfoCards;
+export { ForecastInfoCards };

@@ -13,7 +13,10 @@ import Sun from "../../assets/icons/SunMove-icon.png";
 import css from "./SunriseAndSunsetWidget.module.css";
 import styles from "./styles";
 
-const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
+export const SunriseAndSunsetWidget = withStyles(styles)(({
+  sunMove,
+  classes,
+}) => {
   const { sunrise, sunset } = sunMove;
   const theme = useTheme();
   const color =
@@ -124,11 +127,9 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
       </Box>
     </>
   );
-};
+});
 
 SunriseAndSunsetWidget.propTypes = {
   sunMove: PropTypes.object.isRequired,
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(SunriseAndSunsetWidget);

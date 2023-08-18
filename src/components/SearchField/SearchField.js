@@ -10,7 +10,7 @@ import { ReactComponent as DarkIcon } from "../../assets/icons/magnifier_dark-th
 
 import styles from "./styles";
 
-const SearchField = ({ handleLocation, classes }) => {
+export const SearchField = withStyles(styles)(({ handleLocation, classes }) => {
   const theme = useTheme();
 
   return (
@@ -41,11 +41,9 @@ const SearchField = ({ handleLocation, classes }) => {
       />
     </Box>
   );
-};
+});
 
 SearchField.propTypes = {
   handleLocation: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(SearchField);

@@ -10,7 +10,7 @@ import hoursForecast from "./hoursForecast";
 
 import css from "./ForecastInfoCards.module.css";
 
-const ForecastInfoCards = ({ allHoursInfoArr, returnIconComponent }) => {
+export const ForecastInfoCards = ({ allHoursInfoArr, returnIconComponent }) => {
   return hoursForecast.map((dayPart) => (
     <section key={uuidv4()} className={css.ForecastInfoCards}>
       <Typography sx={{ fontSize: "24px", textAlign: "center" }}>
@@ -36,5 +36,3 @@ ForecastInfoCards.propTypes = {
   allHoursInfoArr: PropTypes.array.isRequired,
   returnIconComponent: PropTypes.func.isRequired,
 };
-
-export default ForecastInfoCards;

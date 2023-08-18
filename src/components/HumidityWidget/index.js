@@ -1,3 +1,3 @@
-import HumidityWidget from "./HumidityWidget";
+import { HumidityWidget } from "./HumidityWidget";
 
-export default HumidityWidget;
+export { HumidityWidget };

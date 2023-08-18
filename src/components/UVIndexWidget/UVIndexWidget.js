@@ -12,7 +12,7 @@ import { UVLevels } from "./UVLevels";
 import css from "./UVIndexWidget.module.css";
 import styles from "./styles";
 
-const UVIndexWidget = ({ uv, classes }) => {
+export const UVIndexWidget = withStyles(styles)(({ uv, classes }) => {
   const theme = useTheme();
   const color =
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
@@ -68,11 +68,9 @@ const UVIndexWidget = ({ uv, classes }) => {
       </div>
     </div>
   );
-};
+});
 
 UVIndexWidget.propTypes = {
   uv: PropTypes.number.isRequired,
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(UVIndexWidget);

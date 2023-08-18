@@ -9,7 +9,12 @@ import mainCSS from "../../App.module.css";
 import css from "./Widget.module.css";
 import styles from "./styles";
 
-const Widget = ({ component, title, titleVal, classes }) => {
+export const Widget = withStyles(styles)(({
+  component,
+  title,
+  titleVal,
+  classes,
+}) => {
   return (
     <article className={cn(css.Widget, mainCSS["box-bg"])}>
       <Box className={classes["Widget-title"]}>
@@ -23,7 +28,7 @@ const Widget = ({ component, title, titleVal, classes }) => {
       {component}
     </article>
   );
-};
+});
 
 Widget.propTypes = {
   component: PropTypes.element,
@@ -31,5 +36,3 @@ Widget.propTypes = {
   titleVal: PropTypes.string,
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(Widget);

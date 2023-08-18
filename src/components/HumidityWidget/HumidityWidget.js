@@ -13,7 +13,7 @@ import drawSVGAnimationIcon from "./drawSVGAnimationIcon.js";
 import styles from "./styles.js";
 import css from "./HumidityWidget.module.css";
 
-const HumidityWidget = ({ humidity, classes }) => {
+export const HumidityWidget = withStyles(styles)(({ humidity, classes }) => {
   const theme = useTheme();
   const color =
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
@@ -37,11 +37,9 @@ const HumidityWidget = ({ humidity, classes }) => {
       </List>
     </div>
   );
-};
+});
 
 HumidityWidget.propTypes = {
   humidity: PropTypes.number.isRequired,
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(HumidityWidget);

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { withStyles } from "@mui/styles";
 import { Box, Typography, List, ListItemText } from "@mui/material";
 
-import ForecastInfoCards from "../ForecastInfoCards/ForecastInfoCards";
+import { ForecastInfoCards } from "../";
 
 import { monthsArray } from "../../config/monthsArray";
 import forecastIndicesList from "./forecastIndicesList";
@@ -15,7 +15,7 @@ import { today, minutesFormat } from "../../helpers/getTodayDate";
 import css from "./AllDayForecastCard.module.css";
 import styles from "./styles";
 
-const AllDayForecastCard = (props) => {
+export const AllDayForecastCard = withStyles(styles)((props) => {
   const { currentDay, fewDaysForecast, returnIconComponent, classes } = props;
   const allHoursInfoArr = fewDaysForecast.forecastday[0].hour;
   const currentDate = `${today.getDate()} ${
@@ -67,7 +67,7 @@ const AllDayForecastCard = (props) => {
       </section>
     </Box>
   );
-};
+});
 
 AllDayForecastCard.propTypes = {
   currentDay: PropTypes.object.isRequired,
@@ -75,5 +75,3 @@ AllDayForecastCard.propTypes = {
   returnIconComponent: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(AllDayForecastCard);

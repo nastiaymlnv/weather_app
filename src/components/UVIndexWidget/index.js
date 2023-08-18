@@ -1,3 +1,3 @@
-import UVIndexWidget from "./UVIndexWidget";
+import { UVIndexWidget } from "./UVIndexWidget";
 
-export default UVIndexWidget;
+export { UVIndexWidget };

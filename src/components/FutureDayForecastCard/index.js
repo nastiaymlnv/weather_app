@@ -1,3 +1,3 @@
-import FutureDayForecastCard from "./FutureDayForecastCard";
+import { FutureDayForecastCard } from "./FutureDayForecastCard";
 
-export default FutureDayForecastCard;
+export { FutureDayForecastCard };

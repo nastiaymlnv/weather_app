@@ -11,7 +11,7 @@ import mainCSS from "../../App.module.css";
 import css from "./FutureDayForecastCard.module.css";
 import styles from "./styles";
 
-const FutureDayForecastCard = ({
+export const FutureDayForecastCard = withStyles(styles)(({
   date,
   dayInfo,
   returnIconComponent,
@@ -53,7 +53,7 @@ const FutureDayForecastCard = ({
       </div>
     </article>
   );
-};
+});
 
 FutureDayForecastCard.propTypes = {
   date: PropTypes.string.isRequired,
@@ -61,5 +61,3 @@ FutureDayForecastCard.propTypes = {
   returnIconComponent: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired,
 };
-
-export default withStyles(styles)(FutureDayForecastCard);
