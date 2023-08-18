@@ -11,3 +11,18 @@
   margin-top: 5px;
   gap: 56px;
 }
+
+@media screen and (max-width: 1320px) {
+  .ForecastInfoCards {
+    padding: 4px 20px;
+  }
+  .ForecastInfoCards-hours {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .ForecastInfoCards-hours {
+    max-width: 150px;
+  }
+}

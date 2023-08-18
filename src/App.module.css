@@ -1,3 +1,7 @@
+.App {
+  padding: 29px 100px 57px;
+}
+
 .App-header {
   display: flex;
   align-items: center;
@@ -19,6 +23,19 @@
 .App__future-forecast-container {
   margin-top: 36px;
   display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
+}
+
+@media screen and (max-width: 1420px) {
+  .App {
+    padding: 29px 50px 57px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .App {
+    padding: 29px 20px 57px;
+  }
 }

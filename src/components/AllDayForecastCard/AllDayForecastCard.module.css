@@ -3,7 +3,11 @@
   display: flex;
 }
 
-.AllDayForecastCard-content__image {
+.AllDayForecastCard-content__main-weather {
+  text-align: center;
+}
+
+.AllDayForecastCard-content__main-weather-image {
   & svg {
     max-width: 281px;
     max-height: 187px;
@@ -18,4 +22,37 @@
 
 .AllDayForecastCard__hourly-forecast-container {
   display: flex;
+}
+
+@media screen and (max-width: 1180px) {
+  .AllDayForecastCard-content__main-weather {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  .AllDayForecastCard-content__main-weather-image {
+    margin-right: 30px;
+  }
+
+  .AllDayForecastCard-content {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 910px) {
+  .AllDayForecastCard__hourly-forecast-container {
+    overflow-x: scroll;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .AllDayForecastCard-content__main-weather-image {
+    margin-right: 0;
+    & svg {
+      max-width: 231px;
+      max-height: 137px;
+    }
+  }
 }

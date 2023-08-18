@@ -28,21 +28,27 @@ const AllDayForecastCard = (props) => {
         {currentDate}
       </Typography>
       <section className={css["AllDayForecastCard-content"]}>
-        <section>
-          <div className={css["AllDayForecastCard-content__image"]}>
+        <section className={css["AllDayForecastCard-content__main-weather"]}>
+          <div
+            className={css["AllDayForecastCard-content__main-weather-image"]}
+          >
             {returnIconComponent(currentDay.is_day, currentDay.condition.text)}
           </div>
-          <Typography variant="h2" sx={{ mt: "35px", textAlign: "center" }}>
+          <Typography
+            variant="h2"
+            className={
+              classes["AllDayForecastCard-content__main-weather-temperature"]
+            }
+          >
             {currentDay.temp_c > 0 && `+${Math.floor(currentDay.temp_c)}`}°C
           </Typography>
         </section>
         <section className={css["AllDayForecastCard__list-container"]}>
-          <List sx={{ mr: "19px" }}>
+          <List className={classes["AllDayForecastCard__list"]}>
             {forecastIndicesList.map((forecastItem) => (
               <ListItemText
                 key={uuidv4()}
                 className={classes["AllDayForecastCard__list-item"]}
-                sx={{ mt: "13px", mb: "8px" }}
                 disableTypography
               >
                 {forecastItem}

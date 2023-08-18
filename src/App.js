@@ -20,6 +20,7 @@ import weatherConditions from "./weatherConditions";
 
 import "./assets/reset.css";
 import css from "./App.module.css";
+// import styles from "./styles";
 
 const days = 7;
 
@@ -85,12 +86,12 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Box sx={{ pt: "29px", px: "100px", pb: "57px" }}>
+      <div className={css.App}>
         <Button variant="text" onClick={() => changeTheme(theme)}>
           Change theme
         </Button>
         <header className={css["App-header"]}>
-          <Typography variant="h1">
+          <Typography variant="h1" sx={{ mr: "20px" }}>
             {`${location.name}, ${location.country}`}
           </Typography>
           <SearchField handleLocation={handleLocation} />
@@ -102,7 +103,14 @@ const App = () => {
           returnIconComponent={returnIconComponent}
         />
 
-        <Box sx={{ display: "flex", gap: "30px", justifyContent: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "30px",
+            justifyContent: "center",
+          }}
+        >
           <Widget
             title="UV Index"
             titleVal={`${current.uv} UV`}
@@ -132,7 +140,7 @@ const App = () => {
             />
           ))}
         </section>
-      </Box>
+      </div>
     </ThemeProvider>
   );
 };

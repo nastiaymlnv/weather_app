@@ -3,3 +3,9 @@
   padding: 20px 10px 16px 11px;
   width: fit-content;
 }
+
+@media screen and (max-width: 900px) {
+  .Widget:not(:first-child) {
+    margin-top: 0;
+  }
+}
