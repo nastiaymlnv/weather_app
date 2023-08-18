@@ -24,7 +24,7 @@ const HumidityWidget = ({ humidity, classes }) => {
         {drawSVGAnimationIcon(humidity / 100, color)}
       </div>
       <List className={classes["HumidityWidget-legend"]}>
-        {humidityLevels.map(level => 
+        {humidityLevels.map((level) => (
           <ListItemText
             key={uuidv4()}
             className={classes["HumidityWidget-legend__item"]}
@@ -32,7 +32,7 @@ const HumidityWidget = ({ humidity, classes }) => {
           >
             {level}
           </ListItemText>
-        )}
+        ))}
         <span className={css["HumidityWidget-legend__item--max"]}>100</span>
       </List>
     </div>

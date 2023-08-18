@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import PropTypes from "prop-types";
 
 import { useTheme } from "@mui/material/styles";
@@ -20,34 +20,38 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
 
   const currentDate = ` ${today.getHours()}:${minutesFormat}`;
-  const sunriseTimestamp = new Date(
-    `01/01/1970 ${getTwentyFourHourTime(sunrise)}`,
-  ).getTime();
-  const sunsetTimestamp = new Date(
-    `01/01/1970 ${getTwentyFourHourTime(sunset)}`,
-  ).getTime();
+  const sunriseTimestamp = useMemo(
+    () => new Date(`01/01/1970 ${getTwentyFourHourTime(sunrise)}`).getTime(),
+    [sunrise],
+  );
+  const sunsetTimestamp = useMemo(
+    () => new Date(`01/01/1970 ${getTwentyFourHourTime(sunset)}`).getTime(),
+    [sunset],
+  );
   const currentTimestamp = new Date(`01/01/1970 ${currentDate}`).getTime();
 
-  const generateAngleForCssSunMove = (sunsetTime, currTime) => {
-    const percent = (currTime * 100) / sunsetTime;
-    const angle = (percent * 180) / 100;
+  const generateAngleForCssSunMove = useCallback(
+    (sunriseTime, sunsetTime, currentTime) => {
+      const percent = (currentTime * 100) / sunsetTime;
+      const angle = (percent * 180) / 100;
 
-    if (currentTimestamp >= sunsetTimestamp) return "180deg";
-    else if (currentTimestamp <= sunriseTimestamp) return "0deg";
-    else return `${angle}deg`;
-  };
+      if (currentTime >= sunsetTime) return "180deg";
+      else if (currentTime <= sunriseTime) return "0deg";
+      else return `${angle}deg`;
+    },
+    [sunriseTimestamp, sunsetTimestamp, currentTimestamp],
+  );
 
-  const generatePercentForCssSunFilling = (
-    sunriseTime,
-    sunsetTime,
-    currTime,
-  ) => {
-    const percent = (currTime * 100) / (sunsetTime - sunriseTime);
+  const generatePercentForCssSunFilling = useCallback(
+    (sunriseTime, sunsetTime, currentTime) => {
+      const percent = (currentTime * 100) / (sunsetTime - sunriseTime);
 
-    if (currentTimestamp >= sunsetTimestamp) return "100%";
-    else if (currentTimestamp <= sunriseTimestamp) return "0%";
-    else return `${percent - 10}%`;
-  };
+      if (currentTime >= sunsetTime) return "100%";
+      else if (currentTime <= sunriseTime) return "0%";
+      else return `${percent - 10}%`;
+    },
+    [sunriseTimestamp, sunsetTimestamp, currentTimestamp],
+  );
 
   return (
     <>
@@ -78,6 +82,7 @@ const SunriseAndSunsetWidget = ({ sunMove, classes }) => {
             className={css.SunriseAndSunsetWidget__sun}
             style={{
               "--currSunPosition": generateAngleForCssSunMove(
+                sunriseTimestamp,
                 sunsetTimestamp,
                 currentTimestamp,
               ),

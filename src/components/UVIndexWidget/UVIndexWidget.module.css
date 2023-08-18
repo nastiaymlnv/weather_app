@@ -33,7 +33,7 @@
   background-position: -120px 0px;
 }
 
-.UVIndexWidget__bg--back {  
+.UVIndexWidget__bg--back {
   left: 16px;
   bottom: 0px;
   width: 329px;
@@ -45,10 +45,10 @@
 
 .UVIndexWidget__bg--front {
   left: 32px;
-  bottom: 0px;  
+  bottom: 0px;
   width: 297px;
   height: 131px;
-  background: var(--bg);  
+  background: var(--bg);
 }
 
 @keyframes uvLevel--upper {

@@ -27,11 +27,17 @@ const UVIndexWidget = ({ uv, classes }) => {
   return (
     <div className={css.UVIndexWidget} style={{ "--color": color }}>
       <div
-        className={cn(css.UVIndexWidget__zonecircle, css["UVIndexWidget__zonecircle--upper"])}
+        className={cn(
+          css.UVIndexWidget__zonecircle,
+          css["UVIndexWidget__zonecircle--upper"],
+        )}
         style={{ "--uv": `${generateAngleForCssAnimation(uv)}deg` }}
       ></div>
       <div
-        className={cn(css.UVIndexWidget__zonecircle, css["UVIndexWidget__zonecircle--lower"])}
+        className={cn(
+          css.UVIndexWidget__zonecircle,
+          css["UVIndexWidget__zonecircle--lower"],
+        )}
         style={{ "--uv": `${generateAngleForCssAnimation(uv) - 90}deg` }}
       ></div>
       <div
@@ -48,18 +54,16 @@ const UVIndexWidget = ({ uv, classes }) => {
         }}
       >
         <List className={classes["UVIndexWidget-levels-list"]}>
-          {
-            UVLevels.map(level => 
-              <ListItemText 
-                key={uuidv4()}
-                className={classes["UVIndexWidget-levels-list__item"]}
-                sx={ Object.values(level) }
-                disableTypography
-              >
-                {Object.keys(level)}
-              </ListItemText>
-            )
-          }
+          {UVLevels.map((level) => (
+            <ListItemText
+              key={uuidv4()}
+              className={classes["UVIndexWidget-levels-list__item"]}
+              sx={Object.values(level)}
+              disableTypography
+            >
+              {Object.keys(level)}
+            </ListItemText>
+          ))}
         </List>
       </div>
     </div>
