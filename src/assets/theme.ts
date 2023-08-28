@@ -7,10 +7,16 @@ const darkTheme: Theme = createTheme({
       default: "#080338",
     },
   },
-  input: {
-    color: "#FFF",
-    "&::placeholder": {
-      color: "#C0C0C0",
+  components: {
+    MuiInput: {
+      styleOverrides: {
+        root: {
+          color: "#FFF",
+          "&::placeholder": {
+            color: "#C0C0C0",
+          },
+        },
+      },
     },
   },
   typography: {
