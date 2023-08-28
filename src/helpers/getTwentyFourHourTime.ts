@@ -1,4 +1,4 @@
-const getTwentyFourHourTime = (timeString) => {
+const getTwentyFourHourTime = (timeString: string) => {
   const date = new Date("01/01/1970 " + timeString);
   const hours = date.getHours();
   const minutes = date.getMinutes();

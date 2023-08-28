@@ -1,0 +1,32 @@
+{
+    "extends": "@tsconfig/create-react-app/tsconfig.json",
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "display": "Create React App",
+    "_version": "2.0.0",
+
+    "compilerOptions": {
+    "baseUrl": ".",
+    "rootDirs": ["src"],
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es5",
+
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "react-jsx",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true
+    },
+    "include": ["src", ".", "custom.d.ts", "typings.d.ts"],
+    "exclude": [
+        "node_modules"
+    ]
+}

@@ -1,5 +1,4 @@
 import React, { useMemo, useCallback } from "react";
-import PropTypes from "prop-types";
 
 import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
@@ -13,10 +12,18 @@ import Sun from "../../assets/icons/SunMove-icon.png";
 import css from "./SunriseAndSunsetWidget.module.css";
 import styles from "./styles";
 
+interface Props {
+  sunMove: {
+    sunrise: string,
+    sunset: string,
+  },
+  classes: any,
+}
+
 export const SunriseAndSunsetWidget = withStyles(styles)(({
   sunMove,
   classes,
-}) => {
+}: Props) => {
   const { sunrise, sunset } = sunMove;
   const theme = useTheme();
   const color =
@@ -34,7 +41,7 @@ export const SunriseAndSunsetWidget = withStyles(styles)(({
   const currentTimestamp = new Date(`01/01/1970 ${currentDate}`).getTime();
 
   const generateAngleForCssSunMove = useCallback(
-    (sunriseTime, sunsetTime, currentTime) => {
+    (sunriseTime: number, sunsetTime: number, currentTime: number) => {
       const percent = (currentTime * 100) / sunsetTime;
       const angle = (percent * 180) / 100;
 
@@ -46,7 +53,7 @@ export const SunriseAndSunsetWidget = withStyles(styles)(({
   );
 
   const generatePercentForCssSunFilling = useCallback(
-    (sunriseTime, sunsetTime, currentTime) => {
+    (sunriseTime: number, sunsetTime: number, currentTime: number) => {
       const percent = (currentTime * 100) / (sunsetTime - sunriseTime);
 
       if (currentTime >= sunsetTime) return "100%";
@@ -91,7 +98,7 @@ export const SunriseAndSunsetWidget = withStyles(styles)(({
               ),
             }}
           >
-            <img
+            <img 
               src={Sun}
               alt="Sun"
               className={css["SunriseAndSunsetWidget__sun-image"]}
@@ -128,8 +135,3 @@ export const SunriseAndSunsetWidget = withStyles(styles)(({
     </>
   );
 });
-
-SunriseAndSunsetWidget.propTypes = {
-  sunMove: PropTypes.object.isRequired,
-  classes: PropTypes.object.isRequired,
-};

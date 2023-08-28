@@ -1,17 +1,21 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { Box, TextField, InputAdornment } from "@mui/material";
 
-import { ReactComponent as LightIcon } from "../../assets/icons/magnifier_light-theme.svg";
-import { ReactComponent as DarkIcon } from "../../assets/icons/magnifier_dark-theme.svg";
+import {ReactComponent as LightIcon} from "../../assets/icons/Magnifier-light.svg";
+import {ReactComponent as DarkIcon} from "../../assets/icons/Magnifier-dark.svg";
 
 import styles from "./styles";
 
-export const SearchField = withStyles(styles)(({ handleLocation, classes }) => {
-  const theme = useTheme();
+interface Props {
+  handleLocation: (e: { target: { value: string } }) => void,
+  classes: any,
+}
+
+export const SearchField = withStyles(styles)(({ handleLocation, classes } : Props) => {
+  const theme : any = useTheme();
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -42,8 +46,3 @@ export const SearchField = withStyles(styles)(({ handleLocation, classes }) => {
     </Box>
   );
 });
-
-SearchField.propTypes = {
-  handleLocation: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired,
-};

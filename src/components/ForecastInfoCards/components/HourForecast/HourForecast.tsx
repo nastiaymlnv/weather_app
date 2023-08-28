@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import { withStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
@@ -7,12 +6,32 @@ import { Typography } from "@mui/material";
 import css from "./HourForecast.module.css";
 import styles from "./styles";
 
+interface Props {
+  allHoursInfoArr: string[],
+  dayPart: number | string,
+  returnIconComponent: (isDay: number | any, text: string) => any,
+  classes: any,
+}
+
+interface forecastTypes {
+  time: string,
+  is_day: number | undefined,
+  condition: {
+    text: string
+  },
+  temp_c: number,
+  feelslike_c: number,
+  pressure_mb: number,
+  humidity: number,
+  wind_kph: number,
+}
+
 const HourForecast = ({
   allHoursInfoArr,
   dayPart,
   returnIconComponent,
   classes,
-}) => {
+}: Props) => {
   const hourForecast = allHoursInfoArr[dayPart];
   const {
     time,
@@ -23,7 +42,7 @@ const HourForecast = ({
     pressure_mb,
     humidity,
     wind_kph,
-  } = hourForecast;
+  } : forecastTypes = hourForecast;
   const hour = new Date(time).getHours();
 
   return (
@@ -49,13 +68,6 @@ const HourForecast = ({
       </Typography>
     </section>
   );
-};
-
-HourForecast.propTypes = {
-  allHoursInfoArr: PropTypes.array.isRequired,
-  dayPart: PropTypes.number.isRequired,
-  returnIconComponent: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired,
 };
 
 export default withStyles(styles)(HourForecast);

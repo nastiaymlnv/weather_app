@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cn from "classnames";
 
 import { withStyles } from "@mui/styles";
@@ -9,12 +8,19 @@ import mainCSS from "../../App.module.css";
 import css from "./Widget.module.css";
 import styles from "./styles";
 
+interface Props {
+  component: JSX.Element,
+  title: string,
+  titleVal: string,
+  classes: any,
+}
+
 export const Widget = withStyles(styles)(({
   component,
   title,
   titleVal,
   classes,
-}) => {
+}: Props) => {
   return (
     <article className={cn(css.Widget, mainCSS["box-bg"])}>
       <Box className={classes["Widget-title"]}>
@@ -29,10 +35,3 @@ export const Widget = withStyles(styles)(({
     </article>
   );
 });
-
-Widget.propTypes = {
-  component: PropTypes.element,
-  title: PropTypes.string,
-  titleVal: PropTypes.string,
-  classes: PropTypes.object.isRequired,
-};

@@ -38,7 +38,7 @@ const styles = () => ({
     fontSize: "18px",
     lineHeight: "normal",
     color: "#C0C0C0",
-    textAlign: "right",
+    textAlign: "right" as const,
     marginTop: "13px",
     marginBottom: "8px",
 

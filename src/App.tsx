@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import { CircularProgress, Box, Typography, Button } from "@mui/material";
+import { CircularProgress, Box, Typography, Button, Theme } from "@mui/material";
 
 import {
   AllDayForecastCard,
@@ -23,16 +23,27 @@ import weatherConditions from "./weatherConditions";
 import "./assets/reset.css";
 import css from "./App.module.css";
 
+interface WeatherInfo {
+  location: {
+    name: string,
+    country: string
+  },
+  current: any, 
+  forecast: {
+    forecastday: any
+  }
+}
+
 const days = 7;
 
 const App = () => {
   const apiKey = process.env.REACT_APP_API_KEY;
 
   const [theme, setTheme] = useState(lightTheme);
-  const [weatherInfo, setWeatherInfo] = useState([]);
+  const [weatherInfo, setWeatherInfo] = useState<WeatherInfo>([] as unknown as WeatherInfo);
   const [targetLocation, setTargetLocation] = useState("Vinnitsa");
 
-  const { location, current, forecast } = weatherInfo;
+  const { location, current, forecast } : WeatherInfo = weatherInfo;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -42,30 +53,30 @@ const App = () => {
     return () => clearTimeout(timer);
   }, [targetLocation]);
 
-  const fetchData = async (country) => {
+  const fetchData = async (country: string) => {
     try {
       const response = await axios.get(
         `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${country}&days=${days}&aqi=no&alerts=no`,
       );
       setWeatherInfo(response.data);
-    } catch (error) {
+    } catch (error) { 
       console.log(error);
     }
   };
 
-  const handleLocation = (e) => {
+  const handleLocation = (e: { target: { value: string } }) => {
     const targetValue = e.target.value;
     targetValue.length !== 0 &&
       /^[a-zA-Z]*$/.test(targetValue) &&
       setTargetLocation(targetValue);
   };
 
-  const returnIconComponent = (isDay, title) =>
+  const returnIconComponent = (isDay: number | string, title: string | number) =>
     isDay
-      ? weatherConditions[0].weatherComponents[title]
-      : weatherConditions[1].weatherComponents[title];
+      ? weatherConditions[0].weatherComponents[title as keyof typeof returnIconComponent]
+      : weatherConditions[1].weatherComponents[title as keyof typeof returnIconComponent];
 
-  const changeTheme = (theme) =>
+  const changeTheme = (theme: Theme) =>
     theme.palette.mode === "light" ? setTheme(darkTheme) : setTheme(lightTheme);
 
   if (!location) {
@@ -119,7 +130,7 @@ const App = () => {
           />
           <Widget
             title="Sunrise and Sunset"
-            titleVal={null}
+            titleVal={""}
             component={
               <SunriseAndSunsetWidget sunMove={forecast.forecastday[0].astro} />
             }
@@ -132,7 +143,7 @@ const App = () => {
         </Box>
 
         <section className={css["App__future-forecast-container"]}>
-          {forecast.forecastday.slice(1).map(({ date, day }) => (
+          {forecast.forecastday.slice(1).map(({ date, day } : {date: string, day: any}) => (
             <FutureDayForecastCard
               key={uuidv4()}
               date={date}

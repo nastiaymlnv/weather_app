@@ -1,11 +1,10 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
 import { withStyles } from "@mui/styles";
 import { Box, Typography, List, ListItemText } from "@mui/material";
 
-import { ForecastInfoCards } from "../";
+import { ForecastInfoCards } from "..";
 
 import { monthsArray } from "../../config/monthsArray";
 import forecastIndicesList from "./forecastIndicesList";
@@ -15,7 +14,22 @@ import { today, minutesFormat } from "../../helpers/getTodayDate";
 import css from "./AllDayForecastCard.module.css";
 import styles from "./styles";
 
-export const AllDayForecastCard = withStyles(styles)((props) => {
+interface Props {
+  currentDay: {
+    is_day: number | undefined,
+    temp_c: number,
+    condition: {
+      text: string
+    }
+  },
+  fewDaysForecast: {
+    forecastday: object
+  },
+  returnIconComponent: (isDay: number | any, text: string) => any,
+  classes: any,
+}
+
+export const AllDayForecastCard = withStyles(styles)((props: Props) => {
   const { currentDay, fewDaysForecast, returnIconComponent, classes } = props;
   const allHoursInfoArr = fewDaysForecast.forecastday[0].hour;
   const currentDate = `${today.getDate()} ${
@@ -68,10 +82,3 @@ export const AllDayForecastCard = withStyles(styles)((props) => {
     </Box>
   );
 });
-
-AllDayForecastCard.propTypes = {
-  currentDay: PropTypes.object.isRequired,
-  fewDaysForecast: PropTypes.object.isRequired,
-  returnIconComponent: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired,
-};

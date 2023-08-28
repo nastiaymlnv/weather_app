@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cn from "classnames";
 
 import { withStyles } from "@mui/styles";
@@ -11,13 +10,29 @@ import mainCSS from "../../App.module.css";
 import css from "./FutureDayForecastCard.module.css";
 import styles from "./styles";
 
+interface Props {
+  date: string,
+  dayInfo: any,
+  returnIconComponent: (isDay: number | any, text: string) => any,
+  classes: any,
+}
+
+interface dayDataTypes {
+  condition: {
+    text: string
+  },
+  maxtemp_c: number, 
+  mintemp_c: number, 
+  is_day: number | undefined
+}
+
 export const FutureDayForecastCard = withStyles(styles)(({
   date,
   dayInfo,
   returnIconComponent,
   classes,
-}) => {
-  const { condition, maxtemp_c, mintemp_c, is_day } = dayInfo;
+}: Props) => {
+  const { condition, maxtemp_c, mintemp_c, is_day }: dayDataTypes = dayInfo;
   const { weekday, dayDate } = getDateNameFromDate(date);
   const isDay = is_day ? false : true;
 
@@ -54,10 +69,3 @@ export const FutureDayForecastCard = withStyles(styles)(({
     </article>
   );
 });
-
-FutureDayForecastCard.propTypes = {
-  date: PropTypes.string.isRequired,
-  dayInfo: PropTypes.object.isRequired,
-  returnIconComponent: PropTypes.func.isRequired,
-  classes: PropTypes.object.isRequired,
-};

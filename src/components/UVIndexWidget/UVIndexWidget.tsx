@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import cn from "classnames";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,12 +11,17 @@ import { UVLevels } from "./UVLevels";
 import css from "./UVIndexWidget.module.css";
 import styles from "./styles";
 
-export const UVIndexWidget = withStyles(styles)(({ uv, classes }) => {
+interface Props {
+  uv: number,
+  classes: any,
+}
+
+export const UVIndexWidget = withStyles(styles)(({ uv, classes }: Props) => {
   const theme = useTheme();
   const color =
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
 
-  const generateAngleForCssAnimation = (uvLevel) => {
+  const generateAngleForCssAnimation = (uvLevel: number) => {
     const percent = (uvLevel * 100) / 12;
     const angle = (percent * 180) / 100;
 
@@ -25,7 +29,9 @@ export const UVIndexWidget = withStyles(styles)(({ uv, classes }) => {
   };
 
   return (
-    <div className={css.UVIndexWidget} style={{ "--color": color }}>
+    <div className={css.UVIndexWidget} 
+    style={{ "--color": color }}
+    >
       <div
         className={cn(
           css.UVIndexWidget__zonecircle,
@@ -69,8 +75,3 @@ export const UVIndexWidget = withStyles(styles)(({ uv, classes }) => {
     </div>
   );
 });
-
-UVIndexWidget.propTypes = {
-  uv: PropTypes.number.isRequired,
-  classes: PropTypes.object.isRequired,
-};

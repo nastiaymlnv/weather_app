@@ -7,7 +7,7 @@ const styles = () => ({
     color: "#FFE55F",
   },
   "SunriseAndSunsetWidget-legend__time": {
-    textAlign: "center",
+    textAlign: "center" as const,
     marginTop: "4px",
   },
 });

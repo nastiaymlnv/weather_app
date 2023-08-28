@@ -1,19 +1,23 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { v4 as uuidv4 } from "uuid";
 
 import { useTheme } from "@mui/material/styles";
 import { withStyles } from "@mui/styles";
 import { List, ListItemText } from "@mui/material";
 
-import { humidityLevels } from "./humidityLevels.js";
+import { humidityLevels } from "./humidityLevels";
 
-import drawSVGAnimationIcon from "./drawSVGAnimationIcon.js";
+import drawSVGAnimationIcon from "./drawSVGAnimationIcon";
 
-import styles from "./styles.js";
+import styles from "./styles";
 import css from "./HumidityWidget.module.css";
 
-export const HumidityWidget = withStyles(styles)(({ humidity, classes }) => {
+interface Props {
+  humidity: number,
+  classes: any,
+}
+
+export const HumidityWidget = withStyles(styles)(({ humidity, classes }: Props) => {
   const theme = useTheme();
   const color =
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
@@ -38,8 +42,3 @@ export const HumidityWidget = withStyles(styles)(({ humidity, classes }) => {
     </div>
   );
 });
-
-HumidityWidget.propTypes = {
-  humidity: PropTypes.number.isRequired,
-  classes: PropTypes.object.isRequired,
-};
