@@ -1,20 +1,19 @@
 import React from "react";
 
 import { useTheme } from "@mui/material/styles";
-import { withStyles } from "@mui/styles";
 import { Box, TextField, InputAdornment } from "@mui/material";
 
 import {ReactComponent as LightIcon} from "../../assets/icons/Magnifier-light.svg";
 import {ReactComponent as DarkIcon} from "../../assets/icons/Magnifier-dark.svg";
 
-import styles from "./styles";
+import useStyles from "./styles";
 
 interface Props {
-  handleLocation: (e: { target: { value: string } }) => void,
-  classes: any,
+  handleLocation: (e: { target: { value: string } }) => void
 }
 
-export const SearchField = withStyles(styles)(({ handleLocation, classes } : Props) => {
+export const SearchField = ({ handleLocation } : Props) => {
+  const classes = useStyles();
   const theme : any = useTheme();
 
   return (
@@ -45,4 +44,4 @@ export const SearchField = withStyles(styles)(({ handleLocation, classes } : Pro
       />
     </Box>
   );
-});
+};

@@ -1,16 +1,14 @@
 import React from "react";
 
-import { withStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
 
 import css from "./HourForecast.module.css";
-import styles from "./styles";
+import useStyles from "./styles";
 
 interface Props {
   allHoursInfoArr: string[],
   dayPart: number | string,
   returnIconComponent: (isDay: number | any, text: string) => any,
-  classes: any,
 }
 
 interface forecastTypes {
@@ -29,9 +27,9 @@ interface forecastTypes {
 const HourForecast = ({
   allHoursInfoArr,
   dayPart,
-  returnIconComponent,
-  classes,
+  returnIconComponent
 }: Props) => {
+  const classes = useStyles();
   const hourForecast = allHoursInfoArr[dayPart];
   const {
     time,
@@ -70,4 +68,4 @@ const HourForecast = ({
   );
 };
 
-export default withStyles(styles)(HourForecast);
+export default HourForecast;

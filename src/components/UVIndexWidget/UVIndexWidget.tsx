@@ -3,20 +3,19 @@ import cn from "classnames";
 import { v4 as uuidv4 } from "uuid";
 
 import { useTheme } from "@mui/material/styles";
-import { withStyles } from "@mui/styles";
 import { List, ListItemText } from "@mui/material";
 
 import { UVLevels } from "./UVLevels";
 
 import css from "./UVIndexWidget.module.css";
-import styles from "./styles";
+import useStyles from "./styles";
 
 interface Props {
-  uv: number,
-  classes: any,
+  uv: number
 }
 
-export const UVIndexWidget = withStyles(styles)(({ uv, classes }: Props) => {
+export const UVIndexWidget = ({ uv }: Props) => {
+  const classes = useStyles();
   const theme = useTheme();
   const color =
     theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
@@ -74,4 +73,4 @@ export const UVIndexWidget = withStyles(styles)(({ uv, classes }: Props) => {
       </div>
     </div>
   );
-});
+};

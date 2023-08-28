@@ -1,4 +1,6 @@
-const styles = () => ({
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
   "HourForecast-data": {
     marginTop: "16px",
     fontSize: "18px",
@@ -6,4 +8,4 @@ const styles = () => ({
   },
 });
 
-export default styles;
+export default useStyles;

@@ -1,4 +1,6 @@
-const styles = () => ({
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
   "HumidityWidget-legend": {
     display: "flex",
     justifyContent: "space-between",
@@ -9,4 +11,4 @@ const styles = () => ({
   },
 });
 
-export default styles;
+export default useStyles;

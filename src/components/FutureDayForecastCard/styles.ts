@@ -1,4 +1,6 @@
-const styles = () => ({
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
   "FutureDayForecastCard-title": {
     fontSize: "20px",
     fontWeight: 600,
@@ -12,4 +14,4 @@ const styles = () => ({
   },
 });
 
-export default styles;
+export default useStyles;

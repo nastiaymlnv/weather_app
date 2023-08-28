@@ -1,7 +1,6 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { withStyles } from "@mui/styles";
 import { Box, Typography, List, ListItemText } from "@mui/material";
 
 import { ForecastInfoCards } from "..";
@@ -12,7 +11,7 @@ import forecastIndicesList from "./forecastIndicesList";
 import { today, minutesFormat } from "../../helpers/getTodayDate";
 
 import css from "./AllDayForecastCard.module.css";
-import styles from "./styles";
+import useStyles from "./styles";
 
 interface Props {
   currentDay: {
@@ -26,11 +25,11 @@ interface Props {
     forecastday: object
   },
   returnIconComponent: (isDay: number | any, text: string) => any,
-  classes: any,
 }
 
-export const AllDayForecastCard = withStyles(styles)((props: Props) => {
-  const { currentDay, fewDaysForecast, returnIconComponent, classes } = props;
+export const AllDayForecastCard = (props: Props) => {
+  const classes = useStyles();
+  const { currentDay, fewDaysForecast, returnIconComponent } = props;
   const allHoursInfoArr = fewDaysForecast.forecastday[0].hour;
   const currentDate = `${today.getDate()} ${
     monthsArray[today.getMonth()]
@@ -81,4 +80,4 @@ export const AllDayForecastCard = withStyles(styles)((props: Props) => {
       </section>
     </Box>
   );
-});
+};

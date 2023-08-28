@@ -1,4 +1,6 @@
-const styles = () => ({
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
   "UVIndexWidget-levels-list": {
     width: "297px",
     height: "131px",
@@ -16,4 +18,4 @@ const styles = () => ({
   },
 });
 
-export default styles;
+export default useStyles;

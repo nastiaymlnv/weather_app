@@ -1,7 +1,6 @@
 import React, { useMemo, useCallback } from "react";
 
 import { useTheme } from "@mui/material/styles";
-import { withStyles } from "@mui/styles";
 import { Box, Typography } from "@mui/material";
 
 import { today, minutesFormat } from "../../helpers/getTodayDate";
@@ -10,20 +9,17 @@ import getTwentyFourHourTime from "../../helpers/getTwentyFourHourTime";
 import Sun from "../../assets/icons/SunMove-icon.png";
 
 import css from "./SunriseAndSunsetWidget.module.css";
-import styles from "./styles";
+import useStyles from "./styles";
 
 interface Props {
   sunMove: {
     sunrise: string,
     sunset: string,
-  },
-  classes: any,
+  }
 }
 
-export const SunriseAndSunsetWidget = withStyles(styles)(({
-  sunMove,
-  classes,
-}: Props) => {
+export const SunriseAndSunsetWidget = ({ sunMove }: Props) => {
+  const classes = useStyles();
   const { sunrise, sunset } = sunMove;
   const theme = useTheme();
   const color =
@@ -134,4 +130,4 @@ export const SunriseAndSunsetWidget = withStyles(styles)(({
       </Box>
     </>
   );
-});
+};

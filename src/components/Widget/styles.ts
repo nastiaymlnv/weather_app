@@ -1,4 +1,6 @@
-const styles = () => ({
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
   "Widget-title": {
     display: "flex",
     justifyContent: "space-between",
@@ -12,4 +14,4 @@ const styles = () => ({
   },
 });
 
-export default styles;
+export default useStyles;

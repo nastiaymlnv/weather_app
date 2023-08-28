@@ -1,26 +1,25 @@
 import React from "react";
 import cn from "classnames";
 
-import { withStyles } from "@mui/styles";
 import { Box, Typography } from "@mui/material";
 
 import mainCSS from "../../App.module.css";
 import css from "./Widget.module.css";
-import styles from "./styles";
+import useStyles from "./styles";
 
 interface Props {
   component: JSX.Element,
   title: string,
-  titleVal: string,
-  classes: any,
+  titleVal: string
 }
 
-export const Widget = withStyles(styles)(({
+export const Widget = ({
   component,
   title,
-  titleVal,
-  classes,
+  titleVal
 }: Props) => {
+  const classes = useStyles();
+
   return (
     <article className={cn(css.Widget, mainCSS["box-bg"])}>
       <Box className={classes["Widget-title"]}>
@@ -34,4 +33,4 @@ export const Widget = withStyles(styles)(({
       {component}
     </article>
   );
-});
+};

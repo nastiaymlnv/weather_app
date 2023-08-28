@@ -1,4 +1,6 @@
-const styles = () => ({
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
   SearchField__input: {
     width: "360px",
     fontFamily: "Open Sans",
@@ -15,4 +17,4 @@ const styles = () => ({
   },
 });
 
-export default styles;
+export default useStyles;

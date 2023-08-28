@@ -1,20 +1,18 @@
 import React from "react";
 import cn from "classnames";
 
-import { withStyles } from "@mui/styles";
 import { Typography } from "@mui/material";
 
 import getDateNameFromDate from "../../helpers/getDateNameFromDate";
 
 import mainCSS from "../../App.module.css";
 import css from "./FutureDayForecastCard.module.css";
-import styles from "./styles";
+import useStyles from "./styles";
 
 interface Props {
   date: string,
   dayInfo: any,
   returnIconComponent: (isDay: number | any, text: string) => any,
-  classes: any,
 }
 
 interface dayDataTypes {
@@ -26,12 +24,12 @@ interface dayDataTypes {
   is_day: number | undefined
 }
 
-export const FutureDayForecastCard = withStyles(styles)(({
+export const FutureDayForecastCard = ({
   date,
   dayInfo,
   returnIconComponent,
-  classes,
 }: Props) => {
+  const classes = useStyles();
   const { condition, maxtemp_c, mintemp_c, is_day }: dayDataTypes = dayInfo;
   const { weekday, dayDate } = getDateNameFromDate(date);
   const isDay = is_day ? false : true;
@@ -68,4 +66,4 @@ export const FutureDayForecastCard = withStyles(styles)(({
       </div>
     </article>
   );
-});
+};
