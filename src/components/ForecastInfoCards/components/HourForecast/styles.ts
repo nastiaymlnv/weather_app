@@ -1,7 +1,7 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  "HourForecast-data": {
+  "Card__data": {
     marginTop: "16px",
     fontSize: "18px",
     fontWeight: 600,

@@ -1,14 +1,14 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  "SunriseAndSunsetWidget-legend": {
+  "Widget-legend": {
     display: "flex",
     justifyContent: "space-between",
   },
-  "SunriseAndSunsetWidget-legend__title": {
+  "Widget-legend__title": {
     color: "#FFE55F",
   },
-  "SunriseAndSunsetWidget-legend__time": {
+  "Widget-legend__time": {
     textAlign: "center" as const,
     marginTop: "4px",
   },

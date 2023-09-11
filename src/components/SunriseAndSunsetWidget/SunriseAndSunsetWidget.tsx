@@ -12,16 +12,13 @@ import Sun from "../../assets/icons/SunMove-icon.png";
 import css from "./SunriseAndSunsetWidget.module.css";
 import useStyles from "./styles";
 
-interface Props {
-  sunMove: {
-    sunrise: string,
-    sunset: string,
-  }
+interface ISunriseAndSunsetWidgetProps {
+  sunrise: string,
+  sunset: string,
 }
 
-export const SunriseAndSunsetWidget = ({ sunMove }: Props) => {
+export const SunriseAndSunsetWidget: React.FC<ISunriseAndSunsetWidgetProps> = ({ sunrise, sunset }) => {
   const classes = useStyles();
-  const { sunrise, sunset } = sunMove;
   const color = useCurrentTheme();
 
   const currentDate = ` ${today.getHours()}:${minutesFormat}`;
@@ -68,11 +65,11 @@ export const SunriseAndSunsetWidget = ({ sunMove }: Props) => {
         }}
       >
         <div
-          className={css.SunriseAndSunsetWidget__trajectory}
+          className={css["Widget-trajectory"]}
           style={{ "--color": color }}
         >
           <div
-            className={css["SunriseAndSunsetWidget__trajectory-bg"]}
+            className={css["Widget-trajectory__bg"]}
             style={{
               "--currSunBeamPosition": generatePercentForCssSunFilling(
                 sunriseTimestamp,
@@ -84,7 +81,7 @@ export const SunriseAndSunsetWidget = ({ sunMove }: Props) => {
         </div>
         <span>
           <span
-            className={css.SunriseAndSunsetWidget__sun}
+            className={css["Widget-sun-container"]}
             style={{
               "--currSunPosition": generateAngleForCssSunMove(
                 sunriseTimestamp,
@@ -96,32 +93,32 @@ export const SunriseAndSunsetWidget = ({ sunMove }: Props) => {
             <img 
               src={Sun}
               alt="Sun"
-              className={css["SunriseAndSunsetWidget__sun-image"]}
+              className={css["Widget-sun-image"]}
             />
           </span>
         </span>
       </Box>
-      <Box className={classes["SunriseAndSunsetWidget-legend"]}>
+      <Box className={classes["Widget-legend"]}>
         <Box>
           <Typography
-            className={classes["SunriseAndSunsetWidget-legend__title"]}
+            className={classes["Widget-legend__title"]}
           >
             Sunrise
           </Typography>
           <Typography
-            className={classes["SunriseAndSunsetWidget-legend__time"]}
+            className={classes["Widget-legend__time"]}
           >
             {getTwentyFourHourTime(sunrise)}
           </Typography>
         </Box>
         <Box>
           <Typography
-            className={classes["SunriseAndSunsetWidget-legend__title"]}
+            className={classes["Widget-legend__title"]}
           >
             Sunset
           </Typography>
           <Typography
-            className={classes["SunriseAndSunsetWidget-legend__time"]}
+            className={classes["Widget-legend__time"]}
           >
             {getTwentyFourHourTime(sunset)}
           </Typography>

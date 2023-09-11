@@ -1,5 +1,5 @@
 import { daysArray } from "../components/FutureDayForecastCard/daysArray";
-import { monthsArray } from "../config/monthsArray";
+import { monthsArray } from "../config/months/monthsArray";
 
 const getDateNameFromDate = (date: string) => {
   const newDate = new Date(date);

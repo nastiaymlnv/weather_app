@@ -8,7 +8,7 @@ const useStyles = makeStyles({
     paddingRight: "20px",
     marginBottom: "23px",
   },
-  "Widget-title__text": {
+  "Widget-title-text": {
     fontSize: "20px",
     lineHeight: "normal",
   },

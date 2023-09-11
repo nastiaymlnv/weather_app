@@ -8,13 +8,13 @@ import {ReactComponent as DarkIcon} from "../../assets/icons/Magnifier-dark.svg"
 
 import useStyles from "./styles";
 
-interface Props {
+interface ISearchFieldProps {
   handleLocation: (e: { target: { value: string } }) => void
 }
 
-export const SearchField = ({ handleLocation } : Props) => {
+export const SearchField: React.FC<ISearchFieldProps> = ({ handleLocation }) => {
   const classes = useStyles();
-  const theme : any = useTheme();
+  const theme = useTheme();
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -30,7 +30,6 @@ export const SearchField = ({ handleLocation } : Props) => {
           },
         }}
         InputProps={{
-          style: theme.input,
           startAdornment: (
             <InputAdornment position="start" sx={{ pr: "5px", mb: "4px" }}>
               {theme.palette.background.default === "#FFF" ? (

@@ -1,54 +1,54 @@
-.AllDayForecastCard-content {
+.Card-content {
   margin-top: 24px;
   display: flex;
 }
 
-.AllDayForecastCard-content__main-weather {
+.Card-content__main-weather {
   text-align: center;
 }
 
-.AllDayForecastCard-content__main-weather-image {
+.Card-content__main-weather-image {
   & svg {
     max-width: 281px;
     max-height: 187px;
   }
 }
 
-.AllDayForecastCard__list-container {
+.Card-list-container {
   display: flex;
   align-items: flex-end;
   margin-left: 10px;
 }
 
-.AllDayForecastCard__hourly-forecast-container {
+.Card-hourly-forecast {
   display: flex;
 }
 
-@media screen and (max-width: 1180px) {
-  .AllDayForecastCard-content__main-weather {
+@media screen and (max-width: 1360px) {
+  .Card-content__main-weather {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 30px;
   }
 
-  .AllDayForecastCard-content__main-weather-image {
+  .Card-content__main-weather-image {
     margin-right: 30px;
   }
 
-  .AllDayForecastCard-content {
+  .Card-content {
     flex-direction: column;
   }
 }
 
 @media screen and (max-width: 910px) {
-  .AllDayForecastCard__hourly-forecast-container {
+  .Card-hourly-forecast {
     overflow-x: scroll;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .AllDayForecastCard-content__main-weather-image {
+  .Card-content__main-weather-image {
     margin-right: 0;
     & svg {
       max-width: 231px;

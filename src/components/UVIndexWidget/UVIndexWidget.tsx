@@ -1,4 +1,5 @@
 import React, { useCallback } from "react";
+
 import cn from "classnames";
 import { v4 as uuidv4 } from "uuid";
 
@@ -12,13 +13,13 @@ import { UVLevels } from "./UVLevels";
 import css from "./UVIndexWidget.module.css";
 import useStyles from "./styles";
 
-interface Props {
+interface IUVIndexWidgetProps {
   uv: number
 }
 
 const WHITE = "#FFF";
 
-export const UVIndexWidget = ({ uv }: Props) => {
+export const UVIndexWidget: React.FC<IUVIndexWidgetProps> = ({ uv }) => {
   const classes = useStyles();
   const theme = useTheme();
   const color = useCurrentTheme();
@@ -31,29 +32,29 @@ export const UVIndexWidget = ({ uv }: Props) => {
   }, [uv]);
 
   return (
-    <div className={css.UVIndexWidget} 
-    style={{ "--color": color }}
+    <div className={css["Widget-container"]} 
+      style={{ "--color": color }}
     >
       <div
         className={cn(
-          css.UVIndexWidget__zonecircle,
-          css["UVIndexWidget__zonecircle--upper"],
+          css.Widget__zonecircle,
+          css["Widget__zonecircle--upper"],
         )}
         style={{ "--uv": `${generateAngleForCssAnimation(uv)}deg` }}
       ></div>
       <div
         className={cn(
-          css.UVIndexWidget__zonecircle,
-          css["UVIndexWidget__zonecircle--lower"],
+          css.Widget__zonecircle,
+          css["Widget__zonecircle--lower"],
         )}
         style={{ "--uv": `${generateAngleForCssAnimation(uv) - 90}deg` }}
       ></div>
       <div
-        className={cn(css.UVIndexWidget__bg, css["UVIndexWidget__bg--back"])}
+        className={cn(css["Widget__bg"], css["Widget__bg--back"])}
         style={{ "--color": color }}
       ></div>
       <div
-        className={cn(css.UVIndexWidget__bg, css["UVIndexWidget__bg--front"])}
+        className={cn(css.Widget__bg, css["Widget__bg--front"])}
         style={{
           "--bg":
             theme.palette.background.default === WHITE
@@ -61,11 +62,11 @@ export const UVIndexWidget = ({ uv }: Props) => {
               : "rgba(8, 3, 56, 0.7)",
         }}
       >
-        <List className={classes["UVIndexWidget-levels-list"]}>
+        <List className={classes["Widget-levels-list"]}>
           {UVLevels.map((level) => (
             <ListItemText
               key={uuidv4()}
-              className={classes["UVIndexWidget-levels-list__item"]}
+              className={classes["Widget-levels-list__item"]}
               sx={Object.values(level)}
               disableTypography
             >

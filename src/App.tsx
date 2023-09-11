@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import { CircularProgress, Box, Typography, Button } from "@mui/material";
 
 import {
@@ -18,6 +17,7 @@ import {
 } from "./components";
 
 import { darkTheme, lightTheme } from "./assets/theme";
+
 import weatherConditions from "./weatherConditions";
 
 import "./assets/reset.css";
@@ -28,10 +28,27 @@ interface WeatherInfo {
     name: string,
     country: string
   },
-  current: any, 
+  current: {
+    is_day: number | undefined,
+    temp_c: number,
+    humidity: number,
+    uv: number,
+    condition: {
+      text: string
+    }
+  }, 
   forecast: {
-    forecastday: any
+    forecastday: any[]
   }
+}
+
+interface dayDataTypes {
+  condition: {
+    text: string
+  },
+  maxtemp_c: number, 
+  mintemp_c: number, 
+  is_day: number | boolean | undefined
 }
 
 const days = 7;
@@ -44,6 +61,7 @@ const App = () => {
   const [targetLocation, setTargetLocation] = useState("Vinnitsa");
 
   const { location, current, forecast } : WeatherInfo = weatherInfo;
+  const currForecast = forecast && forecast.forecastday;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -71,10 +89,10 @@ const App = () => {
       setTargetLocation(targetValue);
   };
 
-  const returnIconComponent = (isDay: number | string, title: string | number) =>
+  const getIcon = (isDay: number | boolean | undefined, title: string | number) =>
     isDay
-      ? weatherConditions[0].weatherComponents[title as keyof typeof returnIconComponent]
-      : weatherConditions[1].weatherComponents[title as keyof typeof returnIconComponent];
+      ? weatherConditions[0].weatherComponents[title as keyof typeof getIcon]
+      : weatherConditions[1].weatherComponents[title as keyof typeof getIcon];
 
   const changeTheme = (theme) =>
     theme.palette.mode === "light" ? setTheme(darkTheme) : setTheme(lightTheme);
@@ -98,7 +116,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className={css.App}>
+      <div className={css["App-container"]}>
         <Button variant="text" onClick={() => changeTheme(theme)}>
           Change theme
         </Button>
@@ -111,8 +129,8 @@ const App = () => {
 
         <AllDayForecastCard
           currentDay={current}
-          fewDaysForecast={forecast}
-          returnIconComponent={returnIconComponent}
+          allHoursInfoArr={currForecast[0].hour}
+          getIcon={getIcon}
         />
 
         <Box
@@ -132,7 +150,10 @@ const App = () => {
             title="Sunrise and Sunset"
             titleVal={""}
             component={
-              <SunriseAndSunsetWidget sunMove={forecast.forecastday[0].astro} />
+              <SunriseAndSunsetWidget
+                sunrise={currForecast[0].astro.sunrise}
+                sunset={currForecast[0].astro.sunset}
+            />
             }
           />
           <Widget
@@ -143,12 +164,12 @@ const App = () => {
         </Box>
 
         <section className={css["App__future-forecast-container"]}>
-          {forecast.forecastday.slice(1).map(({ date, day } : {date: string, day: any}) => (
+          {currForecast.slice(1).map(({ date, day } : {date: string, day: dayDataTypes}) => (
             <FutureDayForecastCard
               key={uuidv4()}
               date={date}
               dayInfo={day}
-              returnIconComponent={returnIconComponent}
+              getIcon={getIcon}
             />
           ))}
         </section>
