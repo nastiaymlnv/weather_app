@@ -1,3 +1,1 @@
-import { ForecastInfoCards } from "./ForecastInfoCards";
-
-export { ForecastInfoCards };
+export * from "./ForecastInfoCards";

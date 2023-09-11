@@ -24,7 +24,7 @@ interface forecastTypes {
   wind_kph: number,
 }
 
-const HourForecast = ({
+export const HourForecast = ({
   allHoursInfoArr,
   dayPart,
   returnIconComponent
@@ -67,5 +67,3 @@ const HourForecast = ({
     </section>
   );
 };
-
-export default HourForecast;

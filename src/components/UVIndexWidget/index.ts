@@ -1,3 +1,1 @@
-import { UVIndexWidget } from "./UVIndexWidget";
-
-export { UVIndexWidget };
+export * from "./UVIndexWidget";

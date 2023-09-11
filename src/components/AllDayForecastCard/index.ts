@@ -1,3 +1,1 @@
-import { AllDayForecastCard } from "./AllDayForecastCard";
-
-export { AllDayForecastCard };
+export * from "./AllDayForecastCard";

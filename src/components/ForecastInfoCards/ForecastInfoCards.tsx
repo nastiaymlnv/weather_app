@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 
 import { Typography } from "@mui/material";
 
-import HourForecast from "./components/HourForecast/HourForecast";
+import {HourForecast} from "./components/HourForecast/HourForecast";
 
 import hoursForecast from "./hoursForecast";
 

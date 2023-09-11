@@ -1,3 +1,1 @@
-import HourForecast from "./HourForecast";
-
-export default HourForecast;
+export * from "./HourForecast";

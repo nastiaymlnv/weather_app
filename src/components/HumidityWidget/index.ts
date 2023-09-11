@@ -1,3 +1,1 @@
-import { HumidityWidget } from "./HumidityWidget";
-
-export { HumidityWidget };
+export * from "./HumidityWidget";

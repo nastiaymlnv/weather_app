@@ -1,3 +1,1 @@
-import { SunriseAndSunsetWidget } from "./SunriseAndSunsetWidget";
-
-export { SunriseAndSunsetWidget };
+export * from "./SunriseAndSunsetWidget";
