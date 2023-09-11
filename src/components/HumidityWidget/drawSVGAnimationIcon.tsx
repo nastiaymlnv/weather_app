@@ -6,7 +6,7 @@ import css from "./HumidityWidget.module.css";
 const drawSVGAnimationIcon = (stopPosition, color) => {
   return (
     <svg
-      className={cn(css["HumidityWidget-svg"])}
+      className={cn(css["Widget-svg"])}
       width="351"
       height="142"
       viewBox="0 0 351 142"

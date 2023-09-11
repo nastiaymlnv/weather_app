@@ -1,7 +1,7 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  AllDayForecastCard: {
+  "Card-container": {
     fontFamily: "Open Sans",
     fontSize: "24px",
     lineHeight: "normal",
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
       width: "100%",
     },
   },
-  "AllDayForecastCard-content__main-weather-temperature": {
+  "Card-main-weather-temperature": {
     marginTop: "35px",
 
     "@media (max-width: 1180px)": {
@@ -29,14 +29,14 @@ const useStyles = makeStyles({
       fontSize: "55px",
     },
   },
-  AllDayForecastCard__list: {
+  "Card-list": {
     marginRight: "19px",
 
     "@media (max-width: 910px)": {
       marginRight: "5px",
     },
   },
-  "AllDayForecastCard__list-item": {
+  "Card-list__item": {
     fontSize: "18px",
     lineHeight: "normal",
     color: "#C0C0C0",

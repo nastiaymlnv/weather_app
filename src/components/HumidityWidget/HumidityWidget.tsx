@@ -1,6 +1,6 @@
 import React from "react";
-import { v4 as uuidv4 } from "uuid";
 
+import { v4 as uuidv4 } from "uuid";
 import { List, ListItemText } from "@mui/material";
 
 import { useCurrentTheme } from "../../hooks/useCurrentTheme";
@@ -21,21 +21,21 @@ export const HumidityWidget: React.FC<IHumidityWidgetProps> = ({ humidity }) => 
   const color = useCurrentTheme();
 
   return (
-    <div className={css["HumidityWidget"]}>
-      <div className={css["HumidityWidget-chart"]} style={{ "--color": color }}>
+    <div className={css["Widget-container"]}>
+      <div className={css["Widget-chart"]} style={{ "--color": color }}>
         {drawSVGAnimationIcon(humidity / 100, color)}
       </div>
-      <List className={classes["HumidityWidget-legend"]}>
+      <List className={classes["Widget-legend"]}>
         {humidityLevels.map((level) => (
           <ListItemText
             key={uuidv4()}
-            className={classes["HumidityWidget-legend__item"]}
+            className={classes["Widget-legend__item"]}
             disableTypography
           >
             {level}
           </ListItemText>
         ))}
-        <span className={css["HumidityWidget-legend__item--max"]}>100</span>
+        <span className={css["Widget-legend__item--max"]}>100</span>
       </List>
     </div>
   );

@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import cn from "classnames";
 
+import cn from "classnames";
 import { Typography } from "@mui/material";
 
 import getDateNameFromDate from "../../helpers/getDateNameFromDate";
@@ -31,29 +31,29 @@ export const FutureDayForecastCard: React.FC<IFutureDayForecastCardProps> = ({ d
   const isDay = !is_day;  
 
   return (
-    <article className={cn(css["futureDayForecastCard"], mainCSS["box-bg"])}>
+    <article className={cn(css["Card-container"], mainCSS["Box-bg"])}>
       <div>
         <Typography
           variant="h3"
-          className={classes["FutureDayForecastCard-title"]}
+          className={classes["Card-title"]}
         >
           {weekday}
         </Typography>
         <Typography>{dayDate}</Typography>
       </div>
-      <div className={css["FutureDayForecastCard-content"]}>
-        <div className={css["FutureDayForecastCard-content__image"]}>
+      <div className={css["Card-content"]}>
+        <div className={css["Card-content__image"]}>
           {getIcon(isDay, condition.text)}
         </div>
         <span>
           <Typography
-            className={classes["FutureDayForecastCard-content__data"]}
+            className={classes["Card-content__data"]}
             sx={{ mb: "4px" }}
           >
             {maxtemp_c > 0 && `+${Math.floor(maxtemp_c)}`}°
           </Typography>
           <Typography
-            className={classes["FutureDayForecastCard-content__data"]}
+            className={classes["Card-content__data"]}
             sx={{ color: "#686868" }}
           >
             {mintemp_c > 0 && `+${Math.floor(mintemp_c)}`}°

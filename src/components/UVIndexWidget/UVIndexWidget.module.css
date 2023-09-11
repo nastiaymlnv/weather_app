@@ -1,4 +1,4 @@
-.UVIndexWidget {
+.Widget-container {
   position: relative;
   border-radius: 12em 12em 0 0;
   width: 361px;
@@ -7,7 +7,7 @@
   border-bottom: 1px solid var(--color);
 }
 
-.UVIndexWidget__zonecircle {
+.Widget__zonecircle {
   --uv: var(--uv);
   position: absolute;
   top: 178px;
@@ -17,23 +17,23 @@
   transform-origin: 100% 0%;
 }
 
-.UVIndexWidget__zonecircle--upper {
+.Widget__zonecircle--upper {
   animation: uvLevel--upper 1s both ease-out;
   background: linear-gradient(18deg, #f0ae02 0%, rgba(240, 174, 2, 0) 89.51%);
 }
 
-.UVIndexWidget__zonecircle--lower {
+.Widget__zonecircle--lower {
   animation: uvLevel--lower 1s both ease-out;
   background: linear-gradient(70deg, #f0ae02 0%, rgba(240, 174, 2, 0) 89.51%);
 }
 
-.UVIndexWidget__bg {
+.Widget__bg {
   position: absolute;
   border-radius: 12em 12em 0 0;
   background-position: -120px 0px;
 }
 
-.UVIndexWidget__bg--back {
+.Widget__bg--back {
   left: 16px;
   bottom: 0px;
   width: 329px;
@@ -43,7 +43,7 @@
   border-bottom: none;
 }
 
-.UVIndexWidget__bg--front {
+.Widget__bg--front {
   left: 32px;
   bottom: 0px;
   width: 297px;

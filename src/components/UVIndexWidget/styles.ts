@@ -1,7 +1,7 @@
 import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
-  "UVIndexWidget-levels-list": {
+  "Widget-levels-list": {
     width: "297px",
     height: "131px",
     borderBottom: "none",
@@ -9,7 +9,7 @@ const useStyles = makeStyles({
     position: "relative" as const,
     overflow: "hidden",
   },
-  "UVIndexWidget-levels-list__item": {
+  "Widget-levels-list__item": {
     position: "absolute" as const,
     fontFamily: "Inter",
     fontSize: "12px",

@@ -1,18 +1,18 @@
-.HumidityWidget {
+.Widget-container {
   margin-top: 45px;
 }
-.HumidityWidget-chart {
+.Widget-chart {
   border-bottom: 1px solid var(--color);
   width: 373px;
   position: relative;
 }
 
-.HumidityWidget-svg {
+.Widget-svg {
   margin-left: 15px;
   margin-bottom: -8px;
 }
 
-.HumidityWidget-legend__item--max {
+.Widget-legend__item--max {
   font-size: 12px;
   margin-top: 4px;
 }

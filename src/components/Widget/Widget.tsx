@@ -1,6 +1,6 @@
 import React from "react";
-import cn from "classnames";
 
+import cn from "classnames";
 import { Box, Typography } from "@mui/material";
 
 import mainCSS from "../../App.module.css";
@@ -17,12 +17,12 @@ export const Widget: React.FC<IWidgetProps> = ({ component, title, titleVal }) =
   const classes = useStyles();
 
   return (
-    <article className={cn(css.Widget, mainCSS["box-bg"])}>
+    <article className={cn(css["Widget-wrapper"], mainCSS["Box-bg"])}>
       <Box className={classes["Widget-title"]}>
-        <Typography variant="h3" className={classes["Widget-title__text"]}>
+        <Typography variant="h3" className={classes["Widget-title-text"]}>
           {title}
         </Typography>
-        <Typography variant="h3" className={classes["Widget-title__text"]}>
+        <Typography variant="h3" className={classes["Widget-title-text"]}>
           {titleVal}
         </Typography>
       </Box>

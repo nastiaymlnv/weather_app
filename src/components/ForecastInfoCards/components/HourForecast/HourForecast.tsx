@@ -41,22 +41,22 @@ export const HourForecast: React.FC<IHourForecastProps> = ({ allHoursInfoArr, da
   return (
     <section>
       <Typography sx={{ fontSize: "20px" }}>{hour}:00</Typography>
-      <div className={css["HourForecast-image"]}>
+      <div className={css["Card__image"]}>
         {getIcon(is_day, condition.text)}
       </div>
-      <Typography className={classes["HourForecast-data"]}>
+      <Typography className={classes["Card__data"]}>
         {temp_c > 0 && `+${Math.floor(temp_c)}`}°
       </Typography>
-      <Typography className={classes["HourForecast-data"]}>
+      <Typography className={classes["Card__data"]}>
         {feelslike_c > 0 && `+${Math.floor(feelslike_c)}`}°
       </Typography>
-      <Typography className={classes["HourForecast-data"]}>
+      <Typography className={classes["Card__data"]}>
         {pressure_mb}
       </Typography>
-      <Typography className={classes["HourForecast-data"]}>
+      <Typography className={classes["Card__data"]}>
         {humidity}
       </Typography>
-      <Typography className={classes["HourForecast-data"]}>
+      <Typography className={classes["Card__data"]}>
         {wind_kph}
       </Typography>
     </section>

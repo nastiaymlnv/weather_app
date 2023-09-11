@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
+
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-
 import { CircularProgress, Box, Typography, Button } from "@mui/material";
 
 import {
@@ -18,6 +17,7 @@ import {
 } from "./components";
 
 import { darkTheme, lightTheme } from "./assets/theme";
+
 import weatherConditions from "./weatherConditions";
 
 import "./assets/reset.css";
@@ -116,7 +116,7 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div className={css.App}>
+      <div className={css["App-container"]}>
         <Button variant="text" onClick={() => changeTheme(theme)}>
           Change theme
         </Button>
@@ -129,7 +129,7 @@ const App = () => {
 
         <AllDayForecastCard
           currentDay={current}
-          allHoursInfoArr={forecast.forecastday[0].hour}
+          allHoursInfoArr={currForecast[0].hour}
           getIcon={getIcon}
         />
 
@@ -151,8 +151,8 @@ const App = () => {
             titleVal={""}
             component={
               <SunriseAndSunsetWidget
-                sunrise={forecast.forecastday[0].astro.sunrise}
-                sunset={forecast.forecastday[0].astro.sunset}
+                sunrise={currForecast[0].astro.sunrise}
+                sunset={currForecast[0].astro.sunset}
             />
             }
           />

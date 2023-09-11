@@ -1,4 +1,4 @@
-.HourForecast-image {
+.Card__image {
   margin-top: 14px;
   & svg {
     max-height: 25px;

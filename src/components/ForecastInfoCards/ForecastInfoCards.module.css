@@ -1,4 +1,4 @@
-.ForecastInfoCards {
+.Card-container {
   padding: 4px 30px;
 
   &:not(:last-child) {
@@ -6,23 +6,23 @@
   }
 }
 
-.ForecastInfoCards-hours {
+.Card-hours {
   display: flex;
   margin-top: 5px;
   gap: 56px;
 }
 
 @media screen and (max-width: 1320px) {
-  .ForecastInfoCards {
+  .Card-container {
     padding: 4px 20px;
   }
-  .ForecastInfoCards-hours {
+  .Card-hours {
     gap: 40px;
   }
 }
 
 @media screen and (max-width: 910px) {
-  .ForecastInfoCards-hours {
+  .Card-hours {
     max-width: 150px;
   }
 }

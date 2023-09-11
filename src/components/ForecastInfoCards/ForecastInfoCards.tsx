@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
-import { v4 as uuidv4 } from "uuid";
 
+import { v4 as uuidv4 } from "uuid";
 import { Typography } from "@mui/material";
 
-import {HourForecast} from "./components/HourForecast/HourForecast";
+import { HourForecast } from "./components/HourForecast/HourForecast";
 
 import hoursForecast from "./hoursForecast";
 
@@ -16,11 +16,11 @@ interface IForecastInfoCardsProps {
 
 export const ForecastInfoCards: React.FC<IForecastInfoCardsProps> = ({ allHoursInfoArr, getIcon }) => {
   return hoursForecast.map((dayPart) => (
-    <section key={uuidv4()} className={css.ForecastInfoCards}>
+    <section key={uuidv4()} className={css["Card-container"]}>
       <Typography sx={{ fontSize: "24px", textAlign: "center" }}>
         {dayPart[0]}
       </Typography>
-      <div className={css["ForecastInfoCards-hours"]}>
+      <div className={css["Card-hours"]}>
         <HourForecast
           allHoursInfoArr={allHoursInfoArr}
           dayPart={dayPart[1]}
