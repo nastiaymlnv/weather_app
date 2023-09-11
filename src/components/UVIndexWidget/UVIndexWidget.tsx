@@ -12,13 +12,13 @@ import { UVLevels } from "./UVLevels";
 import css from "./UVIndexWidget.module.css";
 import useStyles from "./styles";
 
-interface Props {
+interface IUVIndexWidgetProps {
   uv: number
 }
 
 const WHITE = "#FFF";
 
-export const UVIndexWidget = ({ uv }: Props) => {
+export const UVIndexWidget: React.FC<IUVIndexWidgetProps> = ({ uv }) => {
   const classes = useStyles();
   const theme = useTheme();
   const color = useCurrentTheme();

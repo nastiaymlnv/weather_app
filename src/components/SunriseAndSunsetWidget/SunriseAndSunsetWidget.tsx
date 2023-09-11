@@ -12,16 +12,13 @@ import Sun from "../../assets/icons/SunMove-icon.png";
 import css from "./SunriseAndSunsetWidget.module.css";
 import useStyles from "./styles";
 
-interface Props {
-  sunMove: {
-    sunrise: string,
-    sunset: string,
-  }
+interface ISunriseAndSunsetWidgetProps {
+  sunrise: string,
+  sunset: string,
 }
 
-export const SunriseAndSunsetWidget = ({ sunMove }: Props) => {
+export const SunriseAndSunsetWidget: React.FC<ISunriseAndSunsetWidgetProps> = ({ sunrise, sunset }) => {
   const classes = useStyles();
-  const { sunrise, sunset } = sunMove;
   const color = useCurrentTheme();
 
   const currentDate = ` ${today.getHours()}:${minutesFormat}`;

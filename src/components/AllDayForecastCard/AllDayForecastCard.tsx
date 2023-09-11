@@ -1,11 +1,11 @@
-import React from "react";
+import React, { ReactNode, useMemo } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { Box, Typography, List, ListItemText } from "@mui/material";
 
 import { ForecastInfoCards } from "..";
 
-import { monthsArray } from "../../config/monthsArray";
+import { monthsArray } from "../../config/months/monthsArray";
 import forecastIndicesList from "./forecastIndicesList";
 
 import { today, minutesFormat } from "../../helpers/getTodayDate";
@@ -13,7 +13,7 @@ import { today, minutesFormat } from "../../helpers/getTodayDate";
 import css from "./AllDayForecastCard.module.css";
 import useStyles from "./styles";
 
-interface Props {
+interface IAllDayForecastCardProps {
   currentDay: {
     is_day: number | undefined,
     temp_c: number,
@@ -21,19 +21,15 @@ interface Props {
       text: string
     }
   },
-  fewDaysForecast: {
-    forecastday: object
-  },
-  returnIconComponent: (isDay: number | any, text: string) => any,
+  allHoursInfoArr: string[],
+  getIcon: (isDay: number | boolean | undefined, text: string) => ReactNode,
 }
 
-export const AllDayForecastCard = (props: Props) => {
+export const AllDayForecastCard: React.FC<IAllDayForecastCardProps> = ({ currentDay, allHoursInfoArr, getIcon }) => {
   const classes = useStyles();
-  const { currentDay, fewDaysForecast, returnIconComponent } = props;
-  const allHoursInfoArr = fewDaysForecast.forecastday[0].hour;
-  const currentDate = `${today.getDate()} ${
+  const currentDate = useMemo(() => `${today.getDate()} ${
     monthsArray[today.getMonth()]
-  }, ${today.getFullYear()} ${today.getHours()}:${minutesFormat}`;
+  }, ${today.getFullYear()} ${today.getHours()}:${minutesFormat}`, [today]);
 
   return (
     <Box className={classes.AllDayForecastCard}>
@@ -45,7 +41,7 @@ export const AllDayForecastCard = (props: Props) => {
           <div
             className={css["AllDayForecastCard-content__main-weather-image"]}
           >
-            {returnIconComponent(currentDay.is_day, currentDay.condition.text)}
+            {getIcon(currentDay.is_day, currentDay.condition.text)}
           </div>
           <Typography
             variant="h2"
@@ -73,7 +69,7 @@ export const AllDayForecastCard = (props: Props) => {
           >
             <ForecastInfoCards
               allHoursInfoArr={allHoursInfoArr}
-              returnIconComponent={returnIconComponent}
+              getIcon={getIcon}
             />
           </section>
         </section>

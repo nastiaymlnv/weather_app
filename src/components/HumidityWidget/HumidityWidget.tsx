@@ -12,11 +12,11 @@ import drawSVGAnimationIcon from "./drawSVGAnimationIcon";
 import useStyles from "./styles";
 import css from "./HumidityWidget.module.css";
 
-interface Props {
+interface IHumidityWidgetProps {
   humidity: number
 }
 
-export const HumidityWidget = ({ humidity }: Props) => {
+export const HumidityWidget: React.FC<IHumidityWidgetProps> = ({ humidity }) => {
   const classes = useStyles();
   const color = useCurrentTheme();
 

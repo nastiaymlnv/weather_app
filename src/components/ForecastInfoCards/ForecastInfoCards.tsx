@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import { Typography } from "@mui/material";
@@ -9,12 +9,12 @@ import hoursForecast from "./hoursForecast";
 
 import css from "./ForecastInfoCards.module.css";
 
-interface Props {
+interface IForecastInfoCardsProps {
   allHoursInfoArr: string[],
-  returnIconComponent: (isDay: number | any, text: string) => any,
+  getIcon: (isDay: number | boolean | undefined, text: string) => ReactNode,
 }
 
-export const ForecastInfoCards = ({ allHoursInfoArr, returnIconComponent }: Props) => {
+export const ForecastInfoCards: React.FC<IForecastInfoCardsProps> = ({ allHoursInfoArr, getIcon }) => {
   return hoursForecast.map((dayPart) => (
     <section key={uuidv4()} className={css.ForecastInfoCards}>
       <Typography sx={{ fontSize: "24px", textAlign: "center" }}>
@@ -24,12 +24,12 @@ export const ForecastInfoCards = ({ allHoursInfoArr, returnIconComponent }: Prop
         <HourForecast
           allHoursInfoArr={allHoursInfoArr}
           dayPart={dayPart[1]}
-          returnIconComponent={returnIconComponent}
+          getIcon={getIcon}
         />
         <HourForecast
           allHoursInfoArr={allHoursInfoArr}
           dayPart={dayPart[2]}
-          returnIconComponent={returnIconComponent}
+          getIcon={getIcon}
         />
       </div>
     </section>

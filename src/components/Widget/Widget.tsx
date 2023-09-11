@@ -7,17 +7,13 @@ import mainCSS from "../../App.module.css";
 import css from "./Widget.module.css";
 import useStyles from "./styles";
 
-interface Props {
+interface IWidgetProps {
   component: JSX.Element,
   title: string,
   titleVal: string
 }
 
-export const Widget = ({
-  component,
-  title,
-  titleVal
-}: Props) => {
+export const Widget: React.FC<IWidgetProps> = ({ component, title, titleVal }) => {
   const classes = useStyles();
 
   return (

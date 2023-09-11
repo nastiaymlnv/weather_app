@@ -1,14 +1,14 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 import { Typography } from "@mui/material";
 
 import css from "./HourForecast.module.css";
 import useStyles from "./styles";
 
-interface Props {
+interface IHourForecastProps {
   allHoursInfoArr: string[],
   dayPart: number | string,
-  returnIconComponent: (isDay: number | any, text: string) => any,
+  getIcon: (isDay: number | boolean | undefined, text: string) => ReactNode,
 }
 
 interface forecastTypes {
@@ -24,13 +24,8 @@ interface forecastTypes {
   wind_kph: number,
 }
 
-export const HourForecast = ({
-  allHoursInfoArr,
-  dayPart,
-  returnIconComponent
-}: Props) => {
+export const HourForecast: React.FC<IHourForecastProps> = ({ allHoursInfoArr, dayPart, getIcon }) => {
   const classes = useStyles();
-  const hourForecast = allHoursInfoArr[dayPart];
   const {
     time,
     is_day,
@@ -40,14 +35,14 @@ export const HourForecast = ({
     pressure_mb,
     humidity,
     wind_kph,
-  } : forecastTypes = hourForecast;
+  } : forecastTypes = allHoursInfoArr[dayPart];
   const hour = new Date(time).getHours();
 
   return (
     <section>
       <Typography sx={{ fontSize: "20px" }}>{hour}:00</Typography>
       <div className={css["HourForecast-image"]}>
-        {returnIconComponent(is_day, condition.text)}
+        {getIcon(is_day, condition.text)}
       </div>
       <Typography className={classes["HourForecast-data"]}>
         {temp_c > 0 && `+${Math.floor(temp_c)}`}°

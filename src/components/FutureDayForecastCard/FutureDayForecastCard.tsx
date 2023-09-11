@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import cn from "classnames";
 
 import { Typography } from "@mui/material";
@@ -9,10 +9,10 @@ import mainCSS from "../../App.module.css";
 import css from "./FutureDayForecastCard.module.css";
 import useStyles from "./styles";
 
-interface Props {
+interface IFutureDayForecastCardProps {
   date: string,
-  dayInfo: any,
-  returnIconComponent: (isDay: number | any, text: string) => any,
+  dayInfo: dayDataTypes,
+  getIcon: (isDay: number | boolean | undefined, text: string) => ReactNode,
 }
 
 interface dayDataTypes {
@@ -21,14 +21,10 @@ interface dayDataTypes {
   },
   maxtemp_c: number, 
   mintemp_c: number, 
-  is_day: number | undefined
+  is_day: number | boolean | undefined
 }
 
-export const FutureDayForecastCard = ({
-  date,
-  dayInfo,
-  returnIconComponent,
-}: Props) => {
+export const FutureDayForecastCard: React.FC<IFutureDayForecastCardProps> = ({ date, dayInfo, getIcon }) => {
   const classes = useStyles();
   const { condition, maxtemp_c, mintemp_c, is_day }: dayDataTypes = dayInfo;
   const { weekday, dayDate } = getDateNameFromDate(date);
@@ -47,7 +43,7 @@ export const FutureDayForecastCard = ({
       </div>
       <div className={css["FutureDayForecastCard-content"]}>
         <div className={css["FutureDayForecastCard-content__image"]}>
-          {returnIconComponent(isDay, condition.text)}
+          {getIcon(isDay, condition.text)}
         </div>
         <span>
           <Typography
