@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 
-import { CircularProgress, Box, Typography, Button, Theme } from "@mui/material";
+import { CircularProgress, Box, Typography, Button } from "@mui/material";
 
 import {
   AllDayForecastCard,
@@ -76,7 +76,7 @@ const App = () => {
       ? weatherConditions[0].weatherComponents[title as keyof typeof returnIconComponent]
       : weatherConditions[1].weatherComponents[title as keyof typeof returnIconComponent];
 
-  const changeTheme = (theme: Theme) =>
+  const changeTheme = (theme) =>
     theme.palette.mode === "light" ? setTheme(darkTheme) : setTheme(lightTheme);
 
   if (!location) {
