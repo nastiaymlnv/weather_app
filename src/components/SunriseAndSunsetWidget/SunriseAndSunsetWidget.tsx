@@ -1,7 +1,8 @@
 import React, { useMemo, useCallback } from "react";
 
-import { useTheme } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
+
+import { useCurrentTheme } from "../../hooks/useCurrentTheme";
 
 import { today, minutesFormat } from "../../helpers/getTodayDate";
 import getTwentyFourHourTime from "../../helpers/getTwentyFourHourTime";
@@ -21,9 +22,7 @@ interface Props {
 export const SunriseAndSunsetWidget = ({ sunMove }: Props) => {
   const classes = useStyles();
   const { sunrise, sunset } = sunMove;
-  const theme = useTheme();
-  const color =
-    theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
+  const color = useCurrentTheme();
 
   const currentDate = ` ${today.getHours()}:${minutesFormat}`;
   const sunriseTimestamp = useMemo(

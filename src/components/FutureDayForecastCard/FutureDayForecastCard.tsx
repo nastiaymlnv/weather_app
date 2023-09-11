@@ -32,7 +32,7 @@ export const FutureDayForecastCard = ({
   const classes = useStyles();
   const { condition, maxtemp_c, mintemp_c, is_day }: dayDataTypes = dayInfo;
   const { weekday, dayDate } = getDateNameFromDate(date);
-  const isDay = is_day ? false : true;
+  const isDay = !is_day;  
 
   return (
     <article className={cn(css["futureDayForecastCard"], mainCSS["box-bg"])}>

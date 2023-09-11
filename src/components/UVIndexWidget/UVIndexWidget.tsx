@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useCallback } from "react";
 import cn from "classnames";
 import { v4 as uuidv4 } from "uuid";
 
 import { useTheme } from "@mui/material/styles";
 import { List, ListItemText } from "@mui/material";
+
+import { useCurrentTheme } from "../../hooks/useCurrentTheme";
 
 import { UVLevels } from "./UVLevels";
 
@@ -14,18 +16,19 @@ interface Props {
   uv: number
 }
 
+const WHITE = "#FFF";
+
 export const UVIndexWidget = ({ uv }: Props) => {
   const classes = useStyles();
   const theme = useTheme();
-  const color =
-    theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
+  const color = useCurrentTheme();
 
-  const generateAngleForCssAnimation = (uvLevel: number) => {
+  const generateAngleForCssAnimation = useCallback((uvLevel: number) => {
     const percent = (uvLevel * 100) / 12;
     const angle = (percent * 180) / 100;
 
     return angle;
-  };
+  }, [uv]);
 
   return (
     <div className={css.UVIndexWidget} 
@@ -53,8 +56,8 @@ export const UVIndexWidget = ({ uv }: Props) => {
         className={cn(css.UVIndexWidget__bg, css["UVIndexWidget__bg--front"])}
         style={{
           "--bg":
-            theme.palette.background.default === "#FFF"
-              ? "#fff"
+            theme.palette.background.default === WHITE
+              ? WHITE
               : "rgba(8, 3, 56, 0.7)",
         }}
       >

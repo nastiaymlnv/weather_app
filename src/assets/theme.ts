@@ -1,19 +1,23 @@
 import { Theme, createTheme } from "@mui/material/styles";
 
+const WHITE = "#FFF";
+const GREY = "#C0C0C0";
+const DARK_BLUE = "#080338";
+
 const darkTheme: Theme = createTheme({
   palette: {
     mode: "dark",
     background: {
-      default: "#080338",
+      default: DARK_BLUE,
     },
   },
   components: {
     MuiInput: {
       styleOverrides: {
         root: {
-          color: "#FFF",
+          color: WHITE,
           "&::placeholder": {
-            color: "#C0C0C0",
+            color: GREY,
           },
         },
       },
@@ -22,20 +26,20 @@ const darkTheme: Theme = createTheme({
   typography: {
     fontFamily: ["Open Sans"].join(","),
     h1: {
-      color: "#FFF",
+      color: WHITE,
       fontSize: "24px",
     },
     h2: {
-      color: "#FFF",
+      color: WHITE,
       fontFamily: "Inter",
       fontSize: "70px",
       fontWeight: 400,
     },
     body1: {
-      color: "#FFF",
+      color: WHITE,
     },
     body2: {
-      color: "#C0C0C0",
+      color: GREY,
       fontSize: "18px",
     },
   },
@@ -45,26 +49,26 @@ const lightTheme: Theme = createTheme({
   palette: {
     mode: "light",
     background: {
-      default: "#FFF",
+      default: WHITE,
     },
   },
   typography: {
     fontFamily: ["Open Sans"].join(","),
     h1: {
-      color: "#080338",
+      color: DARK_BLUE,
       fontSize: "24px",
     },
     h2: {
-      color: "#080338",
+      color: DARK_BLUE,
       fontFamily: "Inter",
       fontSize: "70px",
       fontWeight: 400,
     },
     body1: {
-      color: "#080338",
+      color: DARK_BLUE,
     },
     body2: {
-      color: "#C0C0C0",
+      color: GREY,
       fontSize: "18px",
     },
   },

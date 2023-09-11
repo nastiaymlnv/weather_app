@@ -1,8 +1,9 @@
 import React from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { useTheme } from "@mui/material/styles";
 import { List, ListItemText } from "@mui/material";
+
+import { useCurrentTheme } from "../../hooks/useCurrentTheme";
 
 import { humidityLevels } from "./humidityLevels";
 
@@ -17,9 +18,7 @@ interface Props {
 
 export const HumidityWidget = ({ humidity }: Props) => {
   const classes = useStyles();
-  const theme = useTheme();
-  const color =
-    theme.palette.background.default === "#FFF" ? "#080338" : "#fff";
+  const color = useCurrentTheme();
 
   return (
     <div className={css["HumidityWidget"]}>
